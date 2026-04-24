@@ -107,7 +107,7 @@ Full list of mods can be found in the `./luanti_files/games/minetest_game/mods/`
 ⚠️ **Important:** To configure Discord Relay, you need to create and configure a config file for the **discordmt** mod
 
 ```bash
-luanti_files/games/minetest_game/mods/relay.conf
+luanti_files/games/minetest_game/mods/discordmt/relay.conf
 ```
 
 more info: https://content.luanti.org/packages/archfan7411/discordmt/
