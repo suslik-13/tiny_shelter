@@ -1,0 +1,32 @@
+# Git files
+.git/
+.gitignore
+
+# Docker files
+.dockerignore
+
+# IDE files
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.log
+.DS_Store
+Thumbs.db
+
+# OS generated files
+*.swp
+*.swo
+*~
+
+# Backup files
+*.bak
+*.backup
+
+# Node modules if any
+node_modules/
+
+# Python cache
+__pycache__/
+*.pyc

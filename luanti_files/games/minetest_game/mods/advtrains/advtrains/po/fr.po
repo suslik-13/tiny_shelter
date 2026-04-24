@@ -1,0 +1,1024 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: advtrains\n"
+"Report-Msgid-Bugs-To: advtrains-discuss@lists.sr.ht\n"
+"POT-Creation-Date: 2025-06-10 21:40+0200\n"
+"PO-Revision-Date: 2025-03-25 15:06+0100\n"
+"Last-Translator: Tanavit <tanavit@posto.ovh>\n"
+"Language-Team: French\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.4.2\n"
+
+#: atc.lua
+msgid "ATC Kick command warning: doors are closed."
+msgstr "Avertissement commande ATC Éjecter : portes closes."
+
+#: atc.lua
+msgid "ATC Kick command warning: train moving."
+msgstr "Avertissement commande ATC Éjecter : train en mouvement."
+
+#: atc.lua
+msgid "ATC Reverse command warning: didn't reverse train, train moving."
+msgstr ""
+"Attention : Commande ATC de renversement impossible car le train se déplace."
+
+#: atc.lua
+msgid "ATC command parse error: Unknown command: @1"
+msgstr "Erreur d'analyse de commande ATC : Commande inconnue : @1"
+
+#: atc.lua
+msgid "ATC command syntax error: I statement not closed: @1"
+msgstr "Erreur de syntaxe de commande ATC : instruction \"I\" incomplète : @1"
+
+#: atc.lua
+#, fuzzy
+msgid "ATC controller, Command: @1"
+msgstr ""
+"Controlleur ATC, mode @1\n"
+"Commande : @2"
+
+#: atc.lua
+msgid "Command"
+msgstr "Commande"
+
+#: atc.lua
+msgid "Digiline channel"
+msgstr "Canal Digiline"
+
+#: atc.lua wagons.lua
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: atc.lua
+msgid "Unconfigured ATC controller"
+msgstr "Controlleur ATC, non-configuré"
+
+#: copytool.lua
+msgid "Back of train would end up off track, cancelling."
+msgstr "La fin du train serait hors voie : annulation."
+
+#: copytool.lua
+msgid "No such lua entity."
+msgstr "Pas de telle entité lua."
+
+#: copytool.lua
+msgid "No such train: @1."
+msgstr "Pas de tel train : @1."
+
+#: copytool.lua
+msgid "No such wagon: @1."
+msgstr "Pas de tel wagon : @1."
+
+#: copytool.lua
+msgid "The clipboard couldn't access the metadata. Copy failed."
+msgstr "Le presse-papier ne peut accéder aux métadonnées. Échec de la copie."
+
+#: copytool.lua
+msgid "The clipboard couldn't access the metadata. Paste failed."
+msgstr "Le presse-papier ne peut accéder aux métadonnées. Échec du collage."
+
+#: copytool.lua
+msgid "The clipboard is empty."
+msgstr "Le presse-papier est vide."
+
+#: copytool.lua
+msgid "The track you are trying to place the wagon on is not long enough."
+msgstr "La voie sur laquelle vous tentez de placer le wagon est trop courte."
+
+#: copytool.lua
+msgid "Train copied."
+msgstr "Train copié."
+
+#: copytool.lua
+msgid ""
+"Train copy/paste tool\n"
+"\n"
+"Left-click: copy train\n"
+"Right-click: paste train"
+msgstr ""
+"Outil de copie/collage de train\n"
+"\n"
+"Clic-Gauche : copie\n"
+"\n"
+"Clic-Droit : collage"
+
+#: copytool.lua
+msgid "You do not have the @1 privilege."
+msgstr "Vous ne possédez pas le privilège \"@1\"."
+
+#: couple.lua
+msgid "<No coupler>"
+msgstr "<Pas de coupleur>"
+
+#: couple.lua
+msgid "Buffer and Chain Coupler"
+msgstr "Attelage à tampon et vis"
+
+#: couple.lua
+msgid "Can not couple: The couplers of the trains do not match (@1 and @2)."
+msgstr ""
+"Accouplement impossible: les attelages des trains ne concordent pas (@1 et "
+"@2)."
+
+#: couple.lua
+msgid ""
+"Cannot couple @1 and @2 - train would have length @3 which is above the "
+"limit of @4"
+msgstr ""
+
+#: couple.lua
+msgid "Scharfenberg Coupler"
+msgstr "Attelage Scharfenberg"
+
+#: couple.lua
+msgid ""
+"You are not allowed to couple trains without the train_operator privilege."
+msgstr ""
+"Vous n'êtes pas autorisé à coupler des trains sans le privilège "
+"\"train_operator\"."
+
+#: craft_items.lua
+msgid "Boiler"
+msgstr "Chaudière à vapeur"
+
+#: craft_items.lua
+msgid "Chimney"
+msgstr "Cheminée"
+
+#: craft_items.lua
+msgid "Driver's cab"
+msgstr "Cabine de pilotage"
+
+#: craft_items.lua
+msgid "Wheel"
+msgstr "Roue"
+
+#: init.lua
+#, fuzzy
+msgid "Advtrains Status: no_action @1 slowdown @2 (log @3)"
+msgstr "État d'advtrains : aucune action"
+
+#: init.lua
+msgid "Advtrains is already running normally!"
+msgstr "Advtrains fonctionne déjà correctement !"
+
+#: init.lua
+msgid ""
+"Crash during advtrains main step - skipping the shutdown save operation to "
+"not save inconsistent data!"
+msgstr ""
+"Crash durant le pas principal d'advtrains - saut de l'opération de "
+"sauvegarde de terminaison pour éviter l'enregistrement de données "
+"corrompues !"
+
+#: init.lua
+msgid ""
+"Data is being saved. While saving, advtrains will remove the players from "
+"trains. Save files will be reloaded afterwards!"
+msgstr ""
+"Données en cours de sauvegarde. Durant cette phase, advtrains débarquera les "
+"joueurs des trains. Les fichiers de sauvegarde seront ultérieurement "
+"rechargés !"
+
+# Routage est il le bon terme ?
+#: init.lua
+msgid "Delete all train routes, force them to recalculate"
+msgstr "Suppression et recalcul de tous les routages"
+
+#: init.lua
+msgid ""
+"Detach all players, especially the offline ones, from all trains. Use only "
+"when no one serious is on a train."
+msgstr ""
+"Débarque tous les joueurs, en particulier ceux déconnectés, de tous les "
+"trains. À n'utiliser que quand aucun joueur sérieux n'a embarqué."
+
+#: init.lua
+msgid "Disable the advtrains globalstep temporarily"
+msgstr "Désactive temporairement le pas global d'advtrains"
+
+#: init.lua
+msgid "Disabled advtrains successfully"
+msgstr "Succès de la désactivation d'advtrains"
+
+#: init.lua
+msgid "Instructed to save() but load() was never called!"
+msgstr "Appel de save() requis sans appel préalable de load() !"
+
+#: init.lua
+msgid "Print advtrains status info"
+msgstr "Affiche les informations d'état d'advtrains"
+
+#: init.lua
+msgid "Re-enabling advtrains globalstep..."
+msgstr "Réacivation du pas global d'advtrains..."
+
+#: init.lua
+msgid "Reload successful!"
+msgstr "Succès du rechargement !"
+
+#: init.lua
+msgid "Removing unused wagon"
+msgstr "Suppression d'un wagon inutilisé"
+
+#: init.lua
+msgid "Restoring saved state in 1 second..."
+msgstr "Restauration du l'état sauvegardé dans une seconde..."
+
+#: init.lua
+msgid "Returns the position of the train with the given id"
+msgstr "Affiche la position du train identifié"
+
+#: init.lua
+#, fuzzy
+msgid "Saving failed: @1"
+msgstr "Échec de sauvegarde : "
+
+# Routage est il le bon terme ?
+#: init.lua
+msgid "Successfully invalidated train routes"
+msgstr "Succès d'invalidation des routages des trains"
+
+#: init.lua
+#, fuzzy
+msgid "Teleporting to train @1"
+msgstr "Téléportation au train "
+
+#: init.lua
+msgid "Teleports you to the position of the train with the given id"
+msgstr "Vous téléporte à la position du train identifié"
+
+#: init.lua
+msgid ""
+"The advtrains globalstep has been disabled. Trains are not moving, and no "
+"data is saved! Run '/at_disable_step no' to enable again!"
+msgstr ""
+"Le pas global d'advtrains est désactivé. Les trains sont immobiles et aucune "
+"donnée n'est sauvegardée. Exécutez '/at_disable_step no ' pour le réactiver !"
+
+#: init.lua
+#, fuzzy
+msgid "Train @1 does not exist or is invalid"
+msgstr " n'existe pas ou est invalide"
+
+#: init.lua
+#, fuzzy
+msgid ""
+"Train @1 had no wagons left because of some bug. It is being deleted. Wave "
+"it goodbye!"
+msgstr ""
+"n'a plus de wagon à cause d'un bug quelconque. Il est détruit. Faites lui "
+"coucou !"
+
+#: init.lua
+msgid "Train @1 is at @2"
+msgstr ""
+
+#: init.lua
+msgid "from wagon_save table."
+msgstr "de la table wagon_save."
+
+#: misc_nodes.lua
+msgid "@1 Platform (45 degree)"
+msgstr "Quai @1 (haut, 45°)"
+
+#: misc_nodes.lua
+msgid "@1 Platform (high)"
+msgstr "Quai @1 (haut)"
+
+#: misc_nodes.lua
+msgid "@1 Platform (low)"
+msgstr "Quai @1 (bas)"
+
+#: misc_nodes.lua
+msgid "@1 Platform (low, 45 degree)"
+msgstr "Quai @1 (bas, 45°)"
+
+#: protection.lua
+msgid "Can operate turnouts and signals in unprotected areas"
+msgstr ""
+"Possibilité d'opérer des embranchements et signaux dans les zones non "
+"protégées"
+
+#: protection.lua
+msgid "Can place and dig tracks in unprotected areas"
+msgstr "Possibilité de poser ou retirer des voies dans les zones non protégées"
+
+#: protection.lua
+msgid ""
+"Can place, remove and operate any train, regardless of owner, whitelist, or "
+"protection"
+msgstr ""
+"Possibilité de poser, retirer ou opérer un quelconque train, indépendamment "
+"du propriétaire, de la liste blanche ou de protection"
+
+#: protection.lua
+msgid "Can place, remove and operate trains"
+msgstr "Possibilité de poser, retirer ou opérer les trains"
+
+#: protection.lua
+msgid "You are not allowed to build near tracks at this protected position."
+msgstr ""
+"Vous ne pouvez pas construire à proximité d'une voie à cet emplacement "
+"protégé."
+
+#: protection.lua
+msgid ""
+"You are not allowed to build near tracks without the track_builder privilege."
+msgstr ""
+"Vous ne pouvez pas construire à proximité d'une voie sans le privilège "
+"\"track_builder\" (?)"
+
+#: protection.lua
+msgid "You are not allowed to build tracks at this protected position."
+msgstr "Vous ne pouvez pas construire une voie à cet emplacement protégé."
+
+#: protection.lua
+msgid ""
+"You are not allowed to build tracks without the track_builder privilege."
+msgstr ""
+"Vous ne pouvez pas construire une voie sans le privilège \"track_builder\"."
+
+#: protection.lua
+msgid ""
+"You are not allowed to operate turnouts and signals without the "
+"railway_operator privilege."
+msgstr ""
+"Vous ne pouvez pas actionner les aiguillages ou les signaux (privilège "
+"\"railway_operator\" manquant)"
+
+#: signals.lua
+msgid "Andrew's Cross"
+msgstr "Croix de Saint André"
+
+#: signals.lua
+#, fuzzy
+msgid "Lampless Signal (deprecated!)"
+msgstr "Sémaphore"
+
+#: signals.lua
+msgid "Signal (deprecated!)"
+msgstr ""
+
+#: signals.lua
+#, fuzzy
+msgid "Wallmounted Signal (left) (deprecated!)"
+msgstr "Signal mural (gauche)"
+
+#: signals.lua
+#, fuzzy
+msgid "Wallmounted Signal (right) (deprecated!)"
+msgstr "Signal mural (droit)"
+
+#: signals.lua
+#, fuzzy
+msgid "Wallmounted Signal (top) (deprecated!)"
+msgstr "Signal mural (plafond)"
+
+#: track_reg_helper.lua
+msgid "@1 Slope"
+msgstr "Pente @1"
+
+#: track_reg_helper.lua
+msgid "Can't place: Not enough slope items left (@1 required)"
+msgstr ""
+"Placement impossible : quantité insuffisante de voie pentue (@1 manquant)"
+
+#: track_reg_helper.lua
+msgid "Can't place: There's no slope of length @1"
+msgstr "Placement impossible : il n'y a pas de voie pentue de longueur @1"
+
+#: track_reg_helper.lua
+msgid "Can't place: no supporting node at upper end."
+msgstr "Placement impossible : pas de nœud d'appui à l'extrémité supérieure."
+
+#: track_reg_helper.lua
+msgid "Can't place: not pointing at node"
+msgstr "Placement impossible : ne pointe pas un nœud"
+
+#: track_reg_helper.lua
+msgid "Can't place: space occupied!"
+msgstr "Placement impossible : espace occupé !"
+
+#: track_reg_helper.lua tracks.lua
+msgid "This track can not be removed!"
+msgstr "Cette voie ne peut pas être enlevée !"
+
+#: trackplacer.lua
+msgid "This node can't be changed using the trackworker!"
+msgstr "Ce nœud ne peut être modifié avec l'outil \"Trackworker\" !"
+
+#: trackplacer.lua
+msgid "This node can't be rotated using the trackworker!"
+msgstr "Ce nœud ne peut être tourné avec l'outil \"Trackworker\" !"
+
+#: trackplacer.lua
+msgid "This track can not be rotated!"
+msgstr "Cette voie ne peut pas être tournée !"
+
+#: trackplacer.lua
+msgid ""
+"Track Worker Tool\n"
+"\n"
+"Left-click: change rail type (straight/curve/switch)\n"
+"Right-click: rotate object"
+msgstr ""
+"Outil \"Trackworker\"\n"
+"\n"
+"Clic-Gauche : change le type de rail (droit/courbé/aiguillage)\n"
+"\n"
+"Clic-Droit : tourne l'objet"
+
+#: tracks.lua
+msgid "Position is occupied by a train."
+msgstr "Cet emplacement est occupé par un train."
+
+#: tracks.lua
+msgid "There's a Signal Influence Point here."
+msgstr "Il y a un \"Signal Influence Point\" ici."
+
+#: tracks.lua
+msgid "There's a Track Circuit Break here."
+msgstr "Il y a un \"Track Circuit Break\" ici."
+
+#: trainhud.lua
+msgid "OVERRUN RED SIGNAL! Examine situation and reverse train to move again."
+msgstr ""
+"Franchissement de signal rouge : examinez la situation et inversez le sens "
+"de marche du train."
+
+#: wagonprop_tool.lua
+msgid "Insufficient privileges to use this!"
+msgstr "Privilèges insuffisants pour utiliser ceci !"
+
+#: wagonprop_tool.lua
+msgid "Wagon Properties Tool"
+msgstr "Outil de propriété du wagon"
+
+#: wagonprop_tool.lua
+msgid ""
+"Wagon Properties Tool\n"
+"Punch a wagon to view and edit the Wagon Properties"
+msgstr ""
+"Outil de propriété du wagon\n"
+"Frappez un wagon pour voir et modifier ses propriétés"
+
+#: wagons.lua
+msgid " units"
+msgstr " Unités"
+
+#: wagons.lua
+msgid "!!! Train off track !!!"
+msgstr "!!! Train hors voie !!!"
+
+#: wagons.lua
+msgid "(Doors closed)"
+msgstr "(Portes closes)"
+
+#: wagons.lua
+msgid "Allow these players to access your wagon:"
+msgstr "Autoriser ces joueurs à embarquer :"
+
+#: wagons.lua
+msgid "Clear 'Disable ARS' flag"
+msgstr "Effacer le drapeau \"Désactiver l'ARS\""
+
+#: wagons.lua
+msgid "Current FC: "
+msgstr "Code de fret courant: "
+
+#: wagons.lua
+msgid ""
+"Destroying wagon with inventory, but inventory is not found? Shouldn't "
+"happen!"
+msgstr "Desctruction d'un wagon avec inventaire introuvable ? Anomalie !"
+
+#: wagons.lua
+msgid "Doors are closed! (Try holding sneak key!)"
+msgstr "Portes closes : (Essayez la \"sneak key\"!\")"
+
+#: wagons.lua
+msgid ""
+"Doors are closed. Use Sneak+rightclick to ignore the closed doors and get "
+"off."
+msgstr ""
+"Portes closes ! Utilisez \"Marcher lentement (Sneak)\" et Clic-Droit pour "
+"franchir les portes et débarquer."
+
+#: wagons.lua
+msgid "Freight Code:"
+msgstr "Code de frêt :"
+
+#: wagons.lua
+msgid "Get off"
+msgstr "Débarquer"
+
+#: wagons.lua
+msgid "Get off (forced)"
+msgstr "Débarquer (de force)"
+
+#: wagons.lua
+msgid "Line"
+msgstr "Ligne"
+
+#: wagons.lua
+msgid "Liquid: "
+msgstr "Liquide : "
+
+#: wagons.lua
+msgid "Liquid: empty"
+msgstr "Liquide : vide"
+
+#: wagons.lua
+msgid "Missing train_operator privilege"
+msgstr "Privilège \"train_operator\" manquant"
+
+#: wagons.lua
+msgid "Next FC:"
+msgstr "Code de fret suivant :"
+
+#: wagons.lua
+msgid "Not a valid wagon id."
+msgstr "Identificateur de wagon invalide."
+
+#: wagons.lua
+msgid "Not allowed to do this."
+msgstr "Vous n'êtes pas autorisé effectuer ceci."
+
+#: wagons.lua
+msgid "Onboard Computer"
+msgstr "Ordinateur embarqué"
+
+#: wagons.lua
+msgid "Please specify a player name to transfer ownership to."
+msgstr ""
+"Spécifiez le nom du joueur à qui la propriété doit être transférée, SVP."
+
+#: wagons.lua
+msgid "Prev FC"
+msgstr "Code de fret précédent"
+
+#: wagons.lua
+msgid "Remote Routesetting"
+msgstr "Routage à distance"
+
+#: wagons.lua
+msgid "Routingcode"
+msgstr "Code de routage"
+
+#: wagons.lua
+msgid "Save wagon properties"
+msgstr "Sauvegarder les propriétés du wagon"
+
+#: wagons.lua
+msgid "Select seat:"
+msgstr "Choisir le siège :"
+
+#: wagons.lua
+msgid "Show Inventory"
+msgstr "Montrer le stock"
+
+#: wagons.lua
+msgid "Text displayed inside train"
+msgstr "Texte affiché à l'intérieur du train"
+
+#: wagons.lua
+msgid "Text displayed outside on train"
+msgstr "Texte affiché à l'extérieur du train"
+
+#: wagons.lua
+msgid "That player does not exist!"
+msgstr "Ce joueur n'existe pas !"
+
+#: wagons.lua
+msgid "That wagon does not exist!"
+msgstr "Ce wagon n'a pas de siège !"
+
+#: wagons.lua
+msgid "The track you are trying to place the wagon on is not long enough!"
+msgstr "La voie sur laquelle vous tentez de placer le wagon est trop courte !"
+
+#: wagons.lua
+msgid "The wagon's inventory is not empty."
+msgstr "Le stock de ce wagon n'est pas vide."
+
+#: wagons.lua
+msgid "This Wagon ID"
+msgstr "Identificateur du wagon"
+
+#: wagons.lua
+msgid "This wagon has no seats."
+msgstr "Ce wagon n'a pas de siège."
+
+#: wagons.lua
+msgid "This wagon is full."
+msgstr "Ce wagon est plein."
+
+#: wagons.lua
+msgid "This wagon is owned by @1, you can't destroy it."
+msgstr "Ce wagon est la propriété de @1, vous ne pouvez pas le détruire."
+
+#: wagons.lua
+msgid "Train ID"
+msgstr "Identificateur du train"
+
+#: wagons.lua
+msgid "Train overview / coupling control is only shown when the train stands."
+msgstr ""
+"Aperçu du train / commande d'accouplement montré uniquement à l'arrêt du "
+"train."
+
+#: wagons.lua
+msgid "Train overview /coupling control:"
+msgstr "Aperçu du train / commande d'accouplement :"
+
+#: wagons.lua
+msgid "Uninitialized, removing"
+msgstr "Non initialisé, retiré"
+
+#: wagons.lua
+msgid "Wagon @1 ownership changed from @2 to @3"
+msgstr "La propriété du wagon @1 a été transférée de @2 à @3"
+
+#: wagons.lua
+msgid "Wagon needs to be decoupled from other wagons in order to destroy it."
+msgstr ""
+"Les wagons doivent être désaccouplés des autres pour pouvoir être détruits."
+
+#: wagons.lua
+#, fuzzy
+msgid "Wagon placeholder"
+msgstr ", dans un espace réservé"
+
+#: wagons.lua
+msgid "Wagon properties"
+msgstr "Propriétés du wagon"
+
+#: wagons.lua
+msgid "Wagon road number:"
+msgstr "Immatriculation du wagon :"
+
+#: wagons.lua
+msgid ""
+"Warning: If you destroy this wagon, you only get some steel back! If you are "
+"sure, hold Sneak and left-click the wagon."
+msgstr ""
+"Attention: Si vous détruisez ce wagon, vous ne récupérerez que de la "
+"ferraille ! Si vous êtes sûr de vous, appuyez la touche \"Marcher lentement "
+"(Sneak)\" et Clic-Gauche."
+
+#: wagons.lua
+msgid "You are not allowed to access the driver stand."
+msgstr "Accès interdit au poste de pilotage."
+
+#: wagons.lua
+msgid "You can't get on this wagon."
+msgstr "Montée impossible dans ce wagon."
+
+#: wagons.lua
+msgid "You don't have the train_operator privilege."
+msgstr "Vous ne possédez pas le privilège \"train_operator\"."
+
+#: wagons.lua
+msgid "You have been given ownership of wagon @1"
+msgstr "La propriété du wagon @1 vous a été transférée"
+
+#~ msgid " is at "
+#~ msgstr " est à la position "
+
+#~ msgid " wagon:destroy(): data is not set!"
+#~ msgstr " Appel de wagon:destroy() : données non définies !"
+
+#~ msgid "(log"
+#~ msgstr "(log"
+
+#~ msgid "3-way turnout"
+#~ msgstr "Embranchement triple"
+
+#~ msgid "90+Angle Diamond Crossing Track"
+#~ msgstr "Croisement perpendiculo-diagonal"
+
+#~ msgid "ATC controller"
+#~ msgstr "Controlleur ATC"
+
+#~ msgid ""
+#~ "ATC controller, mode @1\n"
+#~ "Channel: @2"
+#~ msgstr ""
+#~ "Controlleur ATC, mode @1\n"
+#~ "Canal : @2"
+
+#~ msgid "Access to @1"
+#~ msgstr "Accès à @1"
+
+#~ msgid "Big Industrial Train Engine"
+#~ msgstr "Grosse locomotive industrielle"
+
+#~ msgid "Box Wagon"
+#~ msgstr "Wagon de frêt"
+
+#~ msgid "Bumper"
+#~ msgstr "Heurtoir"
+
+#~ msgid ""
+#~ "Can place and configure LuaATC components, including execute potentially "
+#~ "harmful Lua code"
+#~ msgstr ""
+#~ "Permet le placement et la configuration de composants LuaATC avec risque "
+#~ "d'exécution de code Lua dangereux"
+
+#~ msgid "Can't get on: wagon full or doors closed!"
+#~ msgstr ""
+#~ "Embarquement impossible : le wagon est plein ou ses portes sont closes !"
+
+#~ msgid "Can't place: protected position!"
+#~ msgstr "Placement impossible : emplacement protégé"
+
+#~ msgid "Caution"
+#~ msgstr "Attention"
+
+#~ msgid "Clear (proceed)"
+#~ msgstr "Autorisation (procédez)"
+
+#~ msgid "Clear Local Environment"
+#~ msgstr "Effacer l'environnement LuaATC"
+
+#~ msgid "Closed"
+#~ msgstr "Fermé"
+
+#~ msgid "Code"
+#~ msgstr "Code"
+
+#~ msgid "Command (on)"
+#~ msgstr "Commande (marche)"
+
+#~ msgid "Danger (halt)"
+#~ msgstr "Danger (stop)"
+
+#~ msgid "Default Seat"
+#~ msgstr "Siège par défaut"
+
+#~ msgid "Default Seat (driver stand)"
+#~ msgstr "Siège par défaut (poste de pilotage)"
+
+#~ msgid "Dep. Speed"
+#~ msgstr "Vit. de départ"
+
+#~ msgid "Deprecated Track"
+#~ msgstr "Voie déconseillée"
+
+#~ msgid "Detailed Steam Engine"
+#~ msgstr "Locomotive à vapeur complexe"
+
+#~ msgid "Detector Rail"
+#~ msgstr "Voie détectrice"
+
+#~ msgid "Diagonal Diamond Crossing Track"
+#~ msgstr "Croisement diagonal"
+
+#~ msgid "Door Delay"
+#~ msgstr "Durée d'ouverture des portes"
+
+#~ msgid "Door Side"
+#~ msgstr "Ouv. des portes coté"
+
+#~ msgid "Driver Stand"
+#~ msgstr "Poste de pilotage"
+
+#~ msgid "Driver Stand (left)"
+#~ msgstr "Poste de pilotage (gauche)"
+
+#~ msgid "Driver Stand (right)"
+#~ msgstr "Poste de pilotage (droit)"
+
+#~ msgid "Driver stand"
+#~ msgstr "Poste de pilotage"
+
+#~ msgid "Industrial Train Engine"
+#~ msgstr "Locomotive industrielle"
+
+#~ msgid "Industrial tank wagon"
+#~ msgstr "Wagon-citerne industriel"
+
+#~ msgid "Industrial wood wagon"
+#~ msgstr "Wagon grumier industriel"
+
+#~ msgid "Japanese Train Engine"
+#~ msgstr "Motrice Japonaise"
+
+#~ msgid "Japanese Train Inter-Wagon Connection"
+#~ msgstr "Passage inter-voiture de train Japonais"
+
+#~ msgid "Japanese Train Wagon"
+#~ msgstr "Voiture Japonaise"
+
+#~ msgid "Japanese signal pole"
+#~ msgstr "Voiture Japonaise"
+
+#~ msgid "Kick out passengers"
+#~ msgstr "Éjecter les passagers"
+
+#~ msgid "Left"
+#~ msgstr "Gauche"
+
+#~ msgid "Left,Right,Closed;"
+#~ msgstr "Gauche,Droit,Fermé;"
+
+#~ msgid "Loading Track"
+#~ msgstr "Voie de Chargement"
+
+#~ msgid "Lock couples"
+#~ msgstr "Verrouiller l'accouplement"
+
+#~ msgid "LuaATC Environment"
+#~ msgstr "Environnement LuaATC"
+
+#~ msgid "LuaATC Mesecon Controller"
+#~ msgstr "Commande Mesecon de LuaATC"
+
+#~ msgid "LuaATC Operation Panel"
+#~ msgstr "Panneau de commande de LuaATC"
+
+#~ msgid "LuaATC component assigned to an invalid environment"
+#~ msgstr "Composant LuaATC assigné à un environnement invalide"
+
+#~ msgid "LuaATC component assigned to environment '@1'"
+#~ msgstr "Composant LuaATC assigné à l'environnement '@1'"
+
+#~ msgid "LuaATC component with error: @1"
+#~ msgstr "Erreur @1 du composant LuaATC"
+
+#~ msgid "Munich U-Bahn Distant Signal ("
+#~ msgstr "Signal distant métro de Munich ("
+
+#~ msgid "Munich U-Bahn Main Signal ("
+#~ msgstr "Signal principal métro de Munich ("
+
+#~ msgid "Next Stop:\n"
+#~ msgstr "Prochain arrêt :\n"
+
+#~ msgid "No callback to handle schedule"
+#~ msgstr "Absence de fonction de gestion de planning"
+
+#~ msgid "Passenger Wagon"
+#~ msgstr "Voiture passager"
+
+#~ msgid "Passenger area"
+#~ msgstr "Voiture Passager"
+
+#~ msgid ""
+#~ "Passive Component Naming Tool\n"
+#~ "\n"
+#~ "Right-click to name a passive component."
+#~ msgstr ""
+#~ "Outil de nommage de composant passif\n"
+#~ "\n"
+#~ "Clic-Droit pour nommer un composant passif."
+
+#~ msgid "Perpendicular Diamond Crossing Track"
+#~ msgstr "Croisement perpendiculaire"
+
+#~ msgid "Point Speed Restriction Track"
+#~ msgstr "Voie de point de limitation de vitesse"
+
+#~ msgid "Point speed restriction: @1"
+#~ msgstr "Point de limitation de vitesse : @1"
+
+#~ msgid "Reduced speed"
+#~ msgstr "Vitesse réduite"
+
+#~ msgid "Restricted speed"
+#~ msgstr "Vitesse limitée"
+
+#~ msgid "Reverse train"
+#~ msgstr "Inversion du sens de marche"
+
+#~ msgid "Right"
+#~ msgstr "Droit"
+
+#~ msgid "Route state changed."
+#~ msgstr "Changement d'état de l'itinéraire."
+
+#~ msgid "Set name of component (empty to clear)"
+#~ msgstr "Nommer le composant (chaîne vide pour effacer)"
+
+#~ msgid "Set point speed restriction:"
+#~ msgstr "Placez un point de limitation de vitesse :"
+
+#~ msgid "Signal"
+#~ msgstr "Signal"
+
+#~ msgid "Speed:"
+#~ msgstr "Vitesse : "
+
+#~ msgid "Station Code"
+#~ msgstr "Code de Station"
+
+#~ msgid "Station Name"
+#~ msgstr "Nom de Station"
+
+#~ msgid "Station code \"@1\" already exists and is owned by @2."
+#~ msgstr "Le code de station \"@1\" existe et est possédé par @2."
+
+#~ msgid "Station/Stop Track"
+#~ msgstr "Voie d'arrêt en station"
+
+#~ msgid "Steam Engine"
+#~ msgstr "Locomotive à vapeur"
+
+#~ msgid "Stop Time"
+#~ msgstr "Durée d'arrêt"
+
+#~ msgid "Subway Passenger Wagon"
+#~ msgstr "Voiture de Métropolitain"
+
+#~ msgid "Target:"
+#~ msgstr "Destination : "
+
+#, fuzzy
+#~ msgid "This node can't be rotated using the trackworker,"
+#~ msgstr "Ce nœud ne peut être tourné avec l'outil \"Trackworker\" !"
+
+#~ msgid "This position is protected!"
+#~ msgstr "Cet emplacement est protégé !"
+
+#~ msgid "This station is owned by @1. You are not allowed to edit its name."
+#~ msgstr ""
+#~ "Cette station est la propriété de @1. Vous n'êtes pas autorisé à modifier "
+#~ "son nom."
+
+#~ msgid "This track can not be changed."
+#~ msgstr "Cette voie ne peut pas être modifiée."
+
+#~ msgid "Track"
+#~ msgstr "Voie"
+
+#~ msgid "Train"
+#~ msgstr "Identificateur du train"
+
+#~ msgid "Train "
+#~ msgstr "Identificateur du train "
+
+#~ msgid "Trains stopping here (ARS rules)"
+#~ msgstr "Trains marquant l'arrêt (règles ARS)"
+
+#~ msgid "Unable to load wagon type"
+#~ msgstr "Impossible de charger le type du wagon"
+
+#~ msgid "Unconfigured LuaATC component"
+#~ msgstr "Composant LuaATC non configuré"
+
+#~ msgid "Uninitialized init="
+#~ msgstr "Variable init non initialisée"
+
+#~ msgid "Unknown Station"
+#~ msgstr "Gare inconnue"
+
+#~ msgid "Unloading Track"
+#~ msgstr "Voie de Déchargement"
+
+#~ msgid "Use Sneak+rightclick to bypass closed doors!"
+#~ msgstr ""
+#~ "Utilisez \"Marcher lentement (Sneak)\" et Clic-Droit pour franchir les "
+#~ "portes closes !"
+
+#~ msgid "Wait for signal to clear"
+#~ msgstr "En attente de signal d'autorisation"
+
+#~ msgid "Y-turnout"
+#~ msgstr "Embranchement en Y"
+
+#~ msgid ""
+#~ "You are not allowed to configure this LuaATC component without the @1 "
+#~ "privilege."
+#~ msgstr "Vous ne pouvez configurer ce composant LuaATC sans le privilege @1."
+
+#~ msgid ""
+#~ "You are not allowed to configure this track without the @1 privilege."
+#~ msgstr ""
+#~ "Vous n'êtes pas autorisé à configurer cette voie sans le privilège @1."
+
+#~ msgid "You are not allowed to configure this track."
+#~ msgstr "Vous n'êtes pas autorisé à configurer cette voie."
+
+#, fuzzy
+#~ msgid "You are not allowed to modify this protected track."
+#~ msgstr "Vous ne pouvez pas construire une voie à cet emplacement protégé"
+
+#~ msgid ""
+#~ "You are not allowed to name LuaATC passive components without the @1 "
+#~ "privilege."
+#~ msgstr ""
+#~ "Vous ne pouvez nommer un composant LuaATC passif sans le privilege @1."
+
+#~ msgid ""
+#~ "You need to own at least one neighboring wagon to destroy this couple."
+#~ msgstr ""
+#~ "Vous devez être propriétaire d'au moins un wagon voisin pour supprimer "
+#~ "cet attelage."
+
+#~ msgid "slowdown"
+#~ msgstr "ralentissement"

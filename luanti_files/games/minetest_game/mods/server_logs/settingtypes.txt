@@ -1,0 +1,1 @@
+server_logs.log_file (Log file path) string /var/log/minetest/minetest.log

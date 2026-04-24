@@ -1,0 +1,18 @@
+# textdomain: bulletin_boards
+Post your bulletin here for the cost of @1 @2=
+, Cost: @1 @2=
+Post your bulletin here=
+@1@nPosted by @2@n@3 days ago=
+Post bulletin with this icon at the cost of @1 @2=
+Post bulletin with this icon=
+Prev=
+Next=
+Title:=
+Contents:=
+Post:=
+Delete this bulletin=
+Delete:=
+Posted by @1=
+Back to Board=
+Public Bulletin Board=
+Copper Board=

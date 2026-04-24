@@ -1,0 +1,1302 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: advtrains\n"
+"Report-Msgid-Bugs-To: advtrains-discuss@lists.sr.ht\n"
+"POT-Creation-Date: 2025-07-20 22:27+0200\n"
+"PO-Revision-Date: 2023-10-09 11:31+0200\n"
+"Last-Translator: Y. Wang <yw05@forksworld.de>\n"
+"Language-Team: Chinese (Traditional)\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.3.2\n"
+
+#: autonaming.lua
+msgid "Prefix set, next signal name will be: @1"
+msgstr ""
+
+#: autonaming.lua
+msgid "Prefix unset, signals are not auto-named for you!"
+msgstr ""
+
+#: autonaming.lua
+msgid ""
+"Sets the current prefix for automatically naming interlocking components. "
+"Example: '/at_nameprefix TEST' - signals will be named TEST1, TEST2 and so on"
+msgstr ""
+
+#: database.lua
+msgid "Created track section @1 from @2 TCBs"
+msgstr ""
+
+#: database.lua
+msgid "Track section inconsistent here, repairing..."
+msgstr ""
+
+#: database.lua
+msgid "Track section partition found, repairing..."
+msgstr ""
+
+#: init.lua
+msgid "Can set up track sections, routes and signals"
+msgstr ""
+
+#: route_prog.lua
+msgid "@1 Terminal @2"
+msgstr ""
+
+#: route_prog.lua
+msgid "@1 is held in @2 position when this route is set and freed "
+msgstr ""
+
+#: route_prog.lua
+msgid "@1 is no longer affected when this route is set."
+msgstr ""
+
+#: route_prog.lua
+msgid "Added track section @1 to the route."
+msgstr ""
+
+#: route_prog.lua
+msgid "Advance to next route section"
+msgstr ""
+
+#: route_prog.lua
+msgid "Advance/Complete Route"
+msgstr ""
+
+#: route_prog.lua
+msgid "Advancing over next section is"
+msgstr ""
+
+#: route_prog.lua route_ui.lua
+msgid "Auto lock turnouts"
+msgstr ""
+
+#: route_prog.lua
+msgid "Cancel if you are unsure!"
+msgstr ""
+
+#: route_prog.lua
+msgid "Cancel route programming"
+msgstr ""
+
+#: route_prog.lua
+msgid "Cannot program route without a target"
+msgstr ""
+
+#: route_prog.lua tcb_ts_ui.lua
+msgid "End of interlocking"
+msgstr ""
+
+#: route_prog.lua
+msgid "Enter Route Name"
+msgstr ""
+
+#: route_prog.lua
+msgid "Finish programming route"
+msgstr ""
+
+#: route_prog.lua
+msgid "Finish route HERE"
+msgstr ""
+
+#: route_prog.lua
+msgid "Finish route at end of NEXT section"
+msgstr ""
+
+#: route_prog.lua
+msgid "Fixed in state @1 by route @2 (punch to unfix)"
+msgstr ""
+
+#: route_prog.lua
+msgid "Fixed in state @1 by route @2 until segment #@3 is freed."
+msgstr ""
+
+#: route_prog.lua route_ui.lua signal_aspect_ui.lua tcb_ts_ui.lua tool.lua
+msgid "Insufficient privileges to use this!"
+msgstr ""
+
+#: route_prog.lua
+msgid "Next section is diverging (>2 TCBs)"
+msgstr ""
+
+#: route_prog.lua
+msgid "Route discarded."
+msgstr ""
+
+#: route_prog.lua
+msgid "Route ends at signal:"
+msgstr ""
+
+#: route_prog.lua
+msgid "Route leads into"
+msgstr ""
+
+#: route_prog.lua
+msgid ""
+"Route programming mode active. Punch TCBs to add route segments, punch "
+"turnouts to lock them."
+msgstr ""
+
+#: route_prog.lua
+msgid "Route section @1 removed."
+msgstr ""
+
+#: route_prog.lua
+msgid "Routes should in most cases end at signals."
+msgstr ""
+
+#: route_prog.lua
+msgid "Save Route"
+msgstr ""
+
+#: route_prog.lua
+msgid "Step back one section"
+msgstr ""
+
+#: route_prog.lua
+msgid "Successfully programmed route."
+msgstr ""
+
+#: route_prog.lua
+msgid "The origin TCB has become unknown during programming. Try again."
+msgstr ""
+
+#: route_prog.lua
+msgid "This TCB is not suitable as"
+msgstr ""
+
+#: route_prog.lua
+msgid "This TCB is unconfigured, you first need to assign it to a rail"
+msgstr ""
+
+#: route_prog.lua
+msgid "WARNING: Route does not end at a signal."
+msgstr ""
+
+#: route_prog.lua
+msgid "[Route programming] "
+msgstr ""
+
+#: route_prog.lua
+msgid "impossible at this place."
+msgstr ""
+
+#: route_prog.lua
+msgid "non-interlocked area"
+msgstr ""
+
+#: route_prog.lua
+msgid "route continuation."
+msgstr ""
+
+#: route_ui.lua
+msgid "(More Options)"
+msgstr ""
+
+#: route_ui.lua
+msgid "<< Select a route part to edit options"
+msgstr ""
+
+#: route_ui.lua
+#, fuzzy
+msgid "<Default Aspect>"
+msgstr "預設座位"
+
+#: route_ui.lua
+msgid "ARS Rule List"
+msgstr ""
+
+#: route_ui.lua
+msgid "Advanced Options:"
+msgstr ""
+
+#: route_ui.lua
+msgid "Announce distant signal"
+msgstr ""
+
+#: route_ui.lua
+msgid "Back to signal"
+msgstr ""
+
+#: route_ui.lua
+msgid "Call-on (section may be occupied)"
+msgstr ""
+
+#: route_ui.lua
+msgid "Clone Route"
+msgstr ""
+
+#: route_ui.lua
+msgid "Delete Route"
+msgstr ""
+
+#: route_ui.lua
+msgid "Error:"
+msgstr ""
+
+#: route_ui.lua
+msgid "New From Route"
+msgstr ""
+
+#: route_ui.lua
+msgid "No Signal at this TCB"
+msgstr ""
+
+#: route_ui.lua
+msgid "Route name"
+msgstr ""
+
+#: route_ui.lua
+msgid "Route overview"
+msgstr ""
+
+#: route_ui.lua
+msgid "Save ARS List"
+msgstr ""
+
+#: route_ui.lua
+msgid "Section Options:"
+msgstr ""
+
+#: route_ui.lua tcb_ts_ui.lua
+msgid "Set"
+msgstr ""
+
+#: route_ui.lua signal_aspect_ui.lua
+#, fuzzy
+msgid "Signal Aspect:"
+msgstr "色燈號誌機"
+
+#: route_ui.lua tcb_ts_ui.lua
+msgid "TCB at @1 has different section than previous TCB"
+msgstr ""
+
+#: route_ui.lua tcb_ts_ui.lua
+msgid "TCB at @1 is missing"
+msgstr ""
+
+#: route_ui.lua tcb_ts_ui.lua
+msgid "TCB at @1 is not assigned to previous track section"
+msgstr ""
+
+#: route_ui.lua tcb_ts_ui.lua
+msgid "Track section after @1 missing"
+msgstr ""
+
+#: route_ui.lua tcb_ts_ui.lua
+msgid "Turnout/component missing at @1"
+msgstr ""
+
+#: routesetting.lua
+msgid "Lock conflict at @1, Held locked by:"
+msgstr ""
+
+#: routesetting.lua
+msgid "No TCB found at @1. Please update or reconfigure route!"
+msgstr ""
+
+#: routesetting.lua
+msgid "No track section adjacent to @1. Please reconfigure route!"
+msgstr ""
+
+#: routesetting.lua
+msgid "Route @1 from signal @2"
+msgstr ""
+
+#: routesetting.lua
+msgid "Route @1 from signal @2, segment #@3"
+msgstr ""
+
+#: routesetting.lua
+msgid "Section '@1' already has route set from @2:"
+msgstr ""
+
+#: routesetting.lua
+msgid "Section '@1' is occupied!"
+msgstr ""
+
+#: routesetting.lua
+msgid "Section '@1' not found!"
+msgstr ""
+
+#: routesetting.lua
+msgid ""
+"TCB at @1 has different section than previous TCB. Please update track "
+"section or reconfigure route!"
+msgstr ""
+
+#: routesetting.lua
+msgid ""
+"Turnout/component missing at @1. Please update track section or reconfigure "
+"route!"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "<assign distant>"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "<none>"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Assigned distant signal to the main signal at @1"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Assigned signal to the TCB at @1"
+msgstr ""
+
+#: signal_aspect_ui.lua tool.lua
+msgid "Clear"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid ""
+"Configuring Signal: Influence point of another signal is already present!"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Configuring Signal: Node is too far away. Aborted."
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid ""
+"Configuring Signal: Please look in train's driving direction and punch rail "
+"to set influence point."
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Configuring Signal: Successfully set influence point"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Configuring Signal: This is not a normal two-connection rail! Aborted."
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Dst: @1"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Influence point is not set."
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Influence point is set at @1."
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Modify"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Set distant signal: Punch the main signal to assign!"
+msgstr ""
+
+#: signal_aspect_ui.lua
+msgid "Set influence point"
+msgstr ""
+
+#: smartroute.lua
+msgid "Apply"
+msgstr ""
+
+#: smartroute.lua
+msgid "Route search: @1 found"
+msgstr ""
+
+#: smartroute.lua
+msgid "Search further"
+msgstr ""
+
+#: smartroute.lua
+msgid "Smartroute: No track section directly ahead!"
+msgstr ""
+
+#: smartroute.lua
+msgid "Smartroute: TCBS or routes don't exist here!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid " (invalid)"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "@1 locks in state @2"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "A route is requested from this signal:"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Add locks"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Assign a signal"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Automatic Working is active."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Automatic routesetting"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Boundary TCBs:"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Can't remove TCB: Both sides must have no signal assigned!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Can't remove track, a train is here!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Cancel"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Cancel Route"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid ""
+"Cannot delete route which has ARS rules, please review and then delete "
+"through edit dialog!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Clear locks"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid ""
+"Configuring TCB: Already existed at this position, it is now linked to this "
+"TCB marker"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: Cannot use static signals for routesetting. Aborted."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: Internal error, TCBS doesn't exist. Aborted."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: Node is too far away. Aborted."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: Not a compatible signal. Aborted."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: Please punch the rail you want to assign this TCB to."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: Please punch the signal to assign."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: Successfully assigned signal."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: Successfully configured TCB"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Configuring TCB: This is not a normal two-connection rail! Aborted."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Create Interlocked Track Section"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Delete this route"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Disable Automatic Working"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Distant signal triggers ARS"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Edit"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Enable Automatic Working"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Error: TS modified, abort!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Final TCBS unset (legacy-style buffer route)"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Fixed route locks (e.g. level crossings):"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Link @1"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Link: @1"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Multiple routes are requested (first available is set):"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "NOTE: ARS is disabled."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "New (Manual)"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "No Link"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "No routes are yet defined."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "No trains on this section."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Please cancel route first!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Punch components to add fixed locks. (punch anything else = end)"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Remove Section"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Reset section state"
+msgstr ""
+
+#: tcb_ts_ui.lua
+#, fuzzy
+msgid "Reset track section"
+msgstr "改變行車方向"
+
+#: tcb_ts_ui.lua
+msgid "Reset track section @1!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Route has been set."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Route is re-set when a train passed."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Route is set over this signal by:"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Route is set: "
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Routes are not automatically set."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Routes:"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Section holds @1 route locks."
+msgstr ""
+
+#: tcb_ts_ui.lua
+#, fuzzy
+msgid "Section name"
+msgstr "車站名稱"
+
+#: tcb_ts_ui.lua
+msgid "Set ARS default route"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Set Route"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Setting fixed locks finished!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Show"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Show track section"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Side @1"
+msgstr ""
+
+#: tcb_ts_ui.lua
+#, fuzzy
+msgid "Signal at @1"
+msgstr "色燈號誌機"
+
+#: tcb_ts_ui.lua
+msgid "Signal has been unassigned. Name and routes are kept for reuse."
+msgstr ""
+
+#: tcb_ts_ui.lua
+#, fuzzy
+msgid "Signal name"
+msgstr "色燈號誌機"
+
+#: tcb_ts_ui.lua
+msgid "Signal on B side already assigned!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+#, fuzzy
+msgid "Signalling"
+msgstr "色燈號誌機"
+
+#: tcb_ts_ui.lua
+msgid "Smart Route"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "TCB Link: Select linked TCB now!"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "TCB already existed at this position, now linked to this node"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "TCB assigned to @1"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "This TCB has been removed. Please dig marker."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid ""
+"This is a pure distant signal\n"
+"No route is currently set through."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid ""
+"This is an always-halt signal (e.g. a buffer)\n"
+"No routes can be set from here."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid ""
+"This will clear the list of trains\n"
+"and the routesetting status of this section.\n"
+"Are you sure?"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid ""
+"This will remove the track section and set all its end points to End Of "
+"Interlocking"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Track Circuit Break"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Track Circuit Break Configuration"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Track Section Detail - @1"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Trains on this section:"
+msgstr ""
+
+#: tcb_ts_ui.lua
+#, fuzzy
+msgid ""
+"Unassign\n"
+"Signal"
+msgstr "臂木式號誌機"
+
+#: tcb_ts_ui.lua
+msgid "Unconfigured Track Circuit Break, right-click to assign."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Wait for this route to be cancelled in order to do anything here."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Waiting for route to be set..."
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid "Yes"
+msgstr ""
+
+#: tcb_ts_ui.lua
+msgid ""
+"You cannot modify track sections when a route is set or a train is on the "
+"section."
+msgstr ""
+
+#: tool.lua
+msgid "Emplace manual lock"
+msgstr ""
+
+#: tool.lua
+msgid ""
+"Interlocking tool\n"
+"Punch: Highlight track section\n"
+"Place: check route locks/show track section info"
+msgstr ""
+
+#: tool.lua
+msgid "No route locks set"
+msgstr ""
+
+#: tool.lua
+msgid "No track section at this location!"
+msgstr ""
+
+#: tool.lua
+msgid "Node is not a track!"
+msgstr ""
+
+#: tool.lua
+msgid "Route lock inspector"
+msgstr ""
+
+#: tool.lua
+msgid "Route locks currently put:"
+msgstr ""
+
+#: tsr_rail.lua
+msgid "Point Speed Restriction Track"
+msgstr ""
+
+#: tsr_rail.lua
+msgid "Point speed restriction: @1"
+msgstr ""
+
+#: tsr_rail.lua
+msgid "Set point speed restriction:"
+msgstr ""
+
+#: tsr_rail.lua
+msgid "You are not allowed to configure this track without the @1 privilege."
+msgstr "您沒有「@1」許可權，不能調整這段軌道。"
+
+#: tsr_rail.lua
+msgid "You are not allowed to configure this track."
+msgstr "您不能調整這段軌道。"
+
+#~ msgid "(Doors closed)"
+#~ msgstr "(車門已關閉)"
+
+#~ msgid "3-way turnout"
+#~ msgstr "三開道岔"
+
+#~ msgid "90+Angle Diamond Crossing Track"
+#~ msgstr "交叉軌道 (其中一條軌道與座標軸平行)"
+
+#~ msgid "<No coupler>"
+#~ msgstr "<無連結器>"
+
+#~ msgid "@1 Platform (45 degree)"
+#~ msgstr "較高的@1月臺 (45°)"
+
+#~ msgid "@1 Platform (high)"
+#~ msgstr "較高的@1月臺"
+
+#~ msgid "@1 Platform (low)"
+#~ msgstr "較低的@1月臺"
+
+#~ msgid "@1 Platform (low, 45 degree)"
+#~ msgstr "較低的@1月臺 (45°)"
+
+#~ msgid "@1 Slope"
+#~ msgstr "@1斜坡"
+
+#~ msgid "ATC Kick command warning: doors are closed."
+#~ msgstr "ATC 警告：車門已關閉，無法踢出乘客。"
+
+#~ msgid "ATC Kick command warning: train moving."
+#~ msgstr "ATC 警告：火車正在移動，無法踢出乘客。"
+
+#~ msgid "ATC Reverse command warning: didn't reverse train, train moving."
+#~ msgstr "ATC 警告：火車正在移動，無法改變行車方向。"
+
+#~ msgid "ATC command parse error: Unknown command: @1"
+#~ msgstr "ATC 語法錯誤：未知命令：@1"
+
+#~ msgid "ATC command syntax error: I statement not closed: @1"
+#~ msgstr "ATC 語法錯誤：「I」命令不完整：@1"
+
+#~ msgid "ATC controller"
+#~ msgstr "ATC 控制器"
+
+#~ msgid ""
+#~ "ATC controller, mode @1\n"
+#~ "Channel: @2"
+#~ msgstr ""
+#~ "ATC 控制器\n"
+#~ "模式：@1\n"
+#~ "頻道：@2"
+
+#~ msgid ""
+#~ "ATC controller, mode @1\n"
+#~ "Command: @2"
+#~ msgstr ""
+#~ "ATC 控制器\n"
+#~ "模式：@1\n"
+#~ "命令：@2"
+
+#~ msgid "Access to @1"
+#~ msgstr "可前往@1"
+
+#~ msgid "Andrew's Cross"
+#~ msgstr "平交道號誌燈"
+
+#~ msgid "Back of train would end up off track, cancelling."
+#~ msgstr "火車後部不在軌道上。"
+
+#~ msgid "Big Industrial Train Engine"
+#~ msgstr "大型工業用火車頭"
+
+#~ msgid "Boiler"
+#~ msgstr "鍋爐"
+
+#~ msgid "Box Wagon"
+#~ msgstr "貨運車廂"
+
+#~ msgid "Buffer and Chain Coupler"
+#~ msgstr "鏈式連結器"
+
+#~ msgid "Bumper"
+#~ msgstr "保險槓"
+
+#~ msgid "Can not couple: The couplers of the trains do not match (@1 and @2)."
+#~ msgstr "您無法連結這兩節車廂：這兩節車廂使用不同的連結器 (@1和@2)。"
+
+#~ msgid "Can't get on: wagon full or doors closed!"
+#~ msgstr "無法上車：車門已關閉或車廂已滿。"
+
+#, fuzzy
+#~ msgid "Can't place: Not enough slope items left (@1 required)"
+#~ msgstr "無法放置斜坡：您沒有足夠的鐵路斜坡放置工具 (您總共需要@1個)"
+
+#, fuzzy
+#~ msgid "Can't place: There's no slope of length @1"
+#~ msgstr "無法放置斜坡：advtrains 不支援長度為@1米的斜坡。"
+
+#, fuzzy
+#~ msgid "Can't place: no supporting node at upper end."
+#~ msgstr "無法放置斜坡：較高階沒有支撐方塊。"
+
+#, fuzzy
+#~ msgid "Can't place: not pointing at node"
+#~ msgstr "無法放置斜坡：您沒有選擇任何方塊。"
+
+#~ msgid "Can't place: protected position!"
+#~ msgstr "無法放置：此區域已被保護。"
+
+#, fuzzy
+#~ msgid "Can't place: space occupied!"
+#~ msgstr "無法放置斜坡：此區域已被佔用。"
+
+#~ msgid "Chimney"
+#~ msgstr "煙囪"
+
+#~ msgid "Command"
+#~ msgstr "命令"
+
+#~ msgid "Command (on)"
+#~ msgstr "命令 (啟用時)"
+
+#~ msgid "Default Seat (driver stand)"
+#~ msgstr "預設座位 (司機座位)"
+
+#~ msgid "Dep. Speed"
+#~ msgstr "出發速度"
+
+#~ msgid "Deprecated Track"
+#~ msgstr "請不要使用"
+
+#~ msgid "Detailed Steam Engine"
+#~ msgstr "精細的蒸汽機車"
+
+#~ msgid "Detector Rail"
+#~ msgstr "探測軌道"
+
+#~ msgid "Diagonal Diamond Crossing Track"
+#~ msgstr "交叉軌道"
+
+#~ msgid "Digiline channel"
+#~ msgstr "Digiline 頻道"
+
+#~ msgid "Door Delay"
+#~ msgstr "車門關閉時間"
+
+#~ msgid ""
+#~ "Doors are closed. Use Sneak+rightclick to ignore the closed doors and get "
+#~ "off."
+#~ msgstr "車門已關閉，請使用潛行+右鍵單擊下車。"
+
+#, fuzzy
+#~ msgid "Driver Stand"
+#~ msgstr "司機座位"
+
+#~ msgid "Driver Stand (left)"
+#~ msgstr "左側司機座位"
+
+#~ msgid "Driver Stand (right)"
+#~ msgstr "右側司機座位"
+
+#~ msgid "Driver stand"
+#~ msgstr "司機座位"
+
+#~ msgid "Driver's cab"
+#~ msgstr "駕駛室"
+
+#~ msgid "Get off"
+#~ msgstr "下車"
+
+#~ msgid "Get off (forced)"
+#~ msgstr "強制下車"
+
+#~ msgid "Industrial Train Engine"
+#~ msgstr "工業用火車頭"
+
+#~ msgid "Industrial tank wagon"
+#~ msgstr "液體運輸車廂"
+
+#~ msgid "Industrial wood wagon"
+#~ msgstr "木材運輸車廂"
+
+#~ msgid "Japanese Train Engine"
+#~ msgstr "高速列車車頭"
+
+#~ msgid "Japanese Train Inter-Wagon Connection"
+#~ msgstr "日本火車連結器"
+
+#~ msgid "Japanese Train Wagon"
+#~ msgstr "高速列車車廂"
+
+#, fuzzy
+#~ msgid "Japanese signal pole"
+#~ msgstr "高速列車車廂"
+
+#~ msgid "Kick out passengers"
+#~ msgstr "踢出乘客"
+
+#~ msgid "Line"
+#~ msgstr "火車線路"
+
+#~ msgid "Loading Track"
+#~ msgstr "裝貨軌道"
+
+#~ msgid "Lock couples"
+#~ msgstr "鎖定連結處"
+
+#~ msgid "No such lua entity."
+#~ msgstr "您沒有指向一個可以用火車複製工具複製的物體。"
+
+#~ msgid "No such train: @1."
+#~ msgstr "ID 為「@1」的列車不存在。"
+
+#~ msgid "No such wagon: @1."
+#~ msgstr "ID 為「@1」的車廂不存在。"
+
+#, fuzzy
+#~ msgid "Not allowed to do this."
+#~ msgstr "您不能調整這段軌道。"
+
+#~ msgid "Passenger Wagon"
+#~ msgstr "客車"
+
+#, fuzzy
+#~ msgid "Passenger area"
+#~ msgstr "客車"
+
+#~ msgid ""
+#~ "Passive Component Naming Tool\n"
+#~ "\n"
+#~ "Right-click to name a passive component."
+#~ msgstr ""
+#~ "被動元件命名工具\n"
+#~ "\n"
+#~ "右鍵單擊命名所選元件。"
+
+#~ msgid "Perpendicular Diamond Crossing Track"
+#~ msgstr "垂直交叉軌道"
+
+#~ msgid "Routingcode"
+#~ msgstr "路由碼"
+
+#~ msgid "Save"
+#~ msgstr "儲存"
+
+#~ msgid "Save wagon properties"
+#~ msgstr "儲存車廂屬性"
+
+#~ msgid "Scharfenberg Coupler"
+#~ msgstr "Scharfenberg 式連結器"
+
+#~ msgid "Select seat:"
+#~ msgstr "請選擇座位："
+
+#~ msgid "Show Inventory"
+#~ msgstr "顯示物品欄"
+
+#~ msgid "Speed:"
+#~ msgstr "速度"
+
+#~ msgid "Station Code"
+#~ msgstr "車站碼"
+
+#~ msgid "Station/Stop Track"
+#~ msgstr "車站軌道"
+
+#~ msgid "Steam Engine"
+#~ msgstr "蒸汽機車"
+
+#~ msgid "Stop Time"
+#~ msgstr "停站時間"
+
+#~ msgid "Subway Passenger Wagon"
+#~ msgstr "地鐵車廂"
+
+#~ msgid "Target:"
+#~ msgstr "目標速度"
+
+#~ msgid "Text displayed inside train"
+#~ msgstr "車廂內部顯示"
+
+#~ msgid "Text displayed outside on train"
+#~ msgstr "車廂外部顯示"
+
+#, fuzzy
+#~ msgid "That wagon does not exist!"
+#~ msgstr "這節車廂沒有座位。"
+
+#~ msgid "The clipboard couldn't access the metadata. Copy failed."
+#~ msgstr "無法複製：剪貼簿無法訪問元資料。"
+
+#~ msgid "The clipboard couldn't access the metadata. Paste failed."
+#~ msgstr "無法貼上：剪貼簿無法訪問元資料。"
+
+#~ msgid "The clipboard is empty."
+#~ msgstr "剪貼簿是空的。"
+
+#, fuzzy
+#~ msgid "The track you are trying to place the wagon on is not long enough!"
+#~ msgstr "軌道太短。"
+
+#~ msgid "The track you are trying to place the wagon on is not long enough."
+#~ msgstr "軌道太短。"
+
+#, fuzzy
+#~ msgid "This Wagon ID"
+#~ msgstr "車廂已滿。"
+
+#, fuzzy
+#~ msgid "This node can't be changed using the trackworker!"
+#~ msgstr "您不能使用鐵路調整工具調整這個方塊。"
+
+#, fuzzy
+#~ msgid "This node can't be rotated using the trackworker!"
+#~ msgstr "您不能使用鐵路調整工具旋轉這個方塊。"
+
+#, fuzzy
+#~ msgid "This node can't be rotated using the trackworker,"
+#~ msgstr "您不能使用鐵路調整工具旋轉這個方塊。"
+
+#~ msgid "This position is protected!"
+#~ msgstr "這裡已被保護。"
+
+#~ msgid "This track can not be changed."
+#~ msgstr "您不能調整這段軌道。"
+
+#, fuzzy
+#~ msgid "This track can not be removed!"
+#~ msgstr "您不能移除這段軌道。"
+
+#, fuzzy
+#~ msgid "This track can not be rotated!"
+#~ msgstr "您不能旋轉這段軌道。"
+
+#~ msgid "This wagon has no seats."
+#~ msgstr "這節車廂沒有座位。"
+
+#~ msgid "This wagon is full."
+#~ msgstr "車廂已滿。"
+
+#~ msgid "This wagon is owned by @1, you can't destroy it."
+#~ msgstr "這是 @1 的車廂，您不能摧毀它。"
+
+#~ msgid "Track"
+#~ msgstr "軌道"
+
+#~ msgid ""
+#~ "Track Worker Tool\n"
+#~ "\n"
+#~ "Left-click: change rail type (straight/curve/switch)\n"
+#~ "Right-click: rotate object"
+#~ msgstr ""
+#~ "鐵路調整工具\n"
+#~ "\n"
+#~ "左鍵單擊：切換軌道型別\n"
+#~ "右鍵單擊：旋轉方塊"
+
+#, fuzzy
+#~ msgid "Train "
+#~ msgstr "已複製火車。"
+
+#~ msgid "Train copied."
+#~ msgstr "已複製火車。"
+
+#~ msgid ""
+#~ "Train copy/paste tool\n"
+#~ "\n"
+#~ "Left-click: copy train\n"
+#~ "Right-click: paste train"
+#~ msgstr ""
+#~ "火車複製工具\n"
+#~ "\n"
+#~ "左鍵單擊：複製\n"
+#~ "右鍵單擊：粘帖"
+
+#~ msgid "Unconfigured ATC controller"
+#~ msgstr "ATC 控制器 (未配置)"
+
+#~ msgid "Unconfigured LuaATC component"
+#~ msgstr "LuaATC 元件 (未配置)"
+
+#~ msgid "Unloading Track"
+#~ msgstr "卸貨軌道"
+
+#~ msgid "Use Sneak+rightclick to bypass closed doors!"
+#~ msgstr "請使用潛行+右鍵上車。"
+
+#, fuzzy
+#~ msgid "Wagon Properties Tool"
+#~ msgstr "車廂屬性"
+
+#~ msgid "Wagon properties"
+#~ msgstr "車廂屬性"
+
+#~ msgid "Wallmounted Signal (left)"
+#~ msgstr "壁掛式色燈號誌機 (左側)"
+
+#~ msgid "Wallmounted Signal (right)"
+#~ msgstr "壁掛式色燈號誌機 (右側)"
+
+#~ msgid "Wallmounted Signal (top)"
+#~ msgstr "懸掛式色燈號誌機"
+
+#~ msgid ""
+#~ "Warning: If you destroy this wagon, you only get some steel back! If you "
+#~ "are sure, hold Sneak and left-click the wagon."
+#~ msgstr ""
+#~ "警告：如果您摧毀此車廂，您只能拿到一些鋼方塊。如果您確定要摧毀這節車廂，請"
+#~ "按潛行鍵並左鍵單擊此車廂。"
+
+#~ msgid "Wheel"
+#~ msgstr "車輪"
+
+#~ msgid "Y-turnout"
+#~ msgstr "對稱道岔"
+
+#~ msgid "You are not allowed to build near tracks at this protected position."
+#~ msgstr "這裡已被保護，您不能在這裡的鐵路附近建任何東西。"
+
+#~ msgid ""
+#~ "You are not allowed to build near tracks without the track_builder "
+#~ "privilege."
+#~ msgstr "您沒有「train_operator」許可權，不能在鐵路附近建任何東西。"
+
+#~ msgid "You are not allowed to build tracks at this protected position."
+#~ msgstr "這裡已被保護，您不能在這裡建造鐵路。"
+
+#~ msgid ""
+#~ "You are not allowed to build tracks without the track_builder privilege."
+#~ msgstr "您沒有「train_operator」許可權，不能在這裡建造鐵路。"
+
+#~ msgid ""
+#~ "You are not allowed to configure this LuaATC component without the @1 "
+#~ "privilege."
+#~ msgstr "您沒有「@1」許可權，不能配置這個 LuaATC 元件。"
+
+#~ msgid ""
+#~ "You are not allowed to couple trains without the train_operator privilege."
+#~ msgstr "您沒有「train_operator」許可權，不能連結這兩節車廂。"
+
+#, fuzzy
+#~ msgid "You are not allowed to modify this protected track."
+#~ msgstr "這裡已被保護，您不能在這裡建造鐵路。"
+
+#~ msgid ""
+#~ "You are not allowed to name LuaATC passive components without the @1 "
+#~ "privilege."
+#~ msgstr "您沒有「@1」許可權，不能命名這個元件。"
+
+#~ msgid ""
+#~ "You are not allowed to operate turnouts and signals without the "
+#~ "railway_operator privilege."
+#~ msgstr "您沒有「railway_operator」許可權，不能控制鐵路設施。"
+
+#~ msgid "You do not have the @1 privilege."
+#~ msgstr "您沒有「@1」許可權。"
+
+#, fuzzy
+#~ msgid "You don't have the train_operator privilege."
+#~ msgstr "您沒有「@1」許可權。"
+
+#~ msgid ""
+#~ "You need to own at least one neighboring wagon to destroy this couple."
+#~ msgstr "您必須至少擁有其中一節車廂才能分開這兩節車廂。"

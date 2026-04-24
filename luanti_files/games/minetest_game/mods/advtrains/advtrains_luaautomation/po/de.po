@@ -1,0 +1,708 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: advtrains\n"
+"Report-Msgid-Bugs-To: advtrains-discuss@lists.sr.ht\n"
+"POT-Creation-Date: 2025-06-11 23:03+0200\n"
+"PO-Revision-Date: 2025-06-11 23:13+0200\n"
+"Last-Translator: Y. Wang <yw05@forksworld.de>\n"
+"Language-Team: German\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: active_common.lua
+msgid "Clear Local Environment"
+msgstr "Lokale Umgebung leeren"
+
+#: active_common.lua
+msgid "Code"
+msgstr "Quellcode"
+
+#: active_common.lua
+msgid "LuaATC Environment"
+msgstr "LuaATC-Umgebung"
+
+#: active_common.lua
+msgid "LuaATC component assigned to an invalid environment"
+msgstr "LuaATC-Komponente zugewiesen an ungültige Umgebung"
+
+#: active_common.lua
+msgid "LuaATC component assigned to environment '@1'"
+msgstr "LuaATC-Komponente zugewiesen an Umgebung '@1'"
+
+#: active_common.lua
+msgid "LuaATC component with error: @1"
+msgstr "LuaATC-Bauteil mit Fehlermeldung: @1"
+
+#: active_common.lua chatcmds.lua
+msgid "Save"
+msgstr "Speichern"
+
+#: active_common.lua
+msgid "Unconfigured LuaATC component"
+msgstr "Nicht konfiguierter LuaATC-Bauteil"
+
+#: active_common.lua
+msgid ""
+"You are not allowed to configure this LuaATC component without the @1 "
+"privilege."
+msgstr ""
+"Sie dürfen ohne das „@1“-Privileg diesen LuaATC-Bauteil nicht konfigurieren."
+
+#: atc_rail.lua
+msgid "LuaATC Track"
+msgstr "LuaATC-Gleis"
+
+#: chatcmds.lua
+msgid "Already subscribed!"
+msgstr "Bereits abonniert!"
+
+#: chatcmds.lua
+msgid "Clear S"
+msgstr "S leeren"
+
+#: chatcmds.lua
+msgid "Create an AdvTrains LuaAutomation environment"
+msgstr "Eine LuaATC-Umgebung erstellen"
+
+#: chatcmds.lua
+msgid ""
+"Created environment '@1'. Use '/env_setup @2' to define global "
+"initialization code, or start building LuaATC components!"
+msgstr ""
+"Umgebung '@1' erstellt. Nutze '/env_setup @2' um Initialisierungscode zu "
+"definieren, oder beginne, LuaATC-Komponenten einzubauen!"
+
+#: chatcmds.lua
+msgid "Delete Env."
+msgstr "Umg. löschen"
+
+#: chatcmds.lua
+msgid "Environment already exists!"
+msgstr "Umgebung existiert bereits!"
+
+#: chatcmds.lua
+msgid "Environment deleted!"
+msgstr "Umgebung gelöscht!"
+
+#: chatcmds.lua
+msgid "Environment initialization code"
+msgstr "Umgebungs-Initialisierungscode"
+
+#: chatcmds.lua
+msgid "Invalid environment name!"
+msgstr "Ungültiger Umgebungsname!"
+
+#: chatcmds.lua
+msgid "Invalid name (only common characters)"
+msgstr "Ungültiger Name (nur Standardzeichen)"
+
+#: chatcmds.lua
+msgid ""
+"List Advtrains LuaATC environments you are subscribed to (no parameters) or "
+"subscribers of an environment (giving an env name)."
+msgstr ""
+"Abonnierte LuaATC-Umgebungen auflisten (ohne Parameter) oder Abonnenten "
+"einer bestimmten Umgebung anzeigen (Name angeben)"
+
+#: chatcmds.lua
+msgid "Name required!"
+msgstr "Name benötigt!"
+
+#: chatcmds.lua
+msgid "No subscribers!"
+msgstr "Keine Abonnenten!"
+
+#: chatcmds.lua
+msgid "Not subscribed to any!"
+msgstr "Zu keiner Umgebung abonniert!"
+
+#: chatcmds.lua
+msgid "Not subscribed!"
+msgstr "Nicht abonniert!"
+
+#: chatcmds.lua
+msgid "Run Init Code"
+msgstr "Init.-Code ausführen"
+
+#: chatcmds.lua
+msgid ""
+"SURE TO DELETE ENVIRONMENT @1? Type YES (all uppercase) to continue or just "
+"quit form to cancel."
+msgstr ""
+"UMGEBUNG @1 WIRKLICH LÖSCHEN? Geben Sie YES (in Großbuchstaben) ein. Um "
+"abzubrechen einfach das Formular schließen."
+
+#: chatcmds.lua
+msgid "Set up and modify AdvTrains LuaAutomation environment"
+msgstr "LuaATC-Umgebung einstellen und bearbeiten"
+
+#: chatcmds.lua
+msgid "Subscribe to the log of an Advtrains LuaATC environment"
+msgstr "Meldungen aus LuaATC-Umgebung abonnieren"
+
+#: chatcmds.lua
+msgid "Subscribed to environment '@1'."
+msgstr "Meldungen von '@1' abonniert."
+
+#: chatcmds.lua
+msgid "Successfully unsubscribed!"
+msgstr "Erfolgreich abgemeldet!"
+
+#: chatcmds.lua
+msgid "Unubscribe to the log of an Advtrains LuaATC environment"
+msgstr "Meldungen aus LuaATC-Umgebung nicht mehr empfangen"
+
+#: init.lua
+msgid ""
+"Can place and configure LuaATC components, including execute potentially "
+"harmful Lua code"
+msgstr ""
+"Kann LuaATC-Bauteile platzieren und konfigurieren (auch evtl. schädliche "
+"Programme ausführen)"
+
+#: mesecon_controller.lua
+msgid "LuaATC Mesecon Controller"
+msgstr "LuaATC Mesecon-Steuerung"
+
+#: operation_panel.lua
+msgid "LuaATC Operation Panel"
+msgstr "LuaATC-Steuerpanel"
+
+#: pcnaming.lua
+msgid ""
+"Passive Component Naming Tool\n"
+"\n"
+"Right-click to name a passive component."
+msgstr ""
+"PC-Benennungswerkzeug\n"
+"\n"
+"Rechtsklick zur Benennung der passiven Komponente."
+
+#: pcnaming.lua
+msgid "Set name of component (empty to clear)"
+msgstr "Name der Komponente setzen (leer lassen um zu löschen)"
+
+#: pcnaming.lua
+msgid ""
+"You are not allowed to name LuaATC passive components without the @1 "
+"privilege."
+msgstr ""
+"Sie dürfen ohne das „@1“ Privileg keinen passiven LuaATC-Bauteil benennen."
+
+#~ msgid "(Doors closed)"
+#~ msgstr "(Türen geschlossen)"
+
+#~ msgid "3-way turnout"
+#~ msgstr "Dreiwegweiche"
+
+#~ msgid "90+Angle Diamond Crossing Track"
+#~ msgstr "Kreuzung mit einem achsenparallelen Gleis"
+
+#~ msgid "<No coupler>"
+#~ msgstr "<Keine Kupplung vorhanden>"
+
+#~ msgid "@1 Platform (45 degree)"
+#~ msgstr "Hoher @1-Bahnsteig (45°)"
+
+#~ msgid "@1 Platform (high)"
+#~ msgstr "Hoher @1-Bahnsteig"
+
+#~ msgid "@1 Platform (low)"
+#~ msgstr "Niedriger @1-Bahnsteig"
+
+#~ msgid "@1 Platform (low, 45 degree)"
+#~ msgstr "Niedriger @1-Bahnsteig (45°)"
+
+#~ msgid "@1 Slope"
+#~ msgstr "@1 Steigung"
+
+#~ msgid "ATC Kick command warning: doors are closed."
+#~ msgstr ""
+#~ "Zugbeeinflussung: Wegen geschlossener Türen werden Fahrgäste nicht zum "
+#~ "Ausstieg gezwungen."
+
+#~ msgid "ATC Kick command warning: train moving."
+#~ msgstr ""
+#~ "Zugbeeinflussung: Der Zug befindet sich in Bewegung, Fahrgäste werden "
+#~ "nicht zum Ausstieg gezwungen."
+
+#~ msgid "ATC Reverse command warning: didn't reverse train, train moving."
+#~ msgstr ""
+#~ "Zugbeeinflussung: Der Zug befindet sich in Bewegung und kann nicht "
+#~ "umgekehrt werden."
+
+#~ msgid "ATC command parse error: Unknown command: @1"
+#~ msgstr "Zugbeeinflussung: Unbekannter Befehl: @1"
+
+#~ msgid "ATC command syntax error: I statement not closed: @1"
+#~ msgstr "Zugbeeinflussung: Unvollständiger I-Befehl: @1"
+
+#~ msgid "ATC controller"
+#~ msgstr "Zugbeeinflussungsgleis"
+
+#~ msgid ""
+#~ "ATC controller, mode @1\n"
+#~ "Channel: @2"
+#~ msgstr ""
+#~ "Zugbeeinflussungsgleis in Betriebsart „@1“\n"
+#~ "Kanal: @2"
+
+#~ msgid ""
+#~ "ATC controller, mode @1\n"
+#~ "Command: @2"
+#~ msgstr ""
+#~ "Zugbeeinflussungsgleis in Betriebsart „@1“\n"
+#~ "Befehl: @2"
+
+#~ msgid "Access to @1"
+#~ msgstr "Zugang zu @1"
+
+#~ msgid "Andrew's Cross"
+#~ msgstr "Andreaskreuz"
+
+#~ msgid "Back of train would end up off track, cancelling."
+#~ msgstr "Der hinterer Teil dez Zuges wäre nicht auf dem Gleis."
+
+#~ msgid "Big Industrial Train Engine"
+#~ msgstr "Große Industrielle Lokomotive"
+
+#~ msgid "Box Wagon"
+#~ msgstr "Güterwaggon"
+
+#~ msgid "Buffer and Chain Coupler"
+#~ msgstr "Schraubenkupplung"
+
+#~ msgid "Bumper"
+#~ msgstr "Prellbock"
+
+#~ msgid "Can not couple: The couplers of the trains do not match (@1 and @2)."
+#~ msgstr "Die Kupplungen der Züge passen nicht zueinander (@1 und @2)."
+
+#~ msgid "Can't get on: wagon full or doors closed!"
+#~ msgstr ""
+#~ "Sie können nicht einsteigen: der Waggon ist voll oder die Türen sind "
+#~ "geschlossen."
+
+#, fuzzy
+#~ msgid "Can't place: Not enough slope items left (@1 required)"
+#~ msgstr ""
+#~ "Es kann nicht platziert werden: Sie haben nicht genug Steigungsblöcke, es "
+#~ "werden insgesamt @1 benötigt."
+
+#, fuzzy
+#~ msgid "Can't place: There's no slope of length @1"
+#~ msgstr ""
+#~ "Es kann nicht platziert werden: die Steigung der Länge @1 ist nicht "
+#~ "definiert."
+
+#, fuzzy
+#~ msgid "Can't place: no supporting node at upper end."
+#~ msgstr ""
+#~ "Es kann nicht platziert werden: es gibt keinen unterstützenden Block am "
+#~ "Ende der Steigung."
+
+#, fuzzy
+#~ msgid "Can't place: not pointing at node"
+#~ msgstr "Es kann nicht platziert werden: Sie zeigen nicht auf einem Block."
+
+#~ msgid "Can't place: protected position!"
+#~ msgstr "Es kann nicht platziert werden: diese Position ist geschützt."
+
+#, fuzzy
+#~ msgid "Can't place: space occupied!"
+#~ msgstr "Es kann nicht platziert werden: Diese Position ist besetzt."
+
+#~ msgid "Command"
+#~ msgstr "Befehl"
+
+#~ msgid "Command (on)"
+#~ msgstr "Befehl (wenn aktiviert)"
+
+#~ msgid "Default Seat"
+#~ msgstr "Standardsitzplatz"
+
+#~ msgid "Default Seat (driver stand)"
+#~ msgstr "Standardsitzplatz (Führerstand)"
+
+#~ msgid "Dep. Speed"
+#~ msgstr "Zielgeschwindigkeit bei Abfahrt"
+
+#~ msgid "Deprecated Track"
+#~ msgstr "ausrangiertes Gleis, nicht verwenden."
+
+#~ msgid "Detailed Steam Engine"
+#~ msgstr "Detaillierte Dampflokomotive"
+
+#~ msgid "Detector Rail"
+#~ msgstr "Detektorgleis"
+
+#~ msgid "Diagonal Diamond Crossing Track"
+#~ msgstr "Diagonale Gleiskreuzung"
+
+#~ msgid "Digiline channel"
+#~ msgstr "Digiline-Kanal"
+
+#~ msgid "Door Delay"
+#~ msgstr "Zeit für die Türschließung"
+
+#~ msgid "Door Side"
+#~ msgstr "Türseite"
+
+#~ msgid "Doors are closed! (Try holding sneak key!)"
+#~ msgstr "Die Türen sind geschlossen."
+
+#~ msgid ""
+#~ "Doors are closed. Use Sneak+rightclick to ignore the closed doors and get "
+#~ "off."
+#~ msgstr ""
+#~ "Die Türen sind geschlossen. Nutzen Sie Schleichen+Rechtsklick, um trotz "
+#~ "geschlossener Türen auszusteigen."
+
+#, fuzzy
+#~ msgid "Driver Stand"
+#~ msgstr "Führerstand"
+
+#~ msgid "Driver Stand (left)"
+#~ msgstr "Führerstand Links"
+
+#~ msgid "Driver Stand (right)"
+#~ msgstr "Führerstand Rechts"
+
+#~ msgid "Driver stand"
+#~ msgstr "Führerstand"
+
+#~ msgid "Driver's cab"
+#~ msgstr "Führerstand"
+
+#~ msgid "Get off"
+#~ msgstr "Aussteigen"
+
+#~ msgid "Get off (forced)"
+#~ msgstr "Ausstieg zwingen"
+
+#~ msgid "Industrial Train Engine"
+#~ msgstr "Industrielle Lokomotive"
+
+#~ msgid "Industrial tank wagon"
+#~ msgstr "Tankwaggon"
+
+#~ msgid "Industrial wood wagon"
+#~ msgstr "Holztransportwaggon"
+
+#~ msgid "Japanese Train Engine"
+#~ msgstr "Japanische Personenzug-Lokomotive"
+
+#~ msgid "Japanese Train Inter-Wagon Connection"
+#~ msgstr "Waggonzwischenverbindung Japanischer Personenzüge"
+
+#~ msgid "Japanese Train Wagon"
+#~ msgstr "Japanischer Personenzug-Passagierwaggon"
+
+#, fuzzy
+#~ msgid "Japanese signal pole"
+#~ msgstr "Japanischer Personenzug-Passagierwaggon"
+
+#~ msgid "Kick out passengers"
+#~ msgstr "Fahrgäste zum Ausstieg zwingen"
+
+#~ msgid "Lampless Signal"
+#~ msgstr "Mechanisches Signal"
+
+#~ msgid "Line"
+#~ msgstr "Linie"
+
+#~ msgid "Lock couples"
+#~ msgstr "Kupplungen sperren"
+
+#~ msgid "No such lua entity."
+#~ msgstr ""
+#~ "Sie zeigen nicht auf einem Objekt, das mit diesem Werkzeug kopiert werden "
+#~ "kann."
+
+#~ msgid "No such train: @1."
+#~ msgstr "Es gibt keinen mit „@1“ identifizierbaren Zug."
+
+#~ msgid "No such wagon: @1."
+#~ msgstr "Es gibt keinen mit „@1“ identifizierbaren Waggon."
+
+#, fuzzy
+#~ msgid "Not allowed to do this."
+#~ msgstr "Sie dürfen dieses Gleis nicht konfigurieren."
+
+#~ msgid "Passenger Wagon"
+#~ msgstr "Passagierwaggon"
+
+#, fuzzy
+#~ msgid "Passenger area"
+#~ msgstr "Passagierwaggon"
+
+#~ msgid "Perpendicular Diamond Crossing Track"
+#~ msgstr "Kreuzung mit zueinander orthogonalen Gleisen"
+
+#~ msgid "Point Speed Restriction Track"
+#~ msgstr "Geschwindigkeitskontrollgleis"
+
+#~ msgid "Point speed restriction: @1"
+#~ msgstr "Geschwindigkeitskontrolle: @1"
+
+#~ msgid "Position is occupied by a train."
+#~ msgstr "Ein Zug steht an dieser Position."
+
+#~ msgid "Reverse train"
+#~ msgstr "Zug Umkehren"
+
+#~ msgid "Save wagon properties"
+#~ msgstr "Waggon-Einstellungen speichern"
+
+#~ msgid "Scharfenberg Coupler"
+#~ msgstr "Scharfenbergkupplung"
+
+#~ msgid "Select seat:"
+#~ msgstr "Wählen Sie einen Sitzplatz aus:"
+
+#~ msgid "Show Inventory"
+#~ msgstr "Inventar Zeigen"
+
+#~ msgid "Signal"
+#~ msgstr "Lichtsignal"
+
+#~ msgid "Speed:"
+#~ msgstr "Geschw.:"
+
+#~ msgid "Station Code"
+#~ msgstr "Kennzeichen der Haltestelle"
+
+#~ msgid "Station Name"
+#~ msgstr "Name der Haltestelle"
+
+#~ msgid "Station code \"@1\" already exists and is owned by @2."
+#~ msgstr ""
+#~ "Die Haltestelle mit dem Kennzeichen „@1“ ist bereits vorhanden und wird "
+#~ "von @2 verwaltet."
+
+#~ msgid "Station/Stop Track"
+#~ msgstr "Gleis zur Kennzeichnung einer Haltestelle"
+
+#~ msgid "Steam Engine"
+#~ msgstr "Dampflokomotive"
+
+#~ msgid "Stop Time"
+#~ msgstr "Wartezeit"
+
+#~ msgid "Subway Passenger Wagon"
+#~ msgstr "U-Bahn-Waggon"
+
+#~ msgid "Target:"
+#~ msgstr "Zielges.:"
+
+#~ msgid "Text displayed inside train"
+#~ msgstr "Innere Anzeige"
+
+#~ msgid "Text displayed outside on train"
+#~ msgstr "Äußere Anzeige"
+
+#, fuzzy
+#~ msgid "That wagon does not exist!"
+#~ msgstr "In diesem Waggon ist kein Sitzplatz vorhanden."
+
+#~ msgid "The clipboard couldn't access the metadata. Copy failed."
+#~ msgstr ""
+#~ "Wegen des fehlgeschlagenen Zugriffs auf die Metadaten konnte der Zug "
+#~ "nicht kopiert werden."
+
+#~ msgid "The clipboard couldn't access the metadata. Paste failed."
+#~ msgstr ""
+#~ "Wegen des fehlgeschlagenen Zugriffs auf die Metadaten konnte eine Kopie "
+#~ "des Zuges nicht eingefügt werden."
+
+#~ msgid "The clipboard is empty."
+#~ msgstr "Das Clipboard ist leer."
+
+#, fuzzy
+#~ msgid "The track you are trying to place the wagon on is not long enough!"
+#~ msgstr "Das Gleis, auf dem der Waggon platziert werden woll, ist zu kurz."
+
+#~ msgid "The track you are trying to place the wagon on is not long enough."
+#~ msgstr "Das Gleis, auf dem der Waggon platziert werden woll, ist zu kurz."
+
+#~ msgid "The wagon's inventory is not empty."
+#~ msgstr "Das Inventar dieses Waggons ist nicht leer."
+
+#~ msgid "There's a Signal Influence Point here."
+#~ msgstr "Hier ist ein Signal-Beeinflussungspunkt."
+
+#~ msgid "There's a Track Circuit Break here."
+#~ msgstr "Hier ist eine Gleisabschnittsgrenze (TCB)."
+
+#, fuzzy
+#~ msgid "This Wagon ID"
+#~ msgstr "Der Waggon ist voll."
+
+#, fuzzy
+#~ msgid "This node can't be changed using the trackworker!"
+#~ msgstr "Dieser Block kann nicht mit dem Gleiswerkzeug bearbeitet werden."
+
+#, fuzzy
+#~ msgid "This node can't be rotated using the trackworker!"
+#~ msgstr "Dieser Block kann nicht mit dem Gleiswerkzeug gedreht werden."
+
+#~ msgid "This position is protected!"
+#~ msgstr "Diese Position ist geschützt!"
+
+#~ msgid "This station is owned by @1. You are not allowed to edit its name."
+#~ msgstr ""
+#~ "Diese Haltestelle wird von @1 verwaltet. Sie dürfen sie nicht umbenennen."
+
+#~ msgid "This track can not be changed."
+#~ msgstr "Dieses Gleis kann nicht geändert werden."
+
+#, fuzzy
+#~ msgid "This track can not be removed!"
+#~ msgstr "Dieses Gleis kann nicht entfernt werden."
+
+#, fuzzy
+#~ msgid "This track can not be rotated!"
+#~ msgstr "Dieses Gleis kann nicht gedreht werden."
+
+#~ msgid "This wagon has no seats."
+#~ msgstr "In diesem Waggon ist kein Sitzplatz vorhanden."
+
+#~ msgid "This wagon is full."
+#~ msgstr "Der Waggon ist voll."
+
+#~ msgid "This wagon is owned by @1, you can't destroy it."
+#~ msgstr "Dieser Waggon gehört @1, Sie dürfen ihn nicht abbauen."
+
+#~ msgid "Track"
+#~ msgstr "Gleis"
+
+#~ msgid ""
+#~ "Track Worker Tool\n"
+#~ "\n"
+#~ "Left-click: change rail type (straight/curve/switch)\n"
+#~ "Right-click: rotate object"
+#~ msgstr ""
+#~ "Gleiswerkzeug\n"
+#~ "\n"
+#~ "Linksklick: Gleistyp ändern\n"
+#~ "Rechtsklick: Objekt drehen"
+
+#, fuzzy
+#~ msgid "Train "
+#~ msgstr "Der Zug wurde Kopiert."
+
+#~ msgid "Train copied."
+#~ msgstr "Der Zug wurde Kopiert."
+
+#~ msgid ""
+#~ "Train copy/paste tool\n"
+#~ "\n"
+#~ "Left-click: copy train\n"
+#~ "Right-click: paste train"
+#~ msgstr ""
+#~ "Werkzeug zur Erstellung von Zugkopien\n"
+#~ "\n"
+#~ "Linksklick: Zug ins Clipboard kopieren\n"
+#~ "Right-click: Kopierten Zug einfügen"
+
+#~ msgid "Unconfigured ATC controller"
+#~ msgstr "Nicht konfiguiertes Zugbeeinflussungsgleis"
+
+#~ msgid "Unloading Track"
+#~ msgstr "Abladungsgleis"
+
+#~ msgid "Use Sneak+rightclick to bypass closed doors!"
+#~ msgstr ""
+#~ "Nutzen Sie Schleichen+Rechtsklick, um trotz geschlossener Türen "
+#~ "einzusteigen."
+
+#, fuzzy
+#~ msgid "Wagon Properties Tool"
+#~ msgstr "Waggon-Einstellungen"
+
+#~ msgid ""
+#~ "Wagon needs to be decoupled from other wagons in order to destroy it."
+#~ msgstr "Der Waggon muss abgekoppelt sein, damit Sie ihn abbauen können."
+
+#~ msgid "Wagon properties"
+#~ msgstr "Waggon-Einstellungen"
+
+#~ msgid "Wallmounted Signal (left)"
+#~ msgstr "An der linken Seite montiertes Signal"
+
+#~ msgid "Wallmounted Signal (right)"
+#~ msgstr "An der rechten Seite montiertes Signal"
+
+#~ msgid "Wallmounted Signal (top)"
+#~ msgstr "An der Decke montiertes Signal"
+
+#~ msgid ""
+#~ "Warning: If you destroy this wagon, you only get some steel back! If you "
+#~ "are sure, hold Sneak and left-click the wagon."
+#~ msgstr ""
+#~ "Warnung: Durch den Abbau des Waggons erhalten Sie nur etwas Stahl zurück. "
+#~ "Nutzen Sie Schleichen+Linksklick, um dem Waggon abzubauen."
+
+#~ msgid "Y-turnout"
+#~ msgstr "Y-Weiche"
+
+#~ msgid "You are not allowed to access the driver stand."
+#~ msgstr "Sie haben keinen Zugang zum Führerstand."
+
+#~ msgid "You are not allowed to build near tracks at this protected position."
+#~ msgstr ""
+#~ "Sie dürfen an geschützten Stellen nicht in der Nähe von Gleisen bauen."
+
+#~ msgid ""
+#~ "You are not allowed to build near tracks without the track_builder "
+#~ "privilege."
+#~ msgstr ""
+#~ "Sie dürfen ohne das „track_builder“-Privileg nicht in der Nähe von "
+#~ "Gleisen bauen."
+
+#~ msgid "You are not allowed to build tracks at this protected position."
+#~ msgstr "Sie dürfen an geschützten Stellen kein Gleis bauen."
+
+#~ msgid ""
+#~ "You are not allowed to build tracks without the track_builder privilege."
+#~ msgstr "Sie dürfen ohne das „track_builder“-Privileg kein Gleis bauen."
+
+#~ msgid ""
+#~ "You are not allowed to configure this track without the @1 privilege."
+#~ msgstr "Sie dürfen ohne das „@1“-Privileg dieses Gleis nicht konfigurieren."
+
+#~ msgid "You are not allowed to configure this track."
+#~ msgstr "Sie dürfen dieses Gleis nicht konfigurieren."
+
+#~ msgid ""
+#~ "You are not allowed to couple trains without the train_operator privilege."
+#~ msgstr "Sie dürfen ohne das „train_operator“-Privileg keine Züge ankuppeln."
+
+#, fuzzy
+#~ msgid "You are not allowed to modify this protected track."
+#~ msgstr "Sie dürfen an geschützten Stellen kein Gleis bauen."
+
+#~ msgid ""
+#~ "You are not allowed to operate turnouts and signals without the "
+#~ "railway_operator privilege."
+#~ msgstr ""
+#~ "Sie dürfen ohne das „railway_operator“-Privileg keine Bahnanlage "
+#~ "operieren."
+
+#~ msgid "You can't get on this wagon."
+#~ msgstr "Sie können nicht in diesen Waggon einsteigen."
+
+#~ msgid "You do not have the @1 privilege."
+#~ msgstr "Ihnen fehlt das „@1“-Privileg."
+
+#, fuzzy
+#~ msgid "You don't have the train_operator privilege."
+#~ msgstr "Ihnen fehlt das „@1“-Privileg."
+
+#~ msgid ""
+#~ "You need to own at least one neighboring wagon to destroy this couple."
+#~ msgstr ""
+#~ "Sie müssen Besitzer eines angrenzenden Waggons sein, um hier abzukuppeln."

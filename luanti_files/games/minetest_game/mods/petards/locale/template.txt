@@ -1,0 +1,5 @@
+# textdomain: petards
+Confetti petard=
+Used confetti petard=
+Petard=
+Bengal Fire=

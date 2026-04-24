@@ -1,0 +1,625 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the advtrains package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: advtrains\n"
+"Report-Msgid-Bugs-To: advtrains-discuss@lists.sr.ht\n"
+"POT-Creation-Date: 2025-06-10 21:40+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: atc.lua
+msgid "Unconfigured ATC controller"
+msgstr ""
+
+#: atc.lua
+msgid "ATC controller, Command: @1"
+msgstr ""
+
+#: atc.lua
+msgid "Command"
+msgstr ""
+
+#: atc.lua
+msgid "Digiline channel"
+msgstr ""
+
+#: atc.lua wagons.lua
+msgid "Save"
+msgstr ""
+
+#: atc.lua
+msgid "ATC Reverse command warning: didn't reverse train, train moving."
+msgstr ""
+
+#: atc.lua
+msgid "ATC Kick command warning: doors are closed."
+msgstr ""
+
+#: atc.lua
+msgid "ATC Kick command warning: train moving."
+msgstr ""
+
+#: atc.lua
+msgid "ATC command syntax error: I statement not closed: @1"
+msgstr ""
+
+#: atc.lua
+msgid "ATC command parse error: Unknown command: @1"
+msgstr ""
+
+#: copytool.lua
+msgid ""
+"Train copy/paste tool\n"
+"\n"
+"Left-click: copy train\n"
+"Right-click: paste train"
+msgstr ""
+
+#: copytool.lua
+msgid "You do not have the @1 privilege."
+msgstr ""
+
+#: copytool.lua
+msgid "The track you are trying to place the wagon on is not long enough."
+msgstr ""
+
+#: copytool.lua
+msgid "The clipboard couldn't access the metadata. Paste failed."
+msgstr ""
+
+#: copytool.lua
+msgid "The clipboard is empty."
+msgstr ""
+
+#: copytool.lua
+msgid "Back of train would end up off track, cancelling."
+msgstr ""
+
+#: copytool.lua
+msgid "No such lua entity."
+msgstr ""
+
+#: copytool.lua
+msgid "No such wagon: @1."
+msgstr ""
+
+#: copytool.lua
+msgid "No such train: @1."
+msgstr ""
+
+#: copytool.lua
+msgid "The clipboard couldn't access the metadata. Copy failed."
+msgstr ""
+
+#: copytool.lua
+msgid "Train copied."
+msgstr ""
+
+#: couple.lua
+msgid "Buffer and Chain Coupler"
+msgstr ""
+
+#: couple.lua
+msgid "Scharfenberg Coupler"
+msgstr ""
+
+#: couple.lua
+msgid ""
+"You are not allowed to couple trains without the train_operator privilege."
+msgstr ""
+
+#: couple.lua
+msgid ""
+"Cannot couple @1 and @2 - train would have length @3 which is above the "
+"limit of @4"
+msgstr ""
+
+#: couple.lua
+msgid "<No coupler>"
+msgstr ""
+
+#: couple.lua
+msgid "Can not couple: The couplers of the trains do not match (@1 and @2)."
+msgstr ""
+
+#: craft_items.lua
+msgid "Boiler"
+msgstr ""
+
+#: craft_items.lua
+msgid "Driver's cab"
+msgstr ""
+
+#: craft_items.lua
+msgid "Wheel"
+msgstr ""
+
+#: craft_items.lua
+msgid "Chimney"
+msgstr ""
+
+#: init.lua
+msgid "Restoring saved state in 1 second..."
+msgstr ""
+
+#: init.lua
+msgid "Reload successful!"
+msgstr ""
+
+#: init.lua
+msgid "Removing unused wagon"
+msgstr ""
+
+#: init.lua
+msgid "from wagon_save table."
+msgstr ""
+
+#: init.lua
+msgid ""
+"Train @1 had no wagons left because of some bug. It is being deleted. Wave "
+"it goodbye!"
+msgstr ""
+
+#: init.lua
+msgid "Saving failed: @1"
+msgstr ""
+
+#: init.lua
+msgid "Instructed to save() but load() was never called!"
+msgstr ""
+
+#: init.lua
+msgid ""
+"Crash during advtrains main step - skipping the shutdown save operation to "
+"not save inconsistent data!"
+msgstr ""
+
+#: init.lua
+msgid ""
+"Detach all players, especially the offline ones, from all trains. Use only "
+"when no one serious is on a train."
+msgstr ""
+
+#: init.lua
+msgid ""
+"Data is being saved. While saving, advtrains will remove the players from "
+"trains. Save files will be reloaded afterwards!"
+msgstr ""
+
+#: init.lua
+msgid "Delete all train routes, force them to recalculate"
+msgstr ""
+
+#: init.lua
+msgid "Successfully invalidated train routes"
+msgstr ""
+
+#: init.lua
+msgid "Returns the position of the train with the given id"
+msgstr ""
+
+#: init.lua
+msgid "Train @1 does not exist or is invalid"
+msgstr ""
+
+#: init.lua
+msgid "Train @1 is at @2"
+msgstr ""
+
+#: init.lua
+msgid "Teleports you to the position of the train with the given id"
+msgstr ""
+
+#: init.lua
+msgid "Teleporting to train @1"
+msgstr ""
+
+#: init.lua
+msgid "Disable the advtrains globalstep temporarily"
+msgstr ""
+
+#: init.lua
+msgid ""
+"The advtrains globalstep has been disabled. Trains are not moving, and no "
+"data is saved! Run '/at_disable_step no' to enable again!"
+msgstr ""
+
+#: init.lua
+msgid "Disabled advtrains successfully"
+msgstr ""
+
+#: init.lua
+msgid "Re-enabling advtrains globalstep..."
+msgstr ""
+
+#: init.lua
+msgid "Advtrains is already running normally!"
+msgstr ""
+
+#: init.lua
+msgid "Print advtrains status info"
+msgstr ""
+
+#: init.lua
+msgid "Advtrains Status: no_action @1 slowdown @2 (log @3)"
+msgstr ""
+
+#: misc_nodes.lua
+msgid "@1 Platform (low)"
+msgstr ""
+
+#: misc_nodes.lua
+msgid "@1 Platform (high)"
+msgstr ""
+
+#: misc_nodes.lua
+msgid "@1 Platform (45 degree)"
+msgstr ""
+
+#: misc_nodes.lua
+msgid "@1 Platform (low, 45 degree)"
+msgstr ""
+
+#: protection.lua
+msgid "Can place, remove and operate trains"
+msgstr ""
+
+#: protection.lua
+msgid ""
+"Can place, remove and operate any train, regardless of owner, whitelist, or "
+"protection"
+msgstr ""
+
+#: protection.lua
+msgid "Can place and dig tracks in unprotected areas"
+msgstr ""
+
+#: protection.lua
+msgid "Can operate turnouts and signals in unprotected areas"
+msgstr ""
+
+#: protection.lua
+msgid ""
+"You are not allowed to build near tracks without the track_builder privilege."
+msgstr ""
+
+#: protection.lua
+msgid ""
+"You are not allowed to build tracks without the track_builder privilege."
+msgstr ""
+
+#: protection.lua
+msgid "You are not allowed to build near tracks at this protected position."
+msgstr ""
+
+#: protection.lua
+msgid "You are not allowed to build tracks at this protected position."
+msgstr ""
+
+#: protection.lua
+msgid ""
+"You are not allowed to operate turnouts and signals without the "
+"railway_operator privilege."
+msgstr ""
+
+#: signals.lua
+msgid "Lampless Signal (deprecated!)"
+msgstr ""
+
+#: signals.lua
+msgid "Signal (deprecated!)"
+msgstr ""
+
+#: signals.lua
+msgid "Wallmounted Signal (left) (deprecated!)"
+msgstr ""
+
+#: signals.lua
+msgid "Wallmounted Signal (right) (deprecated!)"
+msgstr ""
+
+#: signals.lua
+msgid "Wallmounted Signal (top) (deprecated!)"
+msgstr ""
+
+#: signals.lua
+msgid "Andrew's Cross"
+msgstr ""
+
+#: track_reg_helper.lua tracks.lua
+msgid "This track can not be removed!"
+msgstr ""
+
+#: track_reg_helper.lua
+msgid "@1 Slope"
+msgstr ""
+
+#: track_reg_helper.lua
+msgid "Can't place: not pointing at node"
+msgstr ""
+
+#: track_reg_helper.lua
+msgid "Can't place: space occupied!"
+msgstr ""
+
+#: track_reg_helper.lua
+msgid "Can't place: Not enough slope items left (@1 required)"
+msgstr ""
+
+#: track_reg_helper.lua
+msgid "Can't place: There's no slope of length @1"
+msgstr ""
+
+#: track_reg_helper.lua
+msgid "Can't place: no supporting node at upper end."
+msgstr ""
+
+#: trackplacer.lua
+msgid ""
+"Track Worker Tool\n"
+"\n"
+"Left-click: change rail type (straight/curve/switch)\n"
+"Right-click: rotate object"
+msgstr ""
+
+#: trackplacer.lua
+msgid "This node can't be rotated using the trackworker!"
+msgstr ""
+
+#: trackplacer.lua
+msgid "This track can not be rotated!"
+msgstr ""
+
+#: trackplacer.lua
+msgid "This node can't be changed using the trackworker!"
+msgstr ""
+
+#: tracks.lua
+msgid "Position is occupied by a train."
+msgstr ""
+
+#: tracks.lua
+msgid "There's a Track Circuit Break here."
+msgstr ""
+
+#: tracks.lua
+msgid "There's a Signal Influence Point here."
+msgstr ""
+
+#: trainhud.lua
+msgid "OVERRUN RED SIGNAL! Examine situation and reverse train to move again."
+msgstr ""
+
+#: wagonprop_tool.lua
+msgid ""
+"Wagon Properties Tool\n"
+"Punch a wagon to view and edit the Wagon Properties"
+msgstr ""
+
+#: wagonprop_tool.lua
+msgid "Wagon Properties Tool"
+msgstr ""
+
+#: wagonprop_tool.lua
+msgid "Insufficient privileges to use this!"
+msgstr ""
+
+#: wagons.lua
+msgid "Uninitialized, removing"
+msgstr ""
+
+#: wagons.lua
+msgid "This wagon is owned by @1, you can't destroy it."
+msgstr ""
+
+#: wagons.lua
+msgid ""
+"Destroying wagon with inventory, but inventory is not found? Shouldn't "
+"happen!"
+msgstr ""
+
+#: wagons.lua
+msgid "The wagon's inventory is not empty."
+msgstr ""
+
+#: wagons.lua
+msgid "Wagon needs to be decoupled from other wagons in order to destroy it."
+msgstr ""
+
+#: wagons.lua
+msgid ""
+"Warning: If you destroy this wagon, you only get some steel back! If you are "
+"sure, hold Sneak and left-click the wagon."
+msgstr ""
+
+#: wagons.lua
+msgid "!!! Train off track !!!"
+msgstr ""
+
+#: wagons.lua
+msgid " units"
+msgstr ""
+
+#: wagons.lua
+msgid "Liquid: "
+msgstr ""
+
+#: wagons.lua
+msgid "Liquid: empty"
+msgstr ""
+
+#: wagons.lua
+msgid "Show Inventory"
+msgstr ""
+
+#: wagons.lua
+msgid "Onboard Computer"
+msgstr ""
+
+#: wagons.lua
+msgid "Wagon properties"
+msgstr ""
+
+#: wagons.lua
+msgid "Get off"
+msgstr ""
+
+#: wagons.lua
+msgid "Get off (forced)"
+msgstr ""
+
+#: wagons.lua
+msgid "(Doors closed)"
+msgstr ""
+
+#: wagons.lua
+msgid "This wagon has no seats."
+msgstr ""
+
+#: wagons.lua
+msgid "This wagon is full."
+msgstr ""
+
+#: wagons.lua
+msgid "Doors are closed! (Try holding sneak key!)"
+msgstr ""
+
+#: wagons.lua
+msgid "You can't get on this wagon."
+msgstr ""
+
+#: wagons.lua
+msgid "Select seat:"
+msgstr ""
+
+#: wagons.lua
+msgid "This Wagon ID"
+msgstr ""
+
+#: wagons.lua
+msgid "Allow these players to access your wagon:"
+msgstr ""
+
+#: wagons.lua
+msgid "Wagon road number:"
+msgstr ""
+
+#: wagons.lua
+msgid "Freight Code:"
+msgstr ""
+
+#: wagons.lua
+msgid "Prev FC"
+msgstr ""
+
+#: wagons.lua
+msgid "Current FC: "
+msgstr ""
+
+#: wagons.lua
+msgid "Next FC:"
+msgstr ""
+
+#: wagons.lua
+msgid "Save wagon properties"
+msgstr ""
+
+#: wagons.lua
+msgid "Train ID"
+msgstr ""
+
+#: wagons.lua
+msgid "Text displayed outside on train"
+msgstr ""
+
+#: wagons.lua
+msgid "Text displayed inside train"
+msgstr ""
+
+#: wagons.lua
+msgid "Line"
+msgstr ""
+
+#: wagons.lua
+msgid "Routingcode"
+msgstr ""
+
+#: wagons.lua
+msgid "Train overview /coupling control:"
+msgstr ""
+
+#: wagons.lua
+msgid "Train overview / coupling control is only shown when the train stands."
+msgstr ""
+
+#: wagons.lua
+msgid "Remote Routesetting"
+msgstr ""
+
+#: wagons.lua
+msgid "Clear 'Disable ARS' flag"
+msgstr ""
+
+#: wagons.lua
+msgid ""
+"Doors are closed. Use Sneak+rightclick to ignore the closed doors and get "
+"off."
+msgstr ""
+
+#: wagons.lua
+msgid "You are not allowed to access the driver stand."
+msgstr ""
+
+#: wagons.lua
+msgid "Missing train_operator privilege"
+msgstr ""
+
+#: wagons.lua
+msgid "Not allowed to do this."
+msgstr ""
+
+#: wagons.lua
+msgid "You don't have the train_operator privilege."
+msgstr ""
+
+#: wagons.lua
+msgid "The track you are trying to place the wagon on is not long enough!"
+msgstr ""
+
+#: wagons.lua
+msgid "Wagon placeholder"
+msgstr ""
+
+#: wagons.lua
+msgid "Please specify a player name to transfer ownership to."
+msgstr ""
+
+#: wagons.lua
+msgid "That player does not exist!"
+msgstr ""
+
+#: wagons.lua
+msgid "Not a valid wagon id."
+msgstr ""
+
+#: wagons.lua
+msgid "That wagon does not exist!"
+msgstr ""
+
+#: wagons.lua
+msgid "You have been given ownership of wagon @1"
+msgstr ""
+
+#: wagons.lua
+msgid "Wagon @1 ownership changed from @2 to @3"
+msgstr ""

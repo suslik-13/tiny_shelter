@@ -1,0 +1,2 @@
+connected_chest_open from default
+Content which is not copied from minetest_game is licensed under MIT.
