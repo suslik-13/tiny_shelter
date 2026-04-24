@@ -67,7 +67,7 @@ This command sets full access permissions (read/write/execute) to all files and 
 │   │   └── minetest_game/     # Main game with mods
 │   ├── worlds/                # Saved worlds
 │   │   └── tiny_shelter/      # tiny SHELTER server world
-│   ├── mod_data               # Mods data
+│   ├── mod_data/              # Mods data
 └── README.md                  # This file
 ```
 
