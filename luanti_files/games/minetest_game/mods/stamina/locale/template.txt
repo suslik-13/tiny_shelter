@@ -1,0 +1,6 @@
+# textdomain:stamina
+
+You suddenly feel tipsy!=
+You suddenly feel full!=
+Seems you have been poisoned!=
+Hunger Charm\n(wear to slowly increase stamina)=
