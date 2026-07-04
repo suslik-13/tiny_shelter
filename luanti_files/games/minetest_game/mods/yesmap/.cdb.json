@@ -1,0 +1,9 @@
+{
+    "type": "MOD",
+    "dev_state": "ACTIVELY_DEVELOPED",
+    "ai_disclosure": "NONE",
+    "tags": ["gui"],
+    "license": "BSD-3-Clause",
+    "repo": "https://github.com/Montandalar/yesmap",
+    "issue_tracker": "https://github.com/Montandalar/yesmap/issues"
+}
