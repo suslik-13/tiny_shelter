@@ -1,0 +1,105 @@
+=== CODE LICENSE (MIT) ===
+
+Copyright (c) 2026 TumeniNodes
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+==================================================================================
+
+All custom media assets contained within this mod are licensed under the Creative
+Commons Attribution-ShareAlike 4.0 International License (CC BY-SA 4.0) unless
+stated otherwise below.
+
+These assets were created by TumeniNodes:
+
+3D Models (models/)
+===================
+- chimney_mtg_chimney.obj
+- chimney_mtg_chimney_top.obj
+- chimney_mtg_fire_logs.obj
+- chimney_mtg_fire_logs_burning.obj
+- chimney_mtg_fireplace_grate.obj
+- all 'bbmodels'
+
+Textures (textures/)
+====================
+- chimney_mtg_iron.png
+- chimney_mtg_fireplace_grate.png
+- chimney_mtg_aspen_logs.png
+- chimney_mtg_ash.png
+- chimney_mtg_marshmallow_raw.png
+- chimney_mtg_marshmallow_toasted.png
+- chimney_mtg_sausage_cooked.png
+- chimney_mtg_sausage_raw.png
+- chimney_mtg_whittled_stick.png
+- all screenshots
+
+Audio (sounds/)
+===============
+- chimney_mtg_fire_logs_burning.ogg
+- chimney_mtg_mmm.ogg
+
+
+===============================
+REUSED AND DERIVATIVE MATERIALS
+===============================
+
+The following assets are derived from or reused core Minetest Game assets.
+Source repository: https://github.com/luanti-org/minetest_game
+
+fire_logs_burning.png
+=====================
+- Contains direct usage of "fire_basic_flame_animated.png" from the 'fire' mod.
+- Original Authors: Minetest Game Contributors
+- Original License: CC BY-SA 3.0 Unported (https://creativecommons.org/licenses/by-sa/3.0/)
+- This asset is distributed under the identical CC BY-SA 3.0 Unported license.
+
+chimney_mtg_fire_logs.png
+=============
+- This asset is a custom derivative built from "default_aspen_tree.png" and
+  "default_aspen_tree_top.png" from the 'default' mod.
+- Original Author: sofar
+- Modifications: Cut, rearranged, and edited into a custom pile log layout.
+- Original License: CC BY-SA 3.0 Unported (https://creativecommons.org/licenses/by-sa/3.0/)
+- This derivative is distributed under the identical CC BY-SA 3.0 Unported license.
+
+chimney_mtg_smoke.png
+=============
+- This asset is a custom derivative built from "default_item_smoke.png"
+- Original Author: Ferk
+- Modifications: Cut, brightness greatly reduced with GIMP.
+- Original License: CC0 1.0 (https://creativecommons.org/publicdomain/zero/1.0/deed.en)
+- This derivative is distributed under the identical CC0 1.0 Universal license.
+
+chimney_mtg_maul.png
+====================
+- This asset is a custom derivative built from "default_tool_stoneaxe.png"
+- Original Author: Cisoun
+- Modifications: Modified with GIMP to reshape the head into a splitting maul.
+- Original License: CC0 1.0 (https://creativecommons.org)
+- This derivative is distributed under the identical CC0 1.0 Universal license.
+
+on_punch sounds
+===============
+- These assets are used directly to light and extinguish the fire:
+  - fire_flint_and_steel.ogg
+  - fire_extinguish_flame.ogg
+- Original Authors: Minetest Game Contributors
+- Original License: CC BY-SA 3.0 Unported (https://creativecommons.org/licenses/by-sa/3.0/)
+- These assets are distributed under the identical CC BY-SA 3.0 Unported license.

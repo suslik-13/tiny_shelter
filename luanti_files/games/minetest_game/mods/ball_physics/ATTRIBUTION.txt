@@ -1,0 +1,4 @@
+ball.obj and beachball1.gtlf models made by TomCon - cc0
+beachball.png & red-radial texture made by Tomcon - cc0
+soccar goal model & texture - https://opengameart.org/content/soccergoal - cc0
+kick sound - https://opengameart.org/content/punch-slap-n-kick - cc0

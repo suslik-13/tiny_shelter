@@ -1,0 +1,52 @@
+# Blender 4.0.2 MTL File: 'soccerGoalPhysicsCloth.blend'
+# www.blender.org
+
+newmtl Material.009
+Ns 672.400024
+Ka 1.000000 1.000000 1.000000
+Kd 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+d 1.000000
+illum 2
+
+newmtl MaterialFondoRed
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd -s 1.55 14 0 net.png
+map_d -s 1.55 14 0 net.png
+
+newmtl MaterialLateral1Red
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd -s 1.6 3.1 0 net.png
+map_d -s 1.6 3.1 0 net.png
+
+newmtl MaterialLateral2Red
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd -s 1.6 3.1 0 net.png
+map_d -s 1.6 3.1 0 net.png
+
+newmtl MaterialSuperiorRed
+Ns 250.000000
+Ka 1.000000 1.000000 1.000000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd -s 5 3.5 0 net.png
+map_d -s 5 3.5 0 net.png
