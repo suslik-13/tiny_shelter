@@ -4,7 +4,7 @@ networks:
 
 services:
   luanti:
-    image: ghcr.io/luanti-org/luanti:5.15.2
+    image: ghcr.io/luanti-org/luanti:5.17.0
     container_name: tiny_shelter
     command: >
       ./bin/minetestserver --config /home/minetest/.minetest/minetest.conf --world /home/minetest/.minetest/worlds/tiny_shelter

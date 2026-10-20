@@ -158,7 +158,17 @@ local function convert_po_file(textdomain, inpath, outpath)
 	assert(f, err)
 	local str = convert_po_string(textdomain, f:read("*a"))
 	f:close()
-	minetest.safe_file_write(outpath, str)
+	-- Luanti 5.17+ mod security forbids writing into mod directories;
+	-- only rewrite when the .tr is outdated and don't abort loading if blocked
+	local old = io.open(outpath, "rb")
+	local same = old and old:read("*a") == str
+	if old then old:close() end
+	if not same then
+		local ok, werr = pcall(minetest.safe_file_write, outpath, str)
+		if not ok then
+			minetest.log("warning", "[advtrains] could not update " .. outpath .. ": " .. tostring(werr))
+		end
+	end
 	return str
 end
 
