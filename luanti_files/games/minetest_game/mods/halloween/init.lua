@@ -9,6 +9,9 @@
 --   torches          -> glowing skulls
 --   locked chests    -> small coffins
 --   chests           -> jack-o'-lanterns
+--   protected chests -> skulls that open their mouth while someone looks inside
+--   locked doors     -> a jack-o'-lantern painted on them
+--   protected doors  -> spiders sitting on black cobwebs
 --   all armor        -> bones painted on top
 --   sheep            -> skeletons with a pumpkin head
 --   unified_inventory -> cobwebs, cracks and spiders on the background,
@@ -192,6 +195,240 @@ local function chests()
 			"halloween_coffin_side.png", "halloween_coffin_front.png",
 		},
 	})
+end
+
+---------------------------------------------------------------- protected chest (protector)
+
+-- The skull's mouth is open while somebody looks inside. A node cannot change
+-- its look per position, so this is the only thing the mod registers: a copy
+-- of protector:chest with the open skull mesh. protector:chest is swapped to it
+-- (swap_node keeps the inventory and meta) when the chest is opened and back
+-- when the last viewer closes it, leaves, goes away or the server stops. An
+-- LBM turns any open skull that is still in the map back into a chest.
+local skull_chest_open = "halloween:protector_chest_open"
+local skull_box = {type = "fixed", fixed = {-7/16, -8/16, -7/16, 7/16, 7/16, 7/16}}
+local skull_tiles = {{name = "halloween_skullchest.png", backface_culling = false}}
+
+local open_chests = {} -- pos hash -> {pos = pos, viewers = {name = true}}
+
+local function close_skull(key)
+	local entry = open_chests[key]
+	open_chests[key] = nil
+	if not entry then
+		return
+	end
+	local node = minetest.get_node_or_nil(entry.pos)
+	if node and node.name == skull_chest_open then
+		minetest.swap_node(entry.pos, {name = "protector:chest", param2 = node.param2})
+	end
+end
+
+local function forget_viewer(key, name)
+	local entry = open_chests[key]
+	if entry then
+		entry.viewers[name] = nil
+		if next(entry.viewers) == nil then
+			close_skull(key)
+		end
+	end
+end
+
+local function open_skull(pos, node, clicker)
+	if not clicker or not clicker:is_player()
+			or minetest.is_protected(pos, clicker:get_player_name()) then
+		return -- protector shows no formspec in this case
+	end
+	local key = minetest.hash_node_position(pos)
+	local entry = open_chests[key] or {pos = vector.copy(pos), viewers = {}}
+	entry.viewers[clicker:get_player_name()] = true
+	open_chests[key] = entry
+	if node.name == "protector:chest" then
+		minetest.swap_node(pos, {name = skull_chest_open, param2 = node.param2})
+	end
+end
+
+if minetest.registered_nodes["protector:chest"] then
+	local def = table.copy(minetest.registered_nodes["protector:chest"])
+	def.name, def.type, def.mod_origin = nil, nil, nil
+	def.drawtype = "mesh"
+	def.mesh = "halloween_skullchest_open.obj"
+	def.paramtype = "light"
+	def.tiles = skull_tiles
+	def.selection_box = skull_box
+	def.collision_box = skull_box
+	def.drop = "protector:chest"
+	def.groups = table.copy(def.groups or {})
+	def.groups.not_in_creative_inventory = 1
+	local on_rightclick = def.on_rightclick
+	def.on_rightclick = function(pos, node, clicker, ...)
+		local res = on_rightclick and on_rightclick(pos, node, clicker, ...)
+		open_skull(pos, node, clicker)
+		return res
+	end
+	minetest.register_node(":" .. skull_chest_open, def)
+
+	minetest.register_lbm({
+		label = "halloween: close skull chests",
+		name = "halloween:close_skull_chests",
+		nodenames = {skull_chest_open},
+		run_at_every_load = true,
+		action = function(pos, node)
+			if not open_chests[minetest.hash_node_position(pos)] then
+				minetest.swap_node(pos, {name = "protector:chest", param2 = node.param2})
+			end
+		end,
+	})
+
+	minetest.register_on_player_receive_fields(function(player, formname, fields)
+		if formname:sub(1, 16) ~= "protector:chest_" or not fields.quit then
+			return
+		end
+		local pos = minetest.string_to_pos(formname:sub(17))
+		if pos then
+			forget_viewer(minetest.hash_node_position(pos), player:get_player_name())
+		end
+	end)
+
+	minetest.register_on_leaveplayer(function(player)
+		local name = player:get_player_name()
+		for key in pairs(table.copy(open_chests)) do
+			forget_viewer(key, name)
+		end
+	end)
+
+	-- the formspec can also be replaced by another one without a "quit"
+	-- (for example on death), so viewers that went away are dropped
+	local timer = 0
+	minetest.register_globalstep(function(dtime)
+		timer = timer + dtime
+		if timer < 1 then
+			return
+		end
+		timer = 0
+		for key, entry in pairs(table.copy(open_chests)) do
+			for name in pairs(table.copy(entry.viewers)) do
+				local player = minetest.get_player_by_name(name)
+				if not player or player:get_hp() <= 0
+						or vector.distance(player:get_pos(), entry.pos) > 8 then
+					forget_viewer(key, name)
+				end
+			end
+		end
+	end)
+
+	minetest.register_on_shutdown(function()
+		for key in pairs(table.copy(open_chests)) do
+			close_skull(key)
+		end
+	end)
+end
+
+local function protector_chest()
+	local def = minetest.registered_nodes["protector:chest"]
+	if not def or not minetest.registered_nodes[skull_chest_open] then
+		return
+	end
+	local on_rightclick = def.on_rightclick
+	override("protector:chest", {
+		drawtype = "mesh",
+		mesh = "halloween_skullchest.obj",
+		paramtype = "light",
+		tiles = skull_tiles,
+		selection_box = skull_box,
+		collision_box = skull_box,
+		on_rightclick = function(pos, node, clicker, ...)
+			local res = on_rightclick and on_rightclick(pos, node, clicker, ...)
+			open_skull(pos, node, clicker)
+			return res
+		end,
+	})
+	-- pistons must not move the open skull either
+	local mesecon = rawget(_G, "mesecon")
+	if type(mesecon) == "table" and type(mesecon.register_mvps_stopper) == "function" then
+		mesecon.register_mvps_stopper(skull_chest_open)
+	end
+end
+
+---------------------------------------------------------------- doors
+
+-- Puts overlay on the tiles made from base. By default "base^[transformX"
+-- becomes "(base^overlay)^[transformX", so the picture turns together with
+-- the tile; with upright = true it becomes "(base^[transformX)^overlay", so
+-- the picture stays upright (open trapdoors turn their texture).
+local function overlay_base(tiles, base, overlay, upright)
+	return map_tiles(tiles, function(tex)
+		if type(base) ~= "string" or tex:sub(1, #base) ~= base then
+			return tex
+		elseif upright then
+			return "(" .. tex .. ")^" .. overlay
+		end
+		return "(" .. base .. "^" .. overlay .. ")" .. tex:sub(#base + 1)
+	end)
+end
+
+local badged = {}
+
+local function badge(name, tex)
+	local def = minetest.registered_items[name]
+	if badged[name] or not def then
+		return
+	end
+	badged[name] = true
+	if def.inventory_image and def.inventory_image ~= "" then
+		override(name, {
+			inventory_image = "(" .. def.inventory_image .. ")^" .. tex,
+			wield_image = def.wield_image ~= "" and
+				"(" .. def.wield_image .. ")^" .. tex or nil,
+		})
+	end
+end
+
+local function locked_doors()
+	local doors = rawget(_G, "doors")
+	if type(doors) ~= "table" then
+		return
+	end
+	-- doors registered with "protected = true" (steel door and trapdoor):
+	-- a jack-o'-lantern on the lower panel
+	for name in pairs(doors.registered_doors or {}) do
+		local def = minetest.registered_nodes[name]
+		if def and def.protected and (def.mesh == "door_a.b3d" or def.mesh == "door_b.b3d") then
+			override(name, {tiles = map_tiles(def.tiles, overlay_fn("halloween_door_pumpkin.png"))})
+			badge(name:gsub("_[abcd]$", ""), "halloween_badge_pumpkin.png")
+		end
+	end
+	for name in pairs(doors.registered_trapdoors or {}) do
+		local def = minetest.registered_nodes[name]
+		if def and def.protected then
+			override(name, {tiles = overlay_base(def.tiles, def.tile_front,
+				"halloween_trapdoor_pumpkin.png", true)})
+			badge(name, "halloween_badge_pumpkin.png")
+		end
+	end
+end
+
+local function protected_doors()
+	-- protector doors: two nodes (_b_* bottom, _t_* top), the 5th and 6th
+	-- tiles are the front and back faces
+	for name, def in pairs(minetest.registered_nodes) do
+		local door, half = name:match("^(protector:door_[%w_]-)_([bt])_[12]$")
+		local t = def.tiles
+		if door and def.drawtype == "nodebox" and t and #t == 6
+				and type(t[5]) == "string" and type(t[6]) == "string" then
+			-- one of them is the other one plus "^[transformfx"
+			local base = #t[5] <= #t[6] and t[5] or t[6]
+			local web = half == "b" and "halloween_door_web_bottom.png"
+				or "halloween_door_web_top.png"
+			if t[5]:sub(1, #base) == base and t[6]:sub(1, #base) == base then
+				override(name, {tiles = overlay_base(t, base, web)})
+				badge(door, "halloween_badge_spider.png")
+			end
+		elseif name:find("^protector:trapdoor") and def.tile_front then
+			override(name, {tiles = overlay_base(def.tiles, def.tile_front,
+				"halloween_trapdoor_web.png", true)})
+			badge(name, "halloween_badge_spider.png")
+		end
+	end
 end
 
 ---------------------------------------------------------------- armor
@@ -437,6 +674,9 @@ minetest.register_on_mods_loaded(function()
 	if has_items("default:apple") then apples() end
 	if has_items("default:torch") then torches() end
 	if has_items("default:chest") then chests() end
+	protector_chest()
+	locked_doors()
+	protected_doors()
 	armor()
 	sheep()
 	unified_inventory_decor()

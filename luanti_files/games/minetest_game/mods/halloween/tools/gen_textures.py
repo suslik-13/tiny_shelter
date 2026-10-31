@@ -956,6 +956,292 @@ def gen_ui():
     save(ui_ground(), "halloween_ui_ground.png")
 
 
+# ---------------------------------------------------------------- protector chest and doors
+# Own random generator (and own jitter), so everything above stays the same.
+hrnd = random.Random(1031 + 77)
+
+
+def hjitter(c, amount=5):
+    d = hrnd.randint(-amount, amount)
+    return tuple(max(0, min(255, v + d)) for v in c[:3]) + (c[3],)
+
+
+SC_PAL = {"b": BONE, "s": BONE_S, "d": BONE_D, "k": HOLE, "o": OUTL,
+          "w": (246, 242, 226, 255), "R": (200, 30, 20, 255),
+          "m": (40, 12, 22, 255), "M": (62, 20, 34, 255),
+          "g": (240, 190, 40, 255), "G": (196, 140, 24, 255), "e": (60, 200, 90, 255)}
+
+# skull chest: cranium 14x10x14 px, jaw 12x5x12 px (1 texel = 1/16 node)
+SC_CRANIUM_FRONT = [
+    "ssbbbbbbbbbbss",
+    "sbbbbbbbbbbbbs",
+    "bbkkkkbbkkkkbb",
+    "bkkkkkbbkkkkkb",
+    "bkkRkkbbkkRkkb",
+    "bbkkkkbbkkkkbb",
+    "sbbbbbkkbbbbbs",
+    "sbbbbkkkkbbbbs",
+    "ssbbbbbbbbbbss",
+    "swkwkwkkwkwkws",
+]
+SC_JAW_FRONT = [
+    "wkwkwkkwkwkw",
+    "bbbbbbbbbbbb",
+    "sbbbbbbbbbbs",
+    "ssbbbbbbbbss",
+    "dssssssssssd",
+]
+# inside of the mouth (top of the jaw, front edge at the bottom): treasure
+SC_MOUTH = [
+    "ssssssssssss",
+    "smmmmmmmmmms",
+    "smMmmgmmmMms",
+    "smmgGmmGgmms",
+    "smGgggeggGms",
+    "smmgGgGgGmms",
+    "smgggGgggGms",
+    "smGgGggGgmms",
+    "smmGmgmGmmMs",
+    "smMmmmmmmmms",
+    "smmmmmmmmmms",
+    "wkwkwkkwkwkw",
+]
+# roof of the mouth (bottom of the cranium, front edge at the top)
+SC_PALATE = [
+    "swkwkwkkwkwkws",
+    "smmmmmmmmmmmms",
+    "smMmmmmmmmmMms",
+    "smmmmMmmMmmmms",
+    "smmmmmmmmmmmms",
+    "smmMmmmmmmMmms",
+    "smmmmmmmmmmmms",
+    "smmmmMmmMmmmms",
+    "smMmmmmmmmmMms",
+    "smmmmmmmmmmmms",
+    "smmmmmmmmmmmms",
+    "smmmmmmmmmmmms",
+    "smmmmmmmmmmmms",
+    "ssssssssssssss",
+]
+
+# atlas regions: name -> (x, y, w, h); 1 px of padding around every region
+SC_ATLAS = {
+    "cf": (1, 1, 14, 10), "cs": (17, 1, 14, 10), "cb": (33, 1, 14, 10),
+    "ct": (1, 13, 14, 14), "cp": (17, 13, 14, 14),
+    "jt": (33, 13, 12, 12), "jb": (47, 13, 12, 12),
+    "jf": (1, 29, 12, 5), "js": (15, 29, 12, 5), "jk": (29, 29, 12, 5),
+}
+SC_SIZE = 64
+
+
+def sc_plain(w, h, dark_bottom=0, temple=False, crack=None):
+    img = Image.new("RGBA", (w, h))
+    px = img.load()
+    for y in range(h):
+        for x in range(w):
+            c = BONE
+            if dark_bottom and y >= h - dark_bottom:
+                c = BONE_S if y < h - 1 else BONE_D
+            if x in (0, w - 1):
+                c = BONE_S
+            px[x, y] = hjitter(c)
+    if temple:
+        for y in range(h):
+            for x in range(w):
+                if (x - w * 0.42) ** 2 / 9 + (y - h * 0.45) ** 2 / 4 <= 1:
+                    px[x, y] = BONE_D
+    for (x, y) in crack or []:
+        px[x, y] = BONE_D
+    return img
+
+
+def sc_rows(rows):
+    img = from_rows(rows, SC_PAL)
+    px = img.load()
+    for y in range(img.size[1]):
+        for x in range(img.size[0]):
+            if px[x, y] in (BONE, BONE_S, SC_PAL["m"]):
+                px[x, y] = hjitter(px[x, y])
+    return img
+
+
+def gen_skull_chest_texture():
+    regions = {
+        "cf": sc_rows(SC_CRANIUM_FRONT),
+        "cs": sc_plain(14, 10, dark_bottom=2, temple=True),
+        "cb": sc_plain(14, 10, dark_bottom=2),
+        "ct": sc_plain(14, 14, crack=[(3, 2), (4, 3), (5, 3), (6, 4), (7, 5), (7, 6),
+                                      (8, 7), (9, 7), (10, 8)]),
+        "cp": sc_rows(SC_PALATE),
+        "jt": sc_rows(SC_MOUTH),
+        "jb": Image.new("RGBA", (12, 12), BONE_D),
+        "jf": sc_rows(SC_JAW_FRONT),
+        "js": sc_plain(12, 5, dark_bottom=2),
+        "jk": sc_plain(12, 5, dark_bottom=2),
+    }
+    atlas = Image.new("RGBA", (SC_SIZE, SC_SIZE), (0, 0, 0, 255))
+    for key, (x, y, w, h) in SC_ATLAS.items():
+        img = regions[key]
+        assert img.size == (w, h), (key, img.size)
+        # repeat the edge pixels into the padding against texture bleeding
+        col = Image.new("RGBA", (w + 2, h + 2))
+        col.paste(img, (1, 1))
+        col.paste(img.crop((0, 0, w, 1)), (1, 0))
+        col.paste(img.crop((0, h - 1, w, h)), (1, h + 1))
+        col.paste(col.crop((1, 0, 2, h + 2)), (0, 0))
+        col.paste(col.crop((w, 0, w + 1, h + 2)), (w + 1, 0))
+        atlas.paste(col, (x - 1, y - 1))
+    save(atlas, "halloween_skullchest.png")
+
+
+def box_faces(x0, y0, z0, x1, y1, z1, uv):
+    """Quads of a box in Luanti coordinates (1/16 node units). Vertices go
+    bottom-left, top-left, top-right, bottom-right as seen from outside, so the
+    atlas regions are never mirrored. uv maps face -> atlas region key."""
+    f = {
+        "-z": [(x0, y0, z0), (x0, y1, z0), (x1, y1, z0), (x1, y0, z0)],
+        "+z": [(x1, y0, z1), (x1, y1, z1), (x0, y1, z1), (x0, y0, z1)],
+        "+x": [(x1, y0, z0), (x1, y1, z0), (x1, y1, z1), (x1, y0, z1)],
+        "-x": [(x0, y0, z1), (x0, y1, z1), (x0, y1, z0), (x0, y0, z0)],
+        "+y": [(x0, y1, z0), (x0, y1, z1), (x1, y1, z1), (x1, y1, z0)],
+        "-y": [(x0, y0, z1), (x0, y0, z0), (x1, y0, z0), (x1, y0, z1)],
+    }
+    return [(f[k], uv[k]) for k in f]
+
+
+def rot_x(quads, angle, cy, cz):
+    """Rotates quads around the X axis through (y=cy, z=cz); positive angle
+    lifts the front (-Z) edge."""
+    ca, sa = math.cos(angle), math.sin(angle)
+    out = []
+    for verts, key in quads:
+        nv = []
+        for x, y, z in verts:
+            dy, dz = y - cy, z - cz
+            nv.append((x, cy + dy * ca - dz * sa, cz + dy * sa + dz * ca))
+        out.append((nv, key))
+    return out
+
+
+def write_atlas_obj(path, quads):
+    lines = ["# generated by halloween/tools/gen_textures.py", "usemtl skull"]
+    vlines, vtlines, vnlines, flines = [], [], [], []
+    for i, (verts, key) in enumerate(quads):
+        rx, ry, rw, rh = SC_ATLAS[key]
+        uvs = [(rx, ry + rh), (rx, ry), (rx + rw, ry), (rx + rw, ry + rh)]
+        a, b, c = (np.array(v, float) for v in verts[:3])
+        n = np.cross(b - a, c - a)
+        n = n / np.linalg.norm(n)
+        for (x, y, z), (u, v) in zip(verts, uvs):
+            # Luanti mirrors OBJ meshes on X
+            vlines.append("v %.4f %.4f %.4f" % (-x / 16, y / 16, z / 16))
+            vtlines.append("vt %.5f %.5f" % (u / SC_SIZE, 1 - v / SC_SIZE))
+        vnlines.append("vn %.4f %.4f %.4f" % (n[0], n[1], n[2]))
+        b0 = i * 4 + 1
+        flines.append("f " + " ".join("%d/%d/%d" % (b0 + k, b0 + k, i + 1) for k in range(4)))
+    with open(path, "w") as fh:
+        fh.write("\n".join(lines[:1] + vlines + vtlines + vnlines + lines[1:] + flines) + "\n")
+
+
+def gen_skull_chest_models():
+    cranium = box_faces(-7, -3, -7, 7, 7, 7, {"-z": "cf", "+z": "cb", "+x": "cs", "-x": "cs",
+                                               "+y": "ct", "-y": "cp"})
+    jaw = box_faces(-6, -8, -7, 6, -3, 5, {"-z": "jf", "+z": "jk", "+x": "js", "-x": "js",
+                                            "+y": "jt", "-y": "jb"})
+    write_atlas_obj(os.path.join(MOD_MODELS, "halloween_skullchest.obj"), cranium + jaw)
+    # open: the cranium tilts back around its back bottom edge, the mouth opens
+    write_atlas_obj(os.path.join(MOD_MODELS, "halloween_skullchest_open.obj"),
+                    rot_x(cranium, math.radians(38), -3, 7) + jaw)
+
+
+def gen_skull_chest():
+    gen_skull_chest_texture()
+    gen_skull_chest_models()
+
+
+# pumpkin painted on the lower panel of a locked door (12x11 px)
+DOOR_PUMPKIN = [
+    ".....Gg.....",
+    "..dmmlGlmd..",
+    ".dmlmmdmmld.",
+    "dmYYmmdmYYmd",
+    "dYWYlmdmYWYd",
+    "dmmmlYYlmmmd",
+    "dmYmlmmlmYmd",
+    "dmYYYYYYYYmd",
+    ".dmYmYYmYmd.",
+    "..dmmlmlmd..",
+    "...dddddd...",
+]
+DOOR_PUMPKIN_PAL = {"d": P_DARK, "m": P_MID, "l": P_LIGHT, "g": STEM, "G": STEM_D,
+                    "Y": GLOW_Y, "W": GLOW_W}
+
+
+def pumpkin_sprite(rows):
+    img = from_rows(rows, DOOR_PUMPKIN_PAL)
+    px = img.load()
+    for y in range(img.size[1]):
+        for x in range(img.size[0]):
+            if px[x, y] in (P_MID, P_LIGHT):
+                px[x, y] = hjitter(px[x, y], 6)
+    return img
+
+
+def gen_door_pumpkins():
+    pk = outline(pad(pumpkin_sprite(DOOR_PUMPKIN)))  # 14x13
+    # doors_door_*.png (38x32): front face x 0..15, back face x 16..31
+    # (mirrored), the lower panel is x 2..13 / 18..29, y 18..29
+    door = Image.new("RGBA", (38, 32), T)
+    door.alpha_composite(pk, (1, 17))
+    door.alpha_composite(pk.transpose(Image.FLIP_LEFT_RIGHT), (17, 17))
+    save(door, "halloween_door_pumpkin.png")
+    # trapdoor (16x16): on the middle of the cross
+    trap = Image.new("RGBA", (16, 16), T)
+    trap.alpha_composite(pk, (1, 2))
+    save(trap, "halloween_trapdoor_pumpkin.png")
+    # item badge (32x32 over a 16x16 icon = half size): bottom right corner
+    badge = Image.new("RGBA", (32, 32), T)
+    badge.alpha_composite(pk, (32 - 14, 32 - 13))
+    save(badge, "halloween_badge_pumpkin.png")
+
+
+def black_web(w, h, cx, cy, radius, a0, a1, spokes, rings):
+    return cobweb(w, cx, cy, radius, spokes, rings, alpha=245, a0=a0, a1=a1,
+                  color=WEB_BLACK, width=0.75, rng=hrnd, h=h)
+
+
+def spider_on_thread(img, x, y_top, y, scale=1):
+    sp = spider_sprite()
+    if scale != 1:
+        sp = sp.resize((sp.size[0] * scale, sp.size[1] * scale), Image.NEAREST)
+    d = ImageDraw.Draw(img)
+    d.line([(x, y_top), (x, y + 2)], fill=WEB_BLACK + (235,), width=1)
+    img.alpha_composite(sp, (x - sp.size[0] // 2, y))
+
+
+def gen_door_webs():
+    # protector doors are two nodes with a 16x16 front tile each; the overlay
+    # is drawn 4x finer (64 px per node) for thin threads
+    full = Image.new("RGBA", (64, 128), T)
+    full.alpha_composite(black_web(64, 128, 64, 0, 62, math.pi / 2, math.pi, 7, 6))
+    full.alpha_composite(black_web(64, 128, 0, 128, 40, -math.pi / 2, 0, 6, 5))
+    sp = spider_sprite().resize((34, 28), Image.NEAREST)
+    full.alpha_composite(sp, (64 - 30, 6))
+    spider_on_thread(full, 20, 0, 88)
+    save(full.crop((0, 0, 64, 64)), "halloween_door_web_top.png")
+    save(full.crop((0, 64, 64, 128)), "halloween_door_web_bottom.png")
+
+    trap = Image.new("RGBA", (64, 64), T)
+    trap.alpha_composite(black_web(64, 64, 0, 0, 58, 0, math.pi / 2, 6, 5))
+    trap.alpha_composite(sp, (8, 6))
+    save(trap, "halloween_trapdoor_web.png")
+
+    badge = Image.new("RGBA", (32, 32), T)
+    badge.alpha_composite(black_web(32, 32, 32, 32, 18, math.pi, 1.5 * math.pi, 5, 3))
+    badge.alpha_composite(spider_sprite(), (32 - 17, 32 - 14))
+    save(badge, "halloween_badge_spider.png")
+
+
 def main():
     os.makedirs(TEX, exist_ok=True)
     os.makedirs(MOD_MODELS, exist_ok=True)
@@ -970,6 +1256,9 @@ def main():
         paint_sheep(sys.argv[1], "halloween_sheep.png", 128, 128)
         paint_sheep(sys.argv[2], "halloween_sheep_old.png", 160, 144)
         paint_sheep(sys.argv[3], "halloween_sheep_old_shaved.png", 160, 144)
+    gen_skull_chest()
+    gen_door_pumpkins()
+    gen_door_webs()
 
 
 if __name__ == "__main__":
