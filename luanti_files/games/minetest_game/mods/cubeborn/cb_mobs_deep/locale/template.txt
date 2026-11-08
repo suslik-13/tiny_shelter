@@ -1,0 +1,8 @@
+# textdomain: cb_mobs_deep
+Sculk=
+Sculk Vein=
+Sculk Sensor=
+Sculk Shrieker=
+Sculk Catalyst=
+Warden=
+Echo Shard=

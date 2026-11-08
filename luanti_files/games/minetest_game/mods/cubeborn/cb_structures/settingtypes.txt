@@ -1,0 +1,15 @@
+cubeborn.end_cities (End cities built with the End pocket) int 3 0 20
+cubeborn.village_size_min (Fewest buildings in a village) int 8 5 30
+cubeborn.village_size_max (Most buildings in a village) int 20 5 30
+cubeborn.mineshaft_pieces (Most pieces of a mineshaft) int 60 10 200
+# Real hours before a killed rare structure inhabitant (witch, pillager captain,
+# mansion evoker) is replaced.
+cubeborn.rare_respawn_hours (Hours before rare inhabitants return) float 24 0 720
+# Real days before the elytra of an End ship comes back after it was taken.
+cubeborn.elytra_respawn_days (Days before End ship elytra return) float 7 0 365
+# /cb_populate with players online: background job budget per server step (ms),
+# seconds between examined spots and the pause after every built structure.
+# Nobody online: normal speed.
+cubeborn.populate_budget_ms (Populate job budget with players online, ms) int 4 1 15
+cubeborn.populate_spot_s (Populate seconds between spots with players online) float 1 0.2 30
+cubeborn.populate_pause_s (Populate pause after a structure with players online, s) float 20 0 600

@@ -1,0 +1,11 @@
+cb_mobs_water = {}
+cb_mobs_water.S = core.get_translator("cb_mobs_water")
+local modpath = core.get_modpath("cb_mobs_water")
+dofile(modpath .. "/common.lua")
+dofile(modpath .. "/squid.lua")
+dofile(modpath .. "/fish.lua")
+dofile(modpath .. "/pufferfish.lua")
+dofile(modpath .. "/dolphin.lua")
+dofile(modpath .. "/nautilus.lua")
+dofile(modpath .. "/guardian.lua")
+dofile(modpath .. "/spawn.lua")

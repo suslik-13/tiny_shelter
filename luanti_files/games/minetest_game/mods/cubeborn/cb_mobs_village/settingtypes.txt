@@ -1,0 +1,6 @@
+# Banker: minegeld for one emerald.
+cubeborn.bank_sell (Banker: minegeld per emerald) int 10 1 1000
+# Banker: "<minegeld>:<emeralds>" to buy emeralds.
+cubeborn.bank_buy (Banker: price of emeralds) string 25:2
+# Banker: emeralds a player may sell per game day.
+cubeborn.bank_daily (Banker: emeralds per day) int 16 0 1000

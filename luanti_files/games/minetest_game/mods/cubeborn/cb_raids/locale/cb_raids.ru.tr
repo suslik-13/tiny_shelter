@@ -1,0 +1,8 @@
+# textdomain: cb_raids
+Raid — wave @1/@2, @3 left=Рейд — волна @1/@2, осталось @3
+Raid — Victory=Рейд — победа
+Raid — Defeat=Рейд — поражение
+Bad Omen @1: the illagers will raid the next village with villagers you enter within 100 minutes.=Дурное знамение @1: разбойники нападут на первую деревню с жителями, в которую вы войдёте в течение 100 минут.
+A raid on this village has begun: @1 waves. Defend the villagers!=На деревню напали разбойники: волн — @1. Защитите жителей!
+This village has no villagers: there is nobody to raid.=В этой деревне нет жителей: нападать не на кого.
+Too many raids are going on; yours waits until one ends.=Сейчас идёт слишком много рейдов; ваш начнётся, когда один из них закончится.

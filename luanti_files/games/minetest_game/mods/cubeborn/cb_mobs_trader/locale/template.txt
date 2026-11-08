@@ -1,0 +1,9 @@
+# textdomain: cb_mobs_trader
+Wandering Trader=
+Llama=
+Call the wandering trader to you=
+Only for players in the game.=
+A wandering trader is already about.=
+The wandering trader is coming.=
+No open ground nearby.=
+The llama is tamed.=

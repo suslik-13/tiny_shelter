@@ -4,7 +4,7 @@ networks:
 
 services:
   luanti:
-    image: ghcr.io/luanti-org/luanti:5.17.0
+    image: ghcr.io/luanti-org/luanti:5.18.0
     container_name: tiny_shelter
     command: >
       ./bin/minetestserver --config /home/minetest/.minetest/minetest.conf --world /home/minetest/.minetest/worlds/tiny_shelter
@@ -23,21 +23,21 @@ services:
 
   translator:
     image: libretranslate/libretranslate
-    container_name: libretranslate
+    container_name: libretranslate_tiny
     ports:
-      - "5000:5000"
+      - "5001:5000"
     restart: always
     networks:
       - minetest_network
 
   discord_relay:
     image: python:3.11-slim
-    container_name: discord_relay
+    container_name: discord_relay_tiny
     working_dir: /app
     command: >
       sh -c "pip install aiohttp discord.py && python server.py"
     ports:
-      - "8080:8080"
+      - "8081:8080"
     volumes:
       - ./luanti_files/games/minetest_game/mods/discordmt:/app
     restart: always

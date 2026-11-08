@@ -1,0 +1,12 @@
+cb_mobs_nether = {}
+cb_mobs_nether.S = core.get_translator("cb_mobs_nether")
+local modpath = core.get_modpath("cb_mobs_nether")
+dofile(modpath .. "/magma_cube.lua")
+dofile(modpath .. "/ghast.lua")
+dofile(modpath .. "/piglin.lua")
+dofile(modpath .. "/hoglin.lua")
+dofile(modpath .. "/strider.lua")
+dofile(modpath .. "/wither_skeleton.lua")
+dofile(modpath .. "/skull.lua")
+dofile(modpath .. "/wither.lua")
+dofile(modpath .. "/spawn.lua")

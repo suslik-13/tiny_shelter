@@ -1,0 +1,17 @@
+cb_mobs_village = {}
+cb_mobs_village.S = core.get_translator("cb_mobs_village")
+
+local modpath = core.get_modpath("cb_mobs_village")
+dofile(modpath .. "/trading.lua")
+dofile(modpath .. "/professions.lua")
+dofile(modpath .. "/trade_ui.lua")
+dofile(modpath .. "/banker.lua")
+dofile(modpath .. "/food.lua")
+dofile(modpath .. "/breeding.lua")
+dofile(modpath .. "/farmer.lua")
+dofile(modpath .. "/villager.lua")
+dofile(modpath .. "/transport.lua")
+dofile(modpath .. "/zombie_villager.lua")
+dofile(modpath .. "/iron_golem.lua")
+dofile(modpath .. "/cave_spider.lua")
+dofile(modpath .. "/witch.lua")

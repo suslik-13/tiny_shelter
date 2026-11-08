@@ -1,0 +1,13 @@
+cb_mobs_overworld = {}
+cb_mobs_overworld.S = core.get_translator("cb_mobs_overworld")
+local modpath = core.get_modpath("cb_mobs_overworld")
+dofile(modpath .. "/zombie.lua")
+dofile(modpath .. "/drowned.lua")
+dofile(modpath .. "/breaker.lua")
+dofile(modpath .. "/creeper.lua")
+dofile(modpath .. "/jockey.lua")
+dofile(modpath .. "/stray.lua")
+dofile(modpath .. "/silverfish.lua")
+dofile(modpath .. "/endermite.lua")
+dofile(modpath .. "/phantom.lua")
+dofile(modpath .. "/spawn.lua")

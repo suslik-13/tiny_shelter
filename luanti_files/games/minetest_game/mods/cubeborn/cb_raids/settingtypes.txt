@@ -1,0 +1,2 @@
+# Raids at once on the whole server.
+cubeborn.raid_max (Raids at once) int 3 0 16

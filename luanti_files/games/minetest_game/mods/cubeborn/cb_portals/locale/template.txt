@@ -1,0 +1,10 @@
+# textdomain: cb_portals
+Nether Portal=
+The Nether is not open yet.=
+There is no room for a portal on the other side.=
+End Portal=
+The End is not open yet.=
+End Gateway=
+Beds do not set a respawn point here.=
+The eye of ender only works in the overworld.=
+The eye of ender finds no stronghold.=

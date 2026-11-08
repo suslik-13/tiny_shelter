@@ -1,0 +1,13 @@
+# Pockets lie entirely below this height.
+cubeborn.pocket_max_y (Pocket top limit) int -1500
+
+# Outer size of the Nether pocket, "x,y,z" (shell included).
+cubeborn.nether_size (Nether pocket size) string 528,136,528
+
+# Outer size of the End pocket, "x,y,z". Empty = 640,256,640 with an own
+# Nether, 1200,256,1200 with the nether mod.
+cubeborn.end_size (End pocket size) string
+
+# Distance of the End's outer islands from the centre. Empty = 150 with an own
+# Nether, 400 with the nether mod.
+cubeborn.end_outer_r (End outer islands radius) string

@@ -1,0 +1,16 @@
+cb_items = {}
+cb_items.S = core.get_translator("cb_items")
+
+local modpath = core.get_modpath("cb_items")
+dofile(modpath .. "/items.lua")
+dofile(modpath .. "/crystal.lua")
+dofile(modpath .. "/elytra.lua")
+dofile(modpath .. "/illager_items.lua")
+dofile(modpath .. "/netherite.lua")
+dofile(modpath .. "/trims.lua")
+dofile(modpath .. "/smithing.lua")
+dofile(modpath .. "/compass.lua")
+dofile(modpath .. "/nuggets.lua")
+dofile(modpath .. "/fireworks.lua")
+dofile(modpath .. "/bundle.lua")
+dofile(modpath .. "/jukebox.lua")

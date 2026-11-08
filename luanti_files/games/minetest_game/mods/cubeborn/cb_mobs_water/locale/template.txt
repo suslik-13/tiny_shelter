@@ -1,0 +1,14 @@
+# textdomain: cb_mobs_water
+Ink Sac=
+Glow Ink Sac=
+Squid=
+Glow Squid=
+Cod=
+Salmon=
+Bucket of @1=
+Pufferfish=
+Dolphin=
+Nautilus=
+Nautilus Shell=
+Guardian=
+Elder Guardian=

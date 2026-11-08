@@ -1,0 +1,12 @@
+# textdomain: cb_xp
+@1: level @2 (@3 points)=@1: уровень @2 (@3 оч.)
+next gear at level @1=следующее снаряжение на уровне @1
+[<player>]=[<игрок>]
+Show experience=Показать опыт
+Unknown player: @1=Неизвестный игрок: @1
+<player> <+N|-N>=<игрок> <+N|-N>
+Give or take experience=Начислить или отнять опыт
+Usage: /cb_xp <player> <+N|-N>=Использование: /cb_xp <игрок> <+N|-N>
+Not enough experience: level @1 needed, you have @2=Недостаточно опыта: нужен уровень @1, у вас @2
+Requires level @1=Требуется уровень @1
+Repairing needs experience=Для ремонта нужен опыт

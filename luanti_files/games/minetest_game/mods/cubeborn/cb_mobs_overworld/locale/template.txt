@@ -1,0 +1,9 @@
+# textdomain: cb_mobs_overworld
+Zombie=
+Husk=
+Drowned=
+Creeper=
+Stray=
+Silverfish=
+Endermite=
+Phantom=

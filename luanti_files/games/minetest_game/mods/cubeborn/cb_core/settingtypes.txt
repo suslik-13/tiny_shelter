@@ -1,0 +1,16 @@
+# Nether: "own" = Cubeborn pocket, "external" = the nether mod, "off" = none.
+# Empty = detect (external when the nether mod is installed).
+cubeborn.nether (Nether source) enum  ,own,external,off
+
+# Enable the End pocket.
+cubeborn.end (Enable the End) bool true
+
+# Milliseconds per server step that background jobs may use.
+cubeborn.job_budget_ms (Background job budget, ms) int 15 1 100
+
+# Extra node names (comma separated) treated as natural by area checks.
+cubeborn.natural_extra (Extra natural nodes) string
+cubeborn.difficulty (Difficulty of village and raid rules) enum normal easy,normal,hard
+# Mods (comma separated) whose every node area checks treat as natural: mods
+# that generate terrain of their own.
+cubeborn.natural_mods (Mods with natural nodes) string caverealms,riesenpilz,moretrees,spawners_env,tac_nayn

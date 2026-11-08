@@ -97,7 +97,8 @@ player_api.register_model(player_mod, {
 minetest.register_on_joinplayer(function(player)
 	player_api.set_model(player,player_mod)
 	player_api.player_attached[player:get_player_name()] = false
-	player:set_local_animation({},{},{},{},30)
+	local none = {x=0, y=0}
+	player:set_local_animation(none, none, none, none, 30)
 
 end)
 

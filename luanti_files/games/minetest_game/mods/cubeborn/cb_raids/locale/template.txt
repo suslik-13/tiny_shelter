@@ -1,0 +1,8 @@
+# textdomain: cb_raids
+Raid — wave @1/@2, @3 left=
+Raid — Victory=
+Raid — Defeat=
+Bad Omen @1: the illagers will raid the next village with villagers you enter within 100 minutes.=
+A raid on this village has begun: @1 waves. Defend the villagers!=
+This village has no villagers: there is nobody to raid.=
+Too many raids are going on; yours waits until one ends.=

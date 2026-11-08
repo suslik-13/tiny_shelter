@@ -1,0 +1,12 @@
+# textdomain: cb_xp
+@1: level @2 (@3 points)=
+next gear at level @1=
+[<player>]=
+Show experience=
+Unknown player: @1=
+<player> <+N|-N>=
+Give or take experience=
+Usage: /cb_xp <player> <+N|-N>=
+Not enough experience: level @1 needed, you have @2=
+Requires level @1=
+Repairing needs experience=

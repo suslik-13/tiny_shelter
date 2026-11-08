@@ -1,0 +1,22 @@
+# textdomain: cb_beacon
+Block of Emerald=
+Block of Netherite=
+Beacon=
+On a pyramid of mineral blocks under the open sky it gives effects=
+Beacon, pyramid level @1 of 4=
+Primary power=
+@1 (level @2)=
+Secondary power (level 4)=
+@1 II=
+Pay with an iron or gold ingot, a diamond, an emerald or a netherite ingot=
+Confirm=
+Put an iron or gold ingot, a diamond, an emerald or a netherite ingot in the slot.=
+Choose a primary power first.=
+The beacon is set.=
+Conduit=
+In water, inside a frame of prismarine: breath, light and speed under water=
+Heart of the Sea=
+Respawn point set.=
+Your respawn anchor is gone or empty.=
+Respawn Anchor=
+Charge with glowstone; sets your respawn point in the Nether, explodes elsewhere=

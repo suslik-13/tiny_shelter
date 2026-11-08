@@ -1,0 +1,2 @@
+# Experience points one anvil hammer blow costs.
+cubeborn.xp_repair_cost (XP per anvil hammer blow) int 1 0 100

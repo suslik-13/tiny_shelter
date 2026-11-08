@@ -1,0 +1,16 @@
+# textdomain: cb_mobs_nether
+Magma Cream=
+Magma Cube=
+Ghast Tear=
+Ghast=
+Piglin=
+Zombified Piglin=
+Hoglin=
+Zoglin=
+Strider=
+Warped Fungus on a Stick=
+Wither Skeleton Skull=
+Wither Skeleton=
+Piglin Brute=
+Nether Star=
+Wither=

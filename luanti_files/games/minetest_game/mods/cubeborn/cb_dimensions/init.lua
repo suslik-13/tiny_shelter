@@ -1,0 +1,16 @@
+cb_dimensions = {}
+cb_dimensions.S = core.get_translator("cb_dimensions")
+
+local modpath = core.get_modpath("cb_dimensions")
+dofile(modpath .. "/pockets.lua")
+dofile(modpath .. "/nether.lua")
+dofile(modpath .. "/nether_deco.lua")
+dofile(modpath .. "/end_gen.lua")
+dofile(modpath .. "/end_deco.lua")
+dofile(modpath .. "/end_islets.lua")
+dofile(modpath .. "/end_rules.lua")
+dofile(modpath .. "/claims.lua")
+dofile(modpath .. "/shell.lua")
+dofile(modpath .. "/fill.lua")
+dofile(modpath .. "/find.lua")
+dofile(modpath .. "/commands.lua")

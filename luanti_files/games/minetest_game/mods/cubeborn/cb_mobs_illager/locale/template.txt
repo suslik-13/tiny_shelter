@@ -1,0 +1,8 @@
+# textdomain: cb_mobs_illager
+Pillager=
+Vindicator=
+Pillager Captain=
+Evoker=
+Vex=
+Ravager=
+Illusioner=

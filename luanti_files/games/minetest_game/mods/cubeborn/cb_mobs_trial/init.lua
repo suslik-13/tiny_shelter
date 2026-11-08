@@ -1,0 +1,10 @@
+cb_mobs_trial = {}
+cb_mobs_trial.S = core.get_translator("cb_mobs_trial")
+local modpath = core.get_modpath("cb_mobs_trial")
+dofile(modpath .. "/breeze.lua")
+dofile(modpath .. "/bogged.lua")
+dofile(modpath .. "/trial_spawner.lua")
+dofile(modpath .. "/mace.lua")
+dofile(modpath .. "/creaking.lua")
+dofile(modpath .. "/happy_ghast.lua")
+dofile(modpath .. "/desert.lua")

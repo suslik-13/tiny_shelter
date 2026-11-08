@@ -1,0 +1,51 @@
+-- The potions (spec cycle 6, 4.3; plan 11 "Data"): durations as in Bedrock,
+-- the level each needs to brew. label: the kind's name in "Potion of @1".
+-- effects: { effect, level, strong level }; instant: HP per level (healing +,
+-- harming -). No effects and no instant: a base potion (water, awkward...).
+local S = cb_potions.S
+
+cb_potions.KINDS = {
+	water = { color = "#385dc6", base = 0, name = S("Water Bottle"), },
+	awkward = { color = "#8091ff", base = 0, name = S("Awkward Potion"), },
+	mundane = { color = "#8091ff", base = 0, name = S("Mundane Potion"), },
+	thick = { color = "#8091ff", base = 0, name = S("Thick Potion"), },
+	healing = { color = "#f6493a", base = 0, label = S("Healing"), instant = 4, strong = true, },
+	harming = { color = "#a07669", base = 5, label = S("Harming"), instant = -6, strong = true, harmful = true, },
+	swiftness = { color = "#5ae9fe", base = 0, label = S("Swiftness"), effects = { { "speed", 1, 2, }, },
+		dur = { 180, 480, 90, }, long = true, strong = true, },
+	leaping = { color = "#fafd8e", base = 0, label = S("Leaping"), effects = { { "jump_boost", 1, 2, }, },
+		dur = { 180, 480, 90, }, long = true, strong = true, },
+	strength = { color = "#f8c800", base = 5, label = S("Strength"), effects = { { "strength", 1, 2, }, },
+		dur = { 180, 480, 90, }, long = true, strong = true, },
+	night_vision = { color = "#c8f356", base = 0, label = S("Night Vision"), effects = { { "night_vision", 1, }, },
+		dur = { 180, 480, }, long = true, },
+	invisibility = { color = "#f7fdfc", base = 5, label = S("Invisibility"), effects = { { "invisibility", 1, }, },
+		dur = { 180, 480, }, long = true, },
+	fire_resistance = { color = "#fd970e", base = 5, label = S("Fire Resistance"), effects = { { "fire_resistance", 1, }, },
+		dur = { 180, 480, }, long = true, },
+	water_breathing = { color = "#98dac1", base = 0, label = S("Water Breathing"), effects = { { "water_breathing", 1, }, },
+		dur = { 180, 480, }, long = true, },
+	slow_falling = { color = "#eed1ba", base = 5, label = S("Slow Falling"), effects = { { "slow_falling", 1, }, },
+		dur = { 90, 240, }, long = true, },
+	weakness = { color = "#4a4e49", base = 5, label = S("Weakness"), effects = { { "weakness", 1, }, },
+		dur = { 90, 240, }, long = true, harmful = true, },
+	slowness = { color = "#8bb3de", base = 5, label = S("Slowness"), effects = { { "slowness", 1, 4, }, },
+		dur = { 90, 240, 20, }, long = true, strong = true, harmful = true, roman = "IV", },
+	poison = { color = "#86a25b", base = 5, label = S("Poison"), effects = { { "poison", 1, 2, }, },
+		dur = { 45, 90, 21, }, long = true, strong = true, harmful = true, },
+	regeneration = { color = "#cb54ba", base = 5, label = S("Regeneration"), effects = { { "regeneration", 1, 2, }, },
+		dur = { 45, 90, 22, }, long = true, strong = true, },
+	turtle_master = { color = "#8473dd", base = 20, label = S("the Turtle Master"),
+		effects = { { "slowness", 4, 6, }, { "resistance", 3, 4, }, }, dur = { 20, 40, 20, }, long = true, strong = true, },
+	wind_charged = { color = "#bcc8ff", base = 20, label = S("Wind Charging"), effects = { { "wind_charged", 1, }, },
+		dur = { 180, }, },
+	weaving = { color = "#75675a", base = 20, label = S("Weaving"), effects = { { "weaving", 1, }, }, dur = { 180, },
+		harmful = true, },
+	oozing = { color = "#a5fda9", base = 20, label = S("Oozing"), effects = { { "oozing", 1, }, }, dur = { 180, },
+		harmful = true, },
+	infestation = { color = "#899b8a", base = 20, label = S("Infestation"), effects = { { "infested", 1, }, },
+		dur = { 180, }, harmful = true, },
+}
+
+-- Strong (II) potions of these need level 25, the other strong ones 15.
+cb_potions.MIGHTY = { strength = true, regeneration = true, turtle_master = true, }
