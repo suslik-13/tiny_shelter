@@ -57,9 +57,11 @@ function nether.biome_at(x, z)
 	return nether.pick_biome(point_noise(NP_TEMP):get_2d(p), point_noise(NP_HUMID):get_2d(p))
 end
 
+-- A 2D map has no sz: its size.z is 1 (Luanti 5.18 rejects a nil coordinate).
 local maps = {}
 local function noise_map(np, sx, sy, sz)
-	local key = np.seed .. ":" .. sx .. ":" .. sy .. ":" .. (sz or 0)
+	sz = sz or 1
+	local key = np.seed .. ":" .. sx .. ":" .. sy .. ":" .. sz
 	local m = maps[key]
 	if not m then
 		m = core.get_perlin_map(np, { x = sx, y = sy, z = sz, })

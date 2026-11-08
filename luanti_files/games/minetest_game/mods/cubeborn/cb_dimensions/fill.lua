@@ -232,3 +232,18 @@ function cb_dimensions.start_create(dim, minp, owner)
 	return cb_core.jobs.start("cb_dimensions:fill",
 		{ dim = dim, minp = minp, maxp = maxp, phase = "emerge", i = 0, n = 0, }, { owner = owner, })
 end
+
+-- A pocket still "creating" with no fill job (the job was dropped on an error
+-- or lost) would stay unfinished for good: /cb_dim create and /cb_populate
+-- see it as existing. After a restart its fill starts again from the top
+-- (the write and verify phases overwrite what was already done). Runs after
+-- cb_core has resumed the saved jobs.
+core.register_on_mods_loaded(function()
+	for dim, pocket in pairs(cb_dimensions.all()) do
+		if pocket.state == "creating" and cb_dimensions.get_dim(dim) and not cb_dimensions.fill_job(dim) then
+			core.log("action", "[cubeborn] pocket " .. dim .. " was left unfinished without a job, filling it again")
+			cb_core.jobs.start("cb_dimensions:fill", { dim = dim, minp = vector.copy(pocket.minp),
+				maxp = vector.copy(pocket.maxp), phase = "emerge", i = 0, n = 0, }, { owner = pocket.created_by, })
+		end
+	end
+end)
