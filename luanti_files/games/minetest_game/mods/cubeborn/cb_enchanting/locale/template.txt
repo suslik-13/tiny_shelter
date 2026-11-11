@@ -29,6 +29,7 @@ Unbreaking=
 Wind Burst=
 @1 . . . ?=
 Level @1: @2 mese, @3 XP=
+@1 mese=
 Needs level @1=
 Needs @1 mese=
 Put a tool or a book=

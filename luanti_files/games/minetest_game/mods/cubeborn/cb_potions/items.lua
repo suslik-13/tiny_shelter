@@ -31,11 +31,13 @@ local function tooltip(item, form)
 		local n = math.abs(instant) / math.abs(CP.KINDS[(CP.parse(item))].instant)
 		lines[#lines + 1] = (instant > 0 and S("Instant Health") or S("Instant Damage")) .. ROMAN[n]
 	end
+	-- experience off (no cb_xp): brewing has no level or cost
+	local xp = rawget(_G, "cb_xp")
 	local lvl = CP.level(item)
-	if lvl > 0 then
+	if xp and lvl > 0 then
 		lines[#lines + 1] = S("Requires level @1 to brew", lvl)
 	end
-	if CP.parse(item) ~= "water" then
+	if xp and CP.parse(item) ~= "water" then
 		lines[#lines + 1] = S("Brewing costs @1 experience points", CP.xp_cost(item))
 	end
 	return #lines > 0 and "\n" .. core.colorize("#a8a8a8", table.concat(lines, "\n")) or ""

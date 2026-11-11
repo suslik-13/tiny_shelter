@@ -64,6 +64,8 @@ function SP.biome_at(pos)
 end
 
 -- rule: see the spec, 2.1. `on` entries are node names or "group:x".
+-- chance (0..1): a picked spot gets the mob only this often (rarer than the
+-- weight alone makes it, as Minecraft's drowned); cap: see SP.mob_capped.
 -- dark = true (monsters): Minecraft's rule instead of `light` — no block
 -- light at the spot and the sky no brighter than 7 at this time of day.
 function SP.register(name, rule)
@@ -183,6 +185,27 @@ function SP.capped(pos, category)
 	return n >= (SP.CAPS[category] or 0)
 end
 
+-- rule.cap: at most this many of the mob itself within RADIUS.
+function SP.mob_capped(pos, name, rule)
+	if not rule.cap then
+		return false
+	end
+	local n = 0
+	for _, obj in ipairs(core.get_objects_inside_radius(pos, SP.RADIUS)) do
+		local e = obj:get_luaentity()
+		if e and e.name == name then
+			n = n + 1
+		end
+	end
+	return n >= rule.cap
+end
+
+local function mob_box(name)
+	local def = core.registered_entities[name]
+	local props = def and def.initial_properties
+	return props and props.collisionbox or { -0.3, 0, -0.3, 0.3, 1.8, 0.3, }
+end
+
 local function blocked(spot, rule)
 	if not core.settings:get_bool("mobs_spawn", true) then
 		return true
@@ -214,15 +237,26 @@ function SP.try(pos, node, kind, rand)
 	local name, rule = SP.pick(cands, rand)
 	local spot = spot_of(pos, kind)
 	local animal = rule.category == "animal"
-	if blocked(spot, rule) or (animal and not SP.animal_rested(spot)) or SP.capped(spot, rule.category) then
+	if (rule.chance and math.random() >= rule.chance) or blocked(spot, rule)
+			or (animal and not SP.animal_rested(spot)) or SP.capped(spot, rule.category) or SP.mob_capped(spot, name, rule) then
 		return 0
 	end
+	local box = mob_box(name)
+	-- a ground mob stands on the node under the spot: its box bottom there
+	local lift = kind == "ground" and (-0.49 - box[2]) or 0
 	local placed = 0
 	for i = 1, math.random(rule.group[1], rule.group[2]) do
 		local p = i == 1 and spot or vector.offset(spot, math.random(-2, 2), 0, math.random(-2, 2))
-		if i == 1 or (kind == "water" and core.get_item_group(core.get_node(p).name, "water") > 0)
-				or (kind == "ground" and free(p) and free(vector.offset(p, 0, 1, 0))) then
-			if core.add_entity(vector.offset(p, 0, kind == "ground" and 0.5 or 0, 0), name) then
+		if kind == "ground" and not (free(p) and free(vector.offset(p, 0, 1, 0))
+				and cb_core.box_free(vector.offset(p, 0, lift, 0), box)) then
+			-- a wide or tall mob needs its whole box clear (inside nodes it
+			-- would sink and suffocate)
+			p = nil
+		elseif i > 1 and kind == "water" and core.get_item_group(core.get_node(p).name, "water") == 0 then
+			p = nil
+		end
+		if p then
+			if core.add_entity(vector.offset(p, 0, lift, 0), name) then
 				placed = placed + 1
 			end
 		end

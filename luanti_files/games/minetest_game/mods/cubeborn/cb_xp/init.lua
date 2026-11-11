@@ -1,6 +1,14 @@
 -- Experience (spec 2026-10-20-xp-design): one counter per player in this
 -- mod's storage (so commands and the leaderboard work for offline players),
 -- Minecraft levels, /xp and the admin command /cb_xp.
+-- cubeborn.xp = false turns experience off: nothing of this mod is loaded and
+-- cb_xp stays nil, so every mod treats gear, anvils, enchanting and brewing
+-- as free (no level limits, no costs). The stored points are kept for when
+-- it is turned on again.
+if not core.settings:get_bool("cubeborn.xp", true) then
+	core.log("action", "[cubeborn] experience is off (cubeborn.xp = false)")
+	return
+end
 cb_xp = {}
 local X = cb_xp
 local S = core.get_translator("cb_xp")

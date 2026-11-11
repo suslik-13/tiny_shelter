@@ -23,6 +23,10 @@ function Z.on_hit(self, obj)
 	end
 end
 
+-- Now and then armour (cb_core/mob_gear.lua), shown on texture 1.
+local ZARMOR = { armor = { steel = 2, bronze = 2, gold = 1, }, armor_slots = { 1, }, helmet = true, }
+Z.GEAR = { [Z.ZOMBIE] = ZARMOR, [Z.HUSK] = ZARMOR, }
+
 Z.custom = {} -- name -> list of do_custom steps (Task 3 adds the breaker)
 
 function Z.register_zombie(name, def, head_y)
@@ -74,9 +78,15 @@ function Z.register_zombie(name, def, head_y)
 				Z.make_baby(self)
 			end
 		end
+		if Z.GEAR[name] then
+			cb_core.gear.apply(self, Z.GEAR[name])
+		end
 		if own_after then
 			return own_after(self, ...)
 		end
+	end
+	if Z.GEAR[name] then
+		cb_core.gear.register(name, Z.GEAR[name])
 	end
 	Z.custom[name] = Z.custom[name] or {}
 	-- head_y: the head.control bone height (Mineclonia bone_eye_height), or

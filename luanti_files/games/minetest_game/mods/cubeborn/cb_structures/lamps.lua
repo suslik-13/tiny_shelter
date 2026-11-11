@@ -177,6 +177,9 @@ core.register_chatcommand("cb_lamps", {
 		if job then
 			return false, S("Lamps are already being added (/cb_lamps status).")
 		end
+		if cb_structures.auto then
+			cb_structures.auto.stop()
+		end
 		if cb_structures.populate_state or cb_structures.scatter_state or cb_structures.nether_fill_state then
 			return false, S("Another fill is going on; wait for it or stop it first.")
 		end

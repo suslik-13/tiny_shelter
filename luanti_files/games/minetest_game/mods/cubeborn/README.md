@@ -186,6 +186,10 @@ Village and helpers:
      generate terrain of their own, default `caverealms,riesenpilz`: their nodes do not count as builds)
    - `cubeborn.rare_respawn_hours` (default 24), `cubeborn.elytra_respawn_days` (default 7)
    - `cubeborn.village_size_min`, `cubeborn.village_size_max` (default 8, 20), `cubeborn.difficulty = easy|normal|hard`
+   - `cubeborn.xp = true|false` (default true): `false` turns experience off — no levels, orbs or bar;
+     any gear can be worn and used; anvil repairs, enchanting and brewing cost no experience
+   - `cubeborn.structures_on_mapgen = true|false` (default false): `true` places every structure as the
+     world generates, for a server started on a new map (see `/cb_populate`)
 3. Before the first start on a live world, check that the pocket area is empty:
    `python3 tools/check_regions.py worlds/<world>/map.sqlite -2032 -2032 -2032 2047 -1500 2047`
 
@@ -202,7 +206,8 @@ Village and helpers:
   their share), spaced out, on free unprotected ground in fitting biomes. Areas the map generator
   has not made yet are skipped, nothing new is generated. `/cb_scatter status`, `/cb_scatter stop`;
   after a restart run it again. Structures appear only through these commands (and End cities when
-  the End is created): the pack adds nothing to the generation of new chunks except a few ores.
+  the End is created): the pack adds nothing to the generation of new chunks except a few ores —
+  unless `cubeborn.structures_on_mapgen` is on.
 - `/cb_populate [status|stop]` — fill the map that already exists with every structure at about
   Minecraft's frequency, in one run: creates the End pocket and (without the `nether` mod) the Nether
   pocket when missing, then strongholds in rings around 0,0 (3 at 1280–2816 nodes; more rings where the
@@ -217,6 +222,11 @@ Village and helpers:
   `cubeborn.populate_pause_s` 20 s after each structure); with nobody online at full speed; it waits
   while the server lags. After a restart `/cb_populate` continues where it stopped.
   `/cb_scatter` and `/cb_populate` do not run together.
+- With `cubeborn.structures_on_mapgen = true` the same steps run by themselves while the world
+  generates: each 1000×1000 square is filled a few seconds after it gets new land (again when more
+  of it is generated; the same spots as `/cb_populate`, so nothing comes twice), and the End and
+  Nether pockets are created at start when missing. A structure needs its whole area generated, so it
+  appears shortly after players reach the place. Admin fills go first; the square is filled later.
 - `/cb_nether_fill <radius> [y] | status | stop` — with the `nether` mod: add fortresses and bastions around
   the admin (or around 0,0 with a given `y`) near one height, so that players at that height meet them: one
   per 432×432 cell, 2 fortresses to 3 bastions. Unlike `/cb_populate` it generates map, but only each site's
@@ -712,7 +722,11 @@ Monsters need full darkness, as in Minecraft. Within 32 nodes of the spot at mos
 `cubeborn.spawn_cap_monster` (8), `_animal` (6), `_water` (5), `_ambient` (3) Cubeborn mobs of that
 category may live; `cubeborn.spawn_chance_scale` (1) makes the ABMs rarer. The mobs_redo settings
 apply: `mobs_spawn = false` stops it, nothing spawns within `mob_nospawn_range` of a player, monsters
-never in peaceful mode or (with `mobs_spawn_protected = false`) in protected areas.
+never in peaceful mode or (with `mobs_spawn_protected = false`) in protected areas. A mob is placed
+only where its whole box fits (camels need three nodes across).
+
+A mob that ends up inside nodes anyway (a structure or a block placed onto it, a child grown up under a
+roof) is lifted to the first free place within 8 nodes above instead of sinking and suffocating.
 
 ## Overworld monsters (`cb_mobs_overworld`, needs mobs_redo)
 
@@ -723,10 +737,12 @@ drop rotten flesh (food; 80 % chance of Hunger for 30 s). Zombies and husks brea
 (about 12 s of blows, the door drops as an item) and glass (about 3 s, no drop) that stand between them
 and their target; never steel, glass or owned doors, obsidian glass, or anything in protected areas or
 in pocket shells. **Drowned** live in dark rivers and seas, do not burn, and 15 % of them throw a
-trident (a projectile only; no trident ever drops).
+trident (a projectile only; no trident ever drops). As in Minecraft only 1 in 15 picked spots gets one,
+and no more than 3 live within 32 nodes.
 
-**Creepers** walk up and explode after 1.5 s: the blast hurts and pushes creatures within 3 nodes and
-never breaks a node. Lightning (tiny) charges creepers within 4 nodes of the strike: radius 6. They
+**Creepers** walk up to players (never villagers or tamed wolves unless those hit them first) and explode
+after 1.5 s: the blast hurts and pushes creatures within 3 nodes and never breaks a node. An ocelot or a
+cat (mobs_animal's kitten) within 6 nodes stops the fuse and sends them running. Lightning (tiny) charges creepers within 4 nodes of the strike: radius 6. They
 drop gunpowder. **Spider jockeys** (rare, only with `mobs_monster` and `mobs_skeletons`) are a
 skeleton archer riding a spider. **Strays** are the skeletons of snowy biomes: their arrows (mob
 projectiles only) hurt 3 and slow for 30 s; they burn in daylight and drop bones. **Silverfish** hide
@@ -760,9 +776,12 @@ no taming: whoever saddles one owns it and rides it (no chest).
 **Wolves** live in forests, taigas, snowy lands and savannas, in six coats by biome. Wild ones leave
 players alone until hit (then the pack fights back) and hunt skeletons. A bone (`bonemeal:bone`) tames
 one with a 1 in 3 chance: a tamed wolf wears a red collar, has 20 HP, follows its owner (and comes to them
-from more than 24 nodes away), fights monsters except creepers and attacks whoever hits its owner. The
-owner's right-click with an empty hand makes it sit or stand up; a sitting wolf stays put. Raw meat,
-pork or chicken heals and breeds it.
+from more than 24 nodes away), fights monsters except creepers and attacks whoever hits its owner (an
+archer, not its arrow) and monsters going for its owner. A creeper blast does 40 % of its damage to a
+wolf, so a healthy tamed wolf lives through one. The owner's right-click with an empty hand makes it sit
+or stand up; a sitting wolf stays put. Raw meat, pork or chicken heals and breeds it. On tamed Cubeborn
+mobs the mobs_redo protection rune also guards against mobs and blasts: half damage (level 1), none
+(level 2).
 
 **Armadillos** live in savannas and roll up when a sprinting or riding player, their attacker or an undead
 mob comes within 4 nodes; rolled up they take half damage minus one. Every 5-10 minutes an adult sheds an
@@ -836,7 +855,8 @@ and, fully puffed, stings what touches it with poison; eating one poisons and st
 warm seas: swimming near them gives Dolphin's Grace (faster swimming), and fed raw fish one leads you for
 30 s towards the nearest structure. They breathe air and fight back as a pod. **Nautiluses** drift in
 deeper warm water, charge whoever hurts them and sometimes drop a nautilus shell (taming, riding and
-nautilus armour are not included). Fish, squid and nautiluses choke out of water.
+nautilus armour are not included). Fish, squid and nautiluses choke out of water; Cubeborn's swimmers
+(and axolotls) turn back where the water ends instead of swimming or climbing onto the shore.
 
 **Ocean monuments** (`/cb_spawn ocean_monument` on deep sea, or `/cb_scatter ocean_monument N`) are built
 of prismarine under the sea, on struts down to the sea floor, and kept by **guardians**: they aim a beam
@@ -845,6 +865,17 @@ wings and the top room (rare: they come back a day after they are gone); they hu
 players within 50 nodes Mining Fatigue III, which all but stops digging for five minutes. New blocks:
 prismarine, prismarine bricks, dark prismarine (stairs and slabs), sea lanterns, sponges (a dry sponge
 soaks up the water around it; a wet one dries in a furnace).
+
+## Gear of zombies and piglins (`cb_core/mob_gear.lua`)
+
+**Piglins** and **zombified piglins** hold a bronze or steel sword, **piglin brutes** a bronze or steel
+axe. About 15 % of zombies, husks, piglins and zombified piglins wear armour from 3d_armor (one to four
+pieces of one material: zombies steel, bronze or gold, piglins mostly gold), shown on the model (on
+piglins the helmet is worn but not shown). About 30 % of the swords and pieces are enchanted, at most
+as on an enchanting table at power 15 (never the best rolls). Armour makes them take less damage (full
+steel: about half; Protection lowers it more), Sharpness makes their hit stronger. Killed by a player,
+a mob drops all its armour and, 15 % of the time, its weapon, each worn by a random amount (15-85 % of
+its durability used), enchantments kept. A piglin that turns into a zombified piglin keeps its gear.
 
 ## Nether mobs (`cb_mobs_nether`, needs mobs_redo)
 
@@ -888,7 +919,8 @@ the **skeleton skull** (floor or wall) decorate ancient cities.
 only experience (1 for sculk, 5 for the others). They only listen inside **ancient cities** (records of
 the structure registry), so elsewhere they cost nothing: every 0.5 s a player there who moves without
 sneaking wakes the sensors within 8, and a woken sensor, or stepping on a shrieker, makes the shriekers
-within 8 shriek. A shrieker the city placed raises that player's **warning level** (at most once every
+within 8 shriek. Players in creative mode (`creative_mode` or the `creative` privilege) are never heard,
+so test it without creative. A shrieker the city placed raises that player's **warning level** (at most once every
 10 s, one level lost per 10 minutes) and gives **darkness** for 13 s to players within 40; at level 4 it
 calls the warden. When a mob or player dies within 8 of a catalyst, up to 5 bare stone, dirt or
 deepslate blocks around it (inside the city, never protected ones) turn to sculk.
@@ -1037,6 +1069,8 @@ Levels and points (as in Minecraft): "Points" is the total a player needs to hav
 - **Death:** a quarter of the experience is lost and drops as orbs at the place of death; admins
   (`cb_admin` or `server`) lose and drop nothing.
 - **Leaderboard:** with `atl_server_statistics`, `/leaderboard` gets an Experience tab.
+- **Off switch:** `cubeborn.xp = false` in `minetest.conf` turns all of it off (no orbs, bar, `/xp`,
+  level limits or costs; enchanting takes only mese). Stored experience is kept for when it is back on.
 
 ## Mobs (`cb_mobs_dim`, needs mobs_redo)
 

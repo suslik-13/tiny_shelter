@@ -125,14 +125,16 @@ local function formspec(pos, player)
 	local offers = E.offers(player, inv:get_stack("tool", 1), E.shelves(pos))
 	local x = X()
 	local lvl = x and x.level_of(x.get(name)) or 0
-	local admin = x and x.is_admin(name)
+	-- no cb_xp (experience off): no level limits, no costs
+	local free = not x or x.is_admin(name)
 	local mese = inv:get_stack("mese", 1):get_count()
 	for i, o in ipairs(offers) do
 		local y = 0.6 + (i - 1) * 1.1
 		if o then
 			local text = S("@1 . . . ?", o.hint)
-			local cost = S("Level @1: @2 mese, @3 XP", o.level, i, admin and 0 or E.xp_cost(name, i))
-			if not admin and lvl < o.level then
+			local cost = x and S("Level @1: @2 mese, @3 XP", o.level, i, free and 0 or E.xp_cost(name, i))
+				or S("@1 mese", i)
+			if not free and lvl < o.level then
 				cost = S("Needs level @1", o.level)
 			elseif mese < i then
 				cost = S("Needs @1 mese", i)

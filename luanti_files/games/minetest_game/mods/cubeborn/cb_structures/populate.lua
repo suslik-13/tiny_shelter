@@ -35,6 +35,7 @@ P.RING_MARGIN = 150
 P.STRONGHOLD_NEAR = 300
 
 local world_seed = tonumber((core.get_mapgen_setting("seed") or "0"):sub(-9)) or 0
+P.world_seed = world_seed
 
 local function step_key(s)
 	if s.kind == "pocket" then
@@ -93,7 +94,7 @@ function P.ring_spots(seed, half)
 	return list
 end
 
-local function map_half()
+function P.map_half()
 	local a, b = core.get_mapgen_edges()
 	return math.min(-a.x, b.x, -a.z, b.z)
 end
@@ -149,7 +150,7 @@ local function biome_in(pos, words)
 end
 
 -- The spot finder of a step: villages only in Minecraft's village biomes.
-local function spot_for(s)
+function P.spot_for(s)
 	if s.kind == "nether" then
 		return P.nether_spot
 	end
@@ -230,7 +231,7 @@ local function pocket_step(st, s)
 	end)
 end
 
-local function stronghold_near(x, z)
+function P.stronghold_near(x, z)
 	for _, rec in pairs(cb_structures.registry.all()) do
 		if rec.type == "stronghold" and rec.minp and rec.maxp then
 			local cx, cz = (rec.minp.x + rec.maxp.x) / 2, (rec.minp.z + rec.maxp.z) / 2
@@ -244,7 +245,7 @@ end
 
 local function strongholds_step(st)
 	st.what = "stronghold"
-	local spots = P.ring_spots(world_seed, map_half())
+	local spots = P.ring_spots(world_seed, P.map_half())
 	local placed, missing, k = 0, 0, 0
 	local function nxt()
 		if not alive(st) then
@@ -256,7 +257,7 @@ local function strongholds_step(st)
 			say(st, S("Populate: '@1' done: @2 placed, @3 missing.", "stronghold", placed, missing))
 			return next_step(st)
 		end
-		if stronghold_near(sp.x, sp.z) then
+		if P.stronghold_near(sp.x, sp.z) then
 			return core.after(0, nxt)
 		end
 		local wait = PL.spot_delay()
@@ -292,7 +293,7 @@ local function scatter_step(st, s)
 	local key = step_key(s)
 	SC.start(s.name, per_cell, st.owner, {
 		minp = st.opts.minp, maxp = st.opts.maxp, cell = cell, seed = world_seed, biome_once = true,
-		spot = spot_for(s), delay = PL.spot_delay, after_build = PL.pause_after_build, quiet = true,
+		spot = P.spot_for(s), delay = PL.spot_delay, after_build = PL.pause_after_build, quiet = true,
 		start_cell = st.start_cell, skip = st.skip_cells,
 		on_cell = function(sc)
 			if alive(st) then
@@ -409,6 +410,9 @@ core.register_chatcommand("cb_populate", {
 			return true, P.stop() and S("Populate stopped; /cb_populate continues it.") or S("No populate run is going on.")
 		elseif param ~= "" then
 			return false, S("Usage: /cb_populate [status|stop]")
+		end
+		if cb_structures.auto then
+			cb_structures.auto.stop()
 		end
 		if cb_structures.populate_state then
 			return false, S("A populate run is already going on (/cb_populate status).")

@@ -401,6 +401,9 @@ core.register_chatcommand("cb_scatter", {
 		if table.indexof(def.dims or {}, "overworld") < 0 then
 			return false, S("'@1' belongs to another dimension.", what)
 		end
+		if cb_structures.auto then
+			cb_structures.auto.stop()
+		end
 		if cb_structures.populate_state then
 			return false, S("A populate run is going on (/cb_populate stop).")
 		end

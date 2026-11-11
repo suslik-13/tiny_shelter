@@ -195,6 +195,9 @@ core.register_chatcommand("cb_nether_fill", {
 		if not radius or radius < 1 or radius > NF.MAX_RADIUS then
 			return false, USAGE
 		end
+		if cb_structures.auto then
+			cb_structures.auto.stop()
+		end
 		if st or cb_structures.populate_state or cb_structures.scatter_state then
 			return false, S("Another fill is going on; wait for it or stop it first.")
 		end

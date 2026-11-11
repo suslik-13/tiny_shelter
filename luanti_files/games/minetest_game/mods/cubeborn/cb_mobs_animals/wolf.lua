@@ -3,13 +3,15 @@
 -- wolf becomes a mobs_redo helper ("npc"): it follows its owner, sits and
 -- stands up on the owner's right-click (with anything but food, armour or
 -- shears; a name tag and a protection rune go to cb_core), fights monsters (not
--- creepers), defends its owner and comes to them from afar. Raw meat heals
+-- creepers), defends its owner (also from archers and from monsters closing
+-- in on the owner) and comes to them from afar; creeper blasts hurt it less. Raw meat heals
 -- and breeds it; wolf armour (armadillo scutes) takes the damage for it.
 local S = cb_mobs_animals.S
 local A = cb_mobs_animals
 A.WOLF = "cb_mobs_animals:wolf"
 local BONE, SHEARS = "bonemeal:bone", "mobs:shears"
 local DEFEND_RANGE, CALL_RANGE = 16, 24
+A.WOLF_BLAST_FACTOR = 0.4
 local SKELETONS = { "mobs_skeletons:skeleton", "mobs_skeletons:skeleton_archer", "mobs_skeletons:skeleton_archer_dark",
 	"cb_mobs_overworld:stray", "cb_mobs_dim:wither_skeleton", }
 
@@ -82,8 +84,26 @@ function A.wolf_order(self, clicker)
 	return true
 end
 
+-- A mobs_redo arrow stands for whoever shot it (the arrow keeps the
+-- shooter's object as text).
+local function shooter_of(arrow)
+	local e = arrow and arrow:get_luaentity()
+	if not (e and e._is_arrow and e.owner_id) then
+		return arrow
+	end
+	local pos = arrow:get_pos()
+	for _, obj in ipairs(pos and core.get_objects_inside_radius(pos, 32) or {}) do
+		if tostring(obj) == e.owner_id then
+			return obj
+		end
+	end
+	return nil
+end
+A.shooter_of = shooter_of
+
 -- Someone hit the owner: the owner's standing wolves nearby attack them.
 function A.defend(owner, hitter)
+	hitter = shooter_of(hitter)
 	if not hitter or (hitter:is_player() and hitter:get_player_name() == owner) then
 		return 0
 	end
@@ -174,6 +194,26 @@ local function call_to_owner(self)
 	end
 end
 
+-- A following wolf goes for the monsters (but creepers) that are after its
+-- owner, before they land a blow.
+local function guard_owner(self)
+	local p = core.get_player_by_name(self.owner or "")
+	local at = p and p:get_pos()
+	if not at then
+		return false
+	end
+	for _, obj in ipairs(core.get_objects_inside_radius(at, DEFEND_RANGE)) do
+		local e = obj:get_luaentity()
+		if e and e._cmi_is_mob and e.type == "monster" and e.health > 0 and e.name ~= "cb_mobs_overworld:creeper"
+				and e.attack and e.attack:is_player() and e.attack:get_player_name() == self.owner then
+			self:do_attack(obj)
+			return true
+		end
+	end
+	return false
+end
+A.wolf_guard_owner = guard_owner
+
 -- From do_custom: sitting, the angry look and coming to the owner.
 function A.wolf_tick(self, dtime)
 	local angry = not self.tamed and self.state == "attack" or nil
@@ -190,7 +230,7 @@ function A.wolf_tick(self, dtime)
 	self._call_t = (self._call_t or 0) + dtime
 	if self.tamed and self.order == "follow" and self._call_t >= 2 then
 		self._call_t = 0
-		if self.state ~= "attack" then
+		if self.state ~= "attack" and not guard_owner(self) then
 			call_to_owner(self)
 		end
 	end
@@ -280,6 +320,16 @@ function A.tame_wolf_keep(self)
 	self.type, self.attack_monsters, self.specific_attack = "npc", true, false
 	self.attack_ignore, self.owner_loyal = { "cb_mobs_overworld:creeper", }, true
 	self.object:set_properties({ hp_max = 20, })
+end
+
+-- A creeper's blast hurts a wolf less: a healthy tamed wolf lives through
+-- even a charged one (cb_core scales the blow before mobs_redo counts it;
+-- mobs_redo keeps no unknown fields, hence set on the entity).
+core.registered_entities[A.WOLF]._cb_damage_factor = function(self, hitter)
+	local Z = rawget(_G, "cb_mobs_overworld")
+	if hitter == self.object and Z and Z.blasting then
+		return A.WOLF_BLAST_FACTOR
+	end
 end
 
 mobs:register_egg(A.WOLF, S("Wolf"), "cb_mobs_animals_wolf.png", 1)

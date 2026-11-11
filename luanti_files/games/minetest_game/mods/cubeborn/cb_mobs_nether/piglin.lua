@@ -104,7 +104,9 @@ local function zombify(self)
 	local pos = self.object:get_pos()
 	self.object:remove()
 	local obj = core.add_entity(pos, N.ZOMBIFIED)
-	return obj and obj:get_luaentity()
+	local ent = obj and obj:get_luaentity()
+	cb_core.gear.pass_on(self, ent)
+	return ent
 end
 N.zombify = zombify
 
@@ -194,6 +196,17 @@ end
 local ANIM = { speed_normal = 30, stand_start = 0, stand_end = 79, walk_start = 168, walk_end = 187, walk_speed = 12,
 	run_start = 168, run_end = 187, run_speed = 12, punch_start = 189, punch_end = 198, punch_speed = 45, }
 
+-- Mineclonia's piglin: the Wield_Item bone holds a tool at this offset; the
+-- legs armour goes to texture 2, body and boots to 3 (the helmet would need
+-- a head model of its own, so it is worn but not shown).
+local HAND = { bone = "Wield_Item", pos = vector.new(0, 4.7, 3.1), rot = vector.new(-90, 225, 90), }
+local SWORDS = { "default:sword_bronze", "default:sword_steel", }
+local ARMOR = { gold = 3, steel = 1, bronze = 1, }
+N.GEAR = {
+	piglin = { weapons = SWORDS, armor = ARMOR, wield = HAND, armor_slots = { 2, 3, }, helmet = false, },
+	brute = { weapons = { "default:axe_bronze", "default:axe_steel", }, wield = HAND, },
+}
+
 local function register(name, desc, tex, hp, extra)
 	local def = {
 		type = "animal", passive = false, attack_players = false, attack_type = "dogfight", damage = 5, reach = 2,
@@ -210,17 +223,31 @@ local function register(name, desc, tex, hp, extra)
 	for k, v in pairs(extra) do
 		def[k] = v
 	end
+	-- weapon in the hand, sometimes armour (cb_core/mob_gear.lua)
+	if def.gear then
+		cb_core.gear.register(name, def.gear)
+		def.gear = nil
+		local own = def.after_activate
+		def.after_activate = function(self, ...)
+			cb_core.gear.apply(self)
+			if own then
+				return own(self, ...)
+			end
+		end
+	end
 	mobs:register_mob(name, def)
 	mobs:register_egg(name, desc, tex, 1)
 end
 
 register(N.PIGLIN, S("Piglin"), "cb_mobs_nether_piglin.png", 16, {
+	gear = N.GEAR.piglin,
 	do_custom = function(self, dtime)
 		return N.piglin_tick(self, dtime)
 	end,
 })
 register(N.BRUTE, S("Piglin Brute"), "cb_mobs_nether_piglin_brute.png", 50, {
 	damage = 7,
+	gear = N.GEAR.brute,
 	do_custom = function(self, dtime)
 		return N.brute_tick(self, dtime)
 	end,
@@ -232,6 +259,7 @@ end
 register(N.ZOMBIFIED, S("Zombified Piglin"), "cb_mobs_nether_zombified_piglin.png", 20, {
 	fire_damage = 0, lava_damage = 0,
 	drops = zdrops,
+	gear = N.GEAR.piglin,
 	do_punch = function(self, hitter)
 		N.pack_anger(self, hitter)
 	end,

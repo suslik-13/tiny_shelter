@@ -1,6 +1,7 @@
 -- Creeper (spec cycle 4, 8a): walks up and explodes; the blast hurts and
 -- pushes creatures within 3 (6 when charged by lightning) and never breaks
--- nodes (owner's rule: only the wither breaks blocks).
+-- nodes (owner's rule: only the wither breaks blocks). It goes for players
+-- only and runs from ocelots and cats.
 local S = cb_mobs_overworld.S
 local Z = cb_mobs_overworld
 Z.CREEPER = "cb_mobs_overworld:creeper"
@@ -11,13 +12,53 @@ local boom = mobs.boom
 function mobs:boom(self, pos, node_r, entity_r, texture)
 	if self and self._cb_safe_boom then
 		-- mobs_redo's explode attack passes no texture: nil particles show
-		-- as unknown_node squares flying around
-		return mobs:safe_boom(self, pos, entity_r or node_r, texture or "mobs_tnt_smoke.png")
+		-- as unknown_node squares flying around. Z.blasting tells the punched
+		-- creatures (wolves) the blow is a creeper's blast.
+		Z.blasting = true
+		local ok, err = pcall(mobs.safe_boom, mobs, self, pos, entity_r or node_r, texture or "mobs_tnt_smoke.png")
+		Z.blasting = nil
+		if not ok then
+			error(err, 0)
+		end
+		return
 	end
 	return boom(mobs, self, pos, node_r, entity_r, texture)
 end
 
 local TEX = "cb_mobs_overworld_creeper.png"
+
+-- Creepers fear cats: one within CAT_FEAR nodes stops the fuse and sends the
+-- creeper running.
+Z.CATS = { ["cb_mobs_animals:ocelot"] = true, ["mobs_animal:kitten"] = true, }
+Z.CAT_FEAR = 6
+
+function Z.creeper_fear(self, dtime)
+	self._fear_t = (self._fear_t or 0) + dtime
+	if self._fear_t < 0.5 then
+		return true
+	end
+	self._fear_t = 0
+	local pos = self.object:get_pos()
+	if not pos then
+		return true
+	end
+	for _, obj in ipairs(core.get_objects_inside_radius(pos, Z.CAT_FEAR)) do
+		local e = obj:get_luaentity()
+		if e and Z.CATS[e.name] and (e.health or 1) > 0 then
+			if self.v_start then
+				self.v_start, self.timer, self.blinktimer, self.blinkstatus = false, 0, 0, false
+				self.object:set_texture_mod(self.texture_mods or "")
+			end
+			self.attack, self.following = nil, nil
+			self:yaw_to_pos(obj:get_pos(), 3)
+			self.state, self.runaway_timer = "runaway", 3
+			self:set_velocity(self.run_velocity)
+			self:set_animation("walk")
+			return true
+		end
+	end
+	return true
+end
 
 function Z.charge_creeper(ent)
 	ent._charged = true
@@ -26,7 +67,9 @@ function Z.charge_creeper(ent)
 end
 
 mobs:register_mob(Z.CREEPER, {
-	type = "monster", passive = false, attack_type = "explode", reach = 3,
+	-- players only: never villagers or tamed wolves (they fight back if hit)
+	type = "monster", passive = false, attack_type = "explode", reach = 3, attack_npcs = false,
+	attack_animals = false,
 	explosion_radius = 3, explosion_damage_radius = 3, explosion_timer = 1.5,
 	hp_min = 20, hp_max = 20, armor = 100,
 	collisionbox = { -0.3, 0, -0.3, 0.3, 1.7, 0.3, },
@@ -39,6 +82,9 @@ mobs:register_mob(Z.CREEPER, {
 		fuse = "cb_mobs_overworld_creeper_fuse", explode = "tnt_explode", distance = 16, },
 	animation = { speed_normal = 48, stand_start = 0, stand_end = 0, walk_start = 0, walk_end = 40, run_start = 0,
 		run_end = 40, },
+	do_custom = function(self, dtime)
+		return Z.creeper_fear(self, dtime)
+	end,
 	-- the lightning mod's own strikes (no position given) punch every object
 	-- near them with itself as the puncher and 8 fleshy damage
 	do_punch = function(self, hitter, _, caps)

@@ -1,2 +1,7 @@
 # Experience points one anvil hammer blow costs.
 cubeborn.xp_repair_cost (XP per anvil hammer blow) int 1 0 100
+
+# Experience on this server. Off: no levels, orbs or experience bar; any armour
+# and tool can be used, anvil repairs, enchanting and brewing cost no experience.
+# The stored experience is kept and comes back when it is turned on again.
+cubeborn.xp (Experience) bool true
