@@ -3,6 +3,8 @@ cubeborn.spawn_cap_monster (Monster cap) int 8 0 64
 cubeborn.spawn_cap_animal (Animal cap) int 6 0 64
 cubeborn.spawn_cap_water (Water cap) int 5 0 64
 cubeborn.spawn_cap_ambient (Ambient cap) int 3 0 64
+# Monsters allowed within 32 nodes of a spawn spot in the Nether.
+cubeborn.spawn_cap_nether_monster (Nether monster cap) int 16 0 64
 # Multiplies how rarely the spawn ABMs fire (2 = half as often).
 cubeborn.spawn_chance_scale (Spawn chance scale) float 1 0.1 100
 # Game seconds before a 64x64 column gets another group of animals (they never despawn).

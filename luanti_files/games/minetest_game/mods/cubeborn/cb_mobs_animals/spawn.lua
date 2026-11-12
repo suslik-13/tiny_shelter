@@ -1,8 +1,11 @@
 -- Spawn rules of the animals (spec cycle 4, 2.1 and 8b).
 local A = cb_mobs_animals
 local GRASS = { "default:dirt_with_grass", "default:dirt_with_rainforest_litter", "group:soil", }
+-- Pigs keep to the ground: not on ethereal's crystal and fiery dirt, not on
+-- the sky islands (mapgen v7 floatlands; ethereal puts crystal dirt there).
 cb_spawning.register(A.PIG, { dims = { "overworld", }, category = "animal", light = { 9, 15, }, sky = true,
-	on = GRASS, weight = 100, group = { 2, 4, }, })
+	on = GRASS, not_on = { "ethereal:crystal_dirt", "ethereal:fiery_dirt", },
+	y = { -31000, (cb_spawning.FLOATLAND_Y or 31001) - 1, }, weight = 100, group = { 2, 4, }, })
 if core.registered_nodes["ethereal:mushroom_dirt"] then
 	cb_spawning.register(A.MOOSHROOM, { dims = { "overworld", }, category = "animal", light = { 9, 15, }, sky = true,
 		on = { "ethereal:mushroom_dirt", }, biomes = { "mushroom", }, weight = 100, group = { 2, 4, }, })

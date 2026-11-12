@@ -11,6 +11,8 @@ cb_spawning = SP
 for cat, n in pairs({ monster = 8, animal = 6, water = 5, ambient = 3, }) do
 	SP.CAPS[cat] = tonumber(cb_core.setting("cubeborn.spawn_cap_" .. cat, tostring(n))) or n
 end
+-- The Nether has nothing but monsters (and striders): a cap of its own.
+SP.NETHER_MONSTER_CAP = tonumber(cb_core.setting("cubeborn.spawn_cap_nether_monster", "16")) or 16
 
 -- Animals never despawn, and the cap only sees loaded objects: a player who
 -- keeps moving would leave a trail of full caps (BACKLOG: too many pigs). So
@@ -33,6 +35,17 @@ end
 function SP.animal_spawned(pos)
 	storage:set_int(animal_key(pos), math.max(1, core.get_gametime()))
 end
+
+-- The lowest height of mapgen v7's floatlands (sky islands), or nil.
+local function floatland_y()
+	local flags = core.get_mapgen_setting("mgv7_spflags") or ""
+	if core.get_mapgen_setting("mg_name") ~= "v7" or not flags:find("floatlands", 1, true)
+			or flags:find("nofloatlands", 1, true) then
+		return nil
+	end
+	return tonumber(core.get_mapgen_setting("mgv7_floatland_ymin") or "") or 1024
+end
+SP.FLOATLAND_Y = floatland_y()
 
 local MAX_Y = rawget(_G, "cb_dimensions") and cb_dimensions.MAX_Y
 	or tonumber(cb_core.setting("cubeborn.pocket_max_y", "-1500")) or -1500
@@ -63,7 +76,8 @@ function SP.biome_at(pos)
 	return data and core.get_biome_name(data.biome) or ""
 end
 
--- rule: see the spec, 2.1. `on` entries are node names or "group:x".
+-- rule: see the spec, 2.1. `on` entries are node names or "group:x";
+-- `not_on` (same form) takes nodes out of `on`.
 -- chance (0..1): a picked spot gets the mob only this often (rarer than the
 -- weight alone makes it, as Minecraft's drowned); cap: see SP.mob_capped.
 -- dark = true (monsters): Minecraft's rule instead of `light` — no block
@@ -128,7 +142,8 @@ function SP.candidates(pos, node, kind)
 	for _, name in ipairs(SP.order) do
 		local r = SP.rules[name]
 		if r.kind == kind and core.registered_entities[name] and table.indexof(r.dims, dim) > 0
-				and spot.y >= r.y[1] and spot.y <= r.y[2] and node_fits(node.name, r.on) then
+				and spot.y >= r.y[1] and spot.y <= r.y[2] and node_fits(node.name, r.on)
+				and not (r.not_on and node_fits(node.name, r.not_on)) then
 			local lit_ok
 			if r.dark then
 				-- Minecraft darkness: no block light, and the sky no brighter than
@@ -172,7 +187,7 @@ end
 local category_of = {}
 
 -- The animal cap counts every animal mob (mobs_animal's cows and sheep too).
-function SP.capped(pos, category)
+function SP.capped(pos, category, dim)
 	local n = 0
 	for _, obj in ipairs(core.get_objects_inside_radius(pos, SP.RADIUS)) do
 		local e = obj:get_luaentity()
@@ -182,7 +197,11 @@ function SP.capped(pos, category)
 			n = n + 1
 		end
 	end
-	return n >= (SP.CAPS[category] or 0)
+	local cap = SP.CAPS[category] or 0
+	if dim == "nether" and category == "monster" then
+		cap = math.max(cap, SP.NETHER_MONSTER_CAP)
+	end
+	return n >= cap
 end
 
 -- rule.cap: at most this many of the mob itself within RADIUS.
@@ -238,7 +257,7 @@ function SP.try(pos, node, kind, rand)
 	local spot = spot_of(pos, kind)
 	local animal = rule.category == "animal"
 	if (rule.chance and math.random() >= rule.chance) or blocked(spot, rule)
-			or (animal and not SP.animal_rested(spot)) or SP.capped(spot, rule.category) or SP.mob_capped(spot, name, rule) then
+			or (animal and not SP.animal_rested(spot)) or SP.capped(spot, rule.category, SP.dim_at(spot)) or SP.mob_capped(spot, name, rule) then
 		return 0
 	end
 	local box = mob_box(name)

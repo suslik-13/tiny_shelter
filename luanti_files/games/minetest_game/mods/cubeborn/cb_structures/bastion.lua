@@ -128,16 +128,17 @@ local function pocket_at(pos)
 end
 
 -- The ground level of the buildings: in a pocket from its floor, elsewhere
--- origin.y. Returns base y and the pocket's inner box (if any).
-function B.base(origin, above_floor)
+-- (or `here`: /cb_spawn) origin.y. Returns base y and the pocket's inner box
+-- (if any).
+function B.base(origin, above_floor, here)
 	local ia, ib = pocket_at(origin)
-	return ia and ia.y + above_floor or origin.y, ia, ib
+	return (ia and not here) and ia.y + above_floor or origin.y, ia, ib
 end
 
 -- Treasure bastion. Level coordinates: anchor (origin.x, base, origin.z),
 -- world = anchor + (x, y, -z); the start piece is centred on the anchor.
-function B.treasure_layout(origin, seed)
-	local base, ia, ib = B.base(origin, B.TREASURE_Y)
+function B.treasure_layout(origin, seed, here)
+	local base, ia, ib = B.base(origin, B.TREASURE_Y, here)
 	local R, m = B.RADIUS, B.MARGIN
 	local bounds = { -R, -40, -R, R, 90, R, }
 	if ia then
@@ -167,12 +168,12 @@ function B.treasure_layout(origin, seed)
 	return { minp = lo, maxp = hi, pieces = out, }
 end
 
-function B.layout(origin, seed, plan)
+function B.layout(origin, seed, plan, here)
 	local kind = plan and plan.variant or "treasure"
 	if kind == "treasure" then
-		return B.treasure_layout(origin, seed)
+		return B.treasure_layout(origin, seed, here)
 	end
-	return B.build_layout(origin, seed, kind)
+	return B.build_layout(origin, seed, kind, here)
 end
 
 local PIGLINS = { mobs = { { B.PIGLIN, 4, }, { B.BRUTE, 1, "b", }, }, volume = 2000, max = 2, }

@@ -720,7 +720,7 @@ light, open sky, the node it stands on or swims in, biome words, heights, weight
 ABMs (ground and water, every 30 s, rare per node) pick a mob among the rules that fit the spot.
 Monsters need full darkness, as in Minecraft. Within 32 nodes of the spot at most
 `cubeborn.spawn_cap_monster` (8), `_animal` (6), `_water` (5), `_ambient` (3) Cubeborn mobs of that
-category may live; `cubeborn.spawn_chance_scale` (1) makes the ABMs rarer. The mobs_redo settings
+category may live, in the Nether `cubeborn.spawn_cap_nether_monster` (16) monsters; `cubeborn.spawn_chance_scale` (1) makes the ABMs rarer. The mobs_redo settings
 apply: `mobs_spawn = false` stops it, nothing spawns within `mob_nospawn_range` of a player, monsters
 never in peaceful mode or (with `mobs_spawn_protected = false`) in protected areas. A mob is placed
 only where its whole box fits (camels need three nodes across).
@@ -949,7 +949,7 @@ snow. Nobody lives there: the warden comes only from the shriekers.
 **Trial chambers** (`/cb_spawn trial_chambers`, or `/cb_scatter trial_chambers N`, at least 40 under the
 ground) are Mineclonia's corridors, chambers and atriums of tuff and copper, assembled underground: the
 first corridor at the given height when that is -30 or lower, else at -40, nothing above -20. Nobody lives
-there; mobs come from **trial spawners**. A trial spawner wakes when a player (not in creative) comes
+there; mobs come from **trial spawners**. A trial spawner wakes when a player (in creative too) comes
 within 14: it calls 6 mobs plus 2 for every further player, at most 2 plus 1 per further player at a time
 (zombies, husks, spiders, slimes, silverfish, baby zombies, cave spiders, strays, skeletons, bogged or
 breezes - each spawner its own kind). When the last one is gone every player of the trial gets a **trial

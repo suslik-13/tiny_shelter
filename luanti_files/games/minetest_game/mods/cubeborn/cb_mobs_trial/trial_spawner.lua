@@ -1,7 +1,8 @@
 -- Trial spawners and vaults (plan 8f-1), Bedrock rules without ominous
--- trials. A trial spawner wakes when a player (not in creative) comes within
--- 14: it calls 6 mobs plus 2 for each further player there, at most 2 plus 1
--- per further player at a time, one every 2 s within 4 of it. When the last
+-- trials. A trial spawner wakes when a player comes within 14 (creative
+-- players too: the servers' admins have the creative privilege): it calls 6
+-- mobs plus 2 for each further player there, at most 2 plus 1 per further
+-- player at a time, one every 2 s within 4 of it. When the last
 -- one is gone, every player of the trial gets a trial key and a little food,
 -- and the spawner sleeps for 30 real minutes (kept in its meta, so restarts
 -- do not reset it). A vault takes a trial key and gives its loot once to
@@ -109,7 +110,7 @@ local function players_near(pos, r)
 	local out = {}
 	for _, p in ipairs(core.get_connected_players()) do
 		local at = p:get_pos()
-		if at and vector.distance(at, pos) <= r and p:get_hp() > 0 and not core.is_creative_enabled(p:get_player_name()) then
+		if at and vector.distance(at, pos) <= r and p:get_hp() > 0 then
 			out[#out + 1] = p
 		end
 	end

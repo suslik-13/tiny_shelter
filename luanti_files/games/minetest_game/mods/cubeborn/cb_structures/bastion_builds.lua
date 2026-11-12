@@ -402,8 +402,8 @@ end
 
 B.BUILDERS = { units = build_units, stable = build_stable, bridge = build_bridge, }
 
-function B.build_layout(origin, seed, kind)
-	local base, ia, ib = B.base(origin, B.BUILD_Y)
+function B.build_layout(origin, seed, kind, here)
+	local base, ia, ib = B.base(origin, B.BUILD_Y, here)
 	local bld = new_builder(PcgRandom(seed), origin.x, base, origin.z)
 	B.BUILDERS[kind](bld)
 	local lo, hi

@@ -2,6 +2,9 @@
 -- cause of death with the puncher object in it; a tame or npc mob saved then
 -- (shutdown, unload during the death animation) crashed the serializer. The
 -- cause is left out of the saved data and kept for the death drops.
+-- A mob's own copy of its animation table (see below) is not saved either.
+local own_anim = setmetatable({}, { __mode = "k", })
+
 core.register_on_mods_loaded(function()
 	local mobs = rawget(_G, "mobs")
 	local class = mobs and mobs.mob_class
@@ -12,8 +15,15 @@ core.register_on_mods_loaded(function()
 	class.mob_staticdata = function(self, ...)
 		local cause = self.cause_of_death
 		self.cause_of_death = nil
+		local anim = rawget(self, "animation")
+		if own_anim[anim] then
+			self.animation = nil
+		end
 		local ok, sd = pcall(mob_staticdata, self, ...)
 		self.cause_of_death = cause
+		if own_anim[anim] then
+			self.animation = anim
+		end
 		if not ok then
 			error(sd, 0)
 		end
@@ -211,6 +221,33 @@ core.register_on_mods_loaded(function()
 		end
 	end
 	for name, def in pairs(core.registered_entities) do
+		if def._cmi_is_mob and type(def.animation) == "table" then
+			-- mobs_redo keeps the running animation's name in the table of
+			-- the definition (self.animation.current), shared by every mob of
+			-- the kind: a new mob found "stand" there, skipped setting it and
+			-- stood without animation (mobs_turtles' turtles: frozen in their
+			-- rest pose, legs and head apart from the shell). Each mob gets
+			-- its own table (one the mob sets itself is kept).
+			local on_activate = def.on_activate
+			local function own(self)
+				local anim = rawget(self, "animation")
+				if anim == nil or anim == def.animation then
+					anim = table.copy(def.animation)
+					own_anim[anim] = true
+					self.animation = anim
+				end
+				anim.current = nil
+			end
+			def.on_activate = function(self, ...)
+				own(self)
+				local r = on_activate and on_activate(self, ...)
+				-- the saved data of an older run may have brought "current"
+				if self.object:get_pos() and type(rawget(self, "animation")) == "table" then
+					own(self)
+				end
+				return r
+			end
+		end
 		if name:find("^cb_mobs_") and def._cmi_is_mob then
 			if swims_in_water(def) then
 				-- every step: mobs_redo sets the speed once a second (2 to 4

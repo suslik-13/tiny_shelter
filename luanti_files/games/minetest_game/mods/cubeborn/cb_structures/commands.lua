@@ -66,7 +66,7 @@ core.register_chatcommand("cb_spawn", {
 			else
 				core.chat_send_player(name, res.msg)
 			end
-		end, nil, { variant = variant, })
+		end, nil, { variant = variant, here = true, })
 		return true, S("Checking the place for '@1'...", what)
 	end,
 })

@@ -32,10 +32,11 @@ local function pocket_at(pos)
 end
 
 -- origin: in a pocket, x/z of the start and the pocket floor decides y;
--- elsewhere the lowest room floor is at origin.y.
-function F.layout(origin, seed)
+-- elsewhere, or `here` (/cb_spawn), the lowest room floor is at origin.y
+-- (the supports end at the pocket floor).
+function F.layout(origin, seed, _, here)
 	local ia, ib = pocket_at(origin)
-	local floor_y = ia and ia.y or (origin.y - BASE)
+	local floor_y = (ia and not here) and ia.y or (origin.y - BASE)
 	-- Local coordinates: start at (0, BASE, 0); world = (ox + x, floor_y + y, oz - z).
 	local ox, oz = origin.x, origin.z
 	if ia then
@@ -46,7 +47,10 @@ function F.layout(origin, seed)
 	local rng = A.rng(seed)
 	local pieces = gen.create_pieces(rng, 0, 0, F.MAX_PIECES)
 	A.bounds = nil
-	local min_y = ia and 0 or (BASE - F.DEPTH)
+	local min_y = (ia and not here) and 0 or (BASE - F.DEPTH)
+	if ia and here then
+		min_y = math.max(min_y, ia.y - floor_y)
+	end
 	local o = vector.new(ox, floor_y, oz)
 	local out = {}
 	local lo, hi

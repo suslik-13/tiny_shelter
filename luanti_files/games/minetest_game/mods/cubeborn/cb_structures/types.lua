@@ -65,7 +65,8 @@ function cb_structures.suspicious(ctx, pos, kind, name, seed)
 	end
 end
 
-function cb_structures.validate(name, minp, maxp)
+-- skip_overlap: the caller checks other structures itself (pieces_free).
+function cb_structures.validate(name, minp, maxp, skip_overlap)
 	local def = types[name]
 	if not def then
 		return false, S("Unknown structure '@1'.", name)
@@ -98,7 +99,7 @@ function cb_structures.validate(name, minp, maxp)
 		return false, S("'@1' must lie between heights @2 and @3.", name, tostring(def.y_min or "-"),
 			tostring(def.y_max or "-"))
 	end
-	local other = cb_structures.registry.overlapping(minp, maxp)
+	local other = not skip_overlap and cb_structures.registry.overlapping(minp, maxp)
 	if other then
 		return false, S("The place overlaps structure #@1.", other)
 	end
