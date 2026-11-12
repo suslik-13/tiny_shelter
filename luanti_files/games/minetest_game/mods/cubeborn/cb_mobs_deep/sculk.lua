@@ -51,8 +51,8 @@ end
 core.register_node(D.SCULK, {
 	description = S("Sculk"),
 	tiles = { { name = tex("sculk"), animation = { type = "vertical_frames", aspect_w = 16, aspect_h = 16, length = 3, }, }, },
-	-- a faint glow: ancient cities are not pitch black
-	light_source = 3,
+	-- glows enough to light the caves around an ancient city
+	light_source = 11,
 	groups = { crumbly = 3, sculk = 1, },
 	drop = "",
 	is_ground_content = false,
@@ -70,7 +70,7 @@ core.register_node(D.VEIN, {
 	paramtype = "light",
 	paramtype2 = "wallmounted",
 	sunlight_propagates = true,
-	light_source = 2,
+	light_source = 8,
 	walkable = false,
 	buildable_to = true,
 	selection_box = { type = "wallmounted", },
@@ -106,7 +106,7 @@ end
 slab(D.SENSOR, S("Sculk Sensor"), "sculk_sensor", { light_source = 1, })
 slab(SENSOR_ACTIVE, S("Sculk Sensor"), "sculk_sensor", {
 	tiles = { tex("sculk_sensor_top_active"), tex("sculk_sensor_bottom_active"), tex("sculk_sensor_side_active"), },
-	light_source = 6,
+	light_source = 13,
 	groups = { crumbly = 2, sculk = 1, not_in_creative_inventory = 1, },
 	on_timer = function(pos)
 		core.swap_node(pos, { name = D.SENSOR, })
@@ -118,7 +118,7 @@ slab(D.SHRIEKER, S("Sculk Shrieker"), "sculk_shrieker", { place_param2 = 0, })
 core.register_node(D.CATALYST, {
 	description = S("Sculk Catalyst"),
 	tiles = { tex("sculk_catalyst_top"), tex("sculk_catalyst_bottom"), tex("sculk_catalyst_side"), },
-	light_source = 6,
+	light_source = 12,
 	groups = { crumbly = 2, sculk = 1, },
 	drop = "",
 	is_ground_content = false,
@@ -126,13 +126,14 @@ core.register_node(D.CATALYST, {
 	after_dig_node = xp(5),
 })
 
--- Sculk and veins glow since 2026-11: the light of cities built before is
--- worked out again once, the first time each of their mapblocks loads.
+-- Sculk, veins and catalysts glow brighter since 2026-11: the
+-- light of cities built before is worked out again once, the first time each
+-- of their mapblocks loads.
 local relit = {}
 core.register_lbm({
 	label = "cb_mobs_deep sculk glow",
-	name = "cb_mobs_deep:sculk_glow",
-	nodenames = { D.SCULK, D.VEIN, },
+	name = "cb_mobs_deep:sculk_glow_3",
+	nodenames = { D.SCULK, D.VEIN, D.CATALYST, },
 	run_at_every_load = false,
 	action = function(pos)
 		local b = vector.multiply(vector.floor(vector.divide(pos, 16)), 16)
