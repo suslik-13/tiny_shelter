@@ -1,0 +1,18 @@
+# How often (seconds) ranking podiums check whether the top-3 changed.
+# The check only runs while at least one podium is loaded and only touches
+# statues whose player or value actually changed.
+player_pedestal.update_interval (Ranking podium update interval) int 30 5 3600
+
+# Comma-separated list of player names that never appear on ranking podiums
+# (for example admins or test accounts).
+player_pedestal.rank_exclude (Players excluded from rankings) string
+
+# Show the statistic value under the player name on ranking podiums.
+player_pedestal.show_values (Show values on ranking podiums) bool true
+
+# Flip the forward/backward direction of arm and head rotations in poses.
+# Enable only if raised arms point backwards on your player model.
+player_pedestal.invert_pitch (Invert pose pitch) bool false
+
+# Names above statues are shown only to players within this distance (blocks).
+player_pedestal.nametag_distance (Nametag visibility distance) int 8 1 200

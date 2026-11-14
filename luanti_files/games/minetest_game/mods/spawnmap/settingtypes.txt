@@ -1,0 +1,33 @@
+# Radius of the snapshot around spawn (in nodes).
+spawnmap_radius (Snapshot radius) int 2000 64 30000
+
+# Seconds between snapshots (86400 = once per day, real time).
+spawnmap_interval (Snapshot interval, seconds) int 86400 60
+
+# Pixel size of the image on one map block. The full map is 3x this.
+# More pixels = more detail, but a longer scan (see README).
+spawnmap_tile_size (Pixels per map block) int 128 32 256
+
+# Lowest Y that is scanned.
+spawnmap_ymin (Lowest scanned Y) int -64
+
+# Highest Y that is scanned. Everything above (floatlands, sky islands,
+# cloud blocks) is never captured. Automatically lowered below
+# mgv7_floatland_ymin when the v7 floatlands are enabled.
+spawnmap_ymax (Highest scanned Y) int 256
+
+# Milliseconds of server time per step the scanner may use.
+spawnmap_budget_ms (Scanner time budget per step, ms) int 15 1 200
+
+# Comma separated Lua patterns. Matching node names are treated as air
+# (for example cloud nodes from mods).
+spawnmap_ignore_nodes (Ignored node name patterns) string cloud
+
+# Save every snapshot as one full map image in <world>/spawnmap_archive/.
+spawnmap_archive (Archive old snapshots) bool true
+
+# How many archived snapshots to keep (0 = keep all of them).
+spawnmap_archive_max (Max archived snapshots) int 0 0
+
+# Light emitted by the map blocks. 14 = as bright as a lamp, 0 = no light.
+spawnmap_light (Map block brightness) int 14 0 14

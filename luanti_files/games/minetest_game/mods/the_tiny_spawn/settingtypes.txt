@@ -1,0 +1,11 @@
+# Height of the light beam above the spawn floor (nodes).
+the_tiny_spawn_beam_height (Beam height) int 160 16 1000
+
+# Default radius (half-size of the square) when the command has no radius.
+the_tiny_spawn_radius (Default radius) int 60 40 120
+
+# Create an "areas" protection over the generated spawn (if the areas mod is installed).
+the_tiny_spawn_protect (Protect spawn with areas) bool true
+
+# Save a backup of the area before building, so /tiny_spawn_undo can restore it.
+the_tiny_spawn_backup (Backup before generating) bool true

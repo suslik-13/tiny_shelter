@@ -52,7 +52,11 @@ local function on_receive_fields(pos, formname, fields, player)
 	end
 end
 
-local wood_texture = xcompat.textures.wood.planks
+-- Newer xcompat moved planks under wood.apple; a nil here leaves holes in
+-- tiles and the client shows "unknown" on every face.
+local xwood = xcompat.textures.wood
+local wood_texture = (xwood.apple and xwood.apple.planks) or xwood.planks
+	or "default_wood.png"
 
 local models = {
 	black_board = {
